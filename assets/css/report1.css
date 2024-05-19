@@ -1,0 +1,135 @@
+
+/* 
+    Created on : May 31, 2018, 12:45:38 PM
+    Author     : thusitha
+*/
+h4{
+    font-family : Arial;
+    font-weight : bold;
+    font-size : 14px;
+    color : #1D1D1B;
+    color : rgb(29, 29, 27);
+    text-align: center;
+}
+.footer{
+     width: 100%;
+    font-family : Arial;
+    font-weight : bold;
+    font-size : 10px;
+    text-align: center;
+    color : #E30613;
+    color : rgb(227, 6, 19);
+    position: fixed;
+    bottom: 0;
+}
+.info{
+    font-family : Arial;
+    font-weight : bold;
+    font-size : 10px;
+    color : #1D1D1B;
+    color : rgb(29, 29, 27);
+
+}
+.div-table {
+  display: table;         
+  width: 100%;   
+  border-radius: 15px 15px 0px 0px;
+/*  background-color: #eee;         */
+  border: 2px solid #009640;         
+  border-spacing: 0px; /* cellspacing:poor IE support for  this */
+  
+    font-family : Arial;
+  font-weight : bold;
+  font-size : 10px;
+      color : #1D1D1B;
+    color : rgb(29, 29, 27);
+  
+  
+}
+.div-table1 {
+  display: table;         
+  width: 100%;   
+  border-radius: 0px 0px 15px 15px;
+/*  background-color: #eee;         */
+  border: 2px solid #009640;         
+  border-spacing: 0px; /* cellspacing:poor IE support for  this */
+  
+    font-family : Arial;
+  font-weight : bold;
+  font-size : 10px;
+      color : #1D1D1B;
+    color : rgb(29, 29, 27);
+  
+  
+}
+.div-table-row {
+  display: table-row;
+  width: auto;
+  clear: both;
+}
+.div-table-col {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 32%;  
+  text-align: center;
+/*  background-color: #ccc;  */
+}
+.div-table-col0 {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 12%;
+  text-align: center;
+/*  background-color: #ccc;  */
+}
+.div-table-col1 {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 32%;  
+  text-align: center;
+/*  background-color: #ccc;  */
+}.div-table-col2 {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 12%;  
+  text-align: center;
+/*  background-color: #ccc;  */
+}.div-table-col3 {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 10%;
+  text-align: center;
+/*  background-color: #ccc;  */
+}.div-table-col4 {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 10%;   
+  text-align: center;
+/*  background-color: #ccc;  */
+}
+.div-table-col5 {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 18%;  
+  text-align: center;
+/*  background-color: #ccc;  */
+}
+.div-table-col6 {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 79%;     
+  text-align: center;
+/*  background-color: #ccc;  */
+}
+.head{
+    
+    border-radius: 15px 15px 0px 0px;
+    background: #009640;
+}
+.middle{
+    background: #009640;
+}
+.bottom{
+    
+    border-radius: 0px 0px 15px 15px;
+    
+}

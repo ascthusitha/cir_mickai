@@ -1,0 +1,94 @@
+
+table{font-family: "Times New Roman", Times, serif; font-size: 12px; line-height: 1.2;
+			margin-top: 1pt; margin-bottom: 2pt;
+			border-collapse: collapse;
+border: solid 1px white;
+-moz-border-radius: 5px !important;
+  border-collapse: collapse !important;
+  border: none !important;
+}
+
+td,th{ padding: 3pt 3pt 3pt 5pt; text-align:left;
+ font-family: "Times New Roman", Times, serif; font-size: 12px;
+ border: solid 1px white;
+}
+
+h2 {font-family: Calibri;}
+.r { text-align:right; }
+.c { text-align:center; }
+.l { text-align:left; }
+.j{text-align: justify}
+.title{font-family: "Times New Roman", Times, serif;font-size: 28pt}
+
+#container { height: 100%; border: 1px solid ; padding: 10pt; }
+
+.blank { border-left: 0; border-right: 0}
+
+ .center {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.F_row
+{
+  background-color: #515151;
+  color: #FFFFFF;
+  
+}
+.amount-left
+{
+         border-left: 0;
+}.amount-right
+{
+    border-right: 0;
+}
+.amout-right-left{
+    border-right: 0;
+    border-left: 0;
+}
+.main-content
+{
+    margin-top: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+.notice
+{
+     font-family: Arial; font-size: 8pt;
+}
+p{
+    font-size: 12px;
+}
+th{
+/*    background-color: #009640;*/
+}
+.rcorner{
+     border-radius: 15px;
+    border: 1px solid #009640;
+ /*   padding: 20px; 
+    width: 200px;
+    height: 150px;*/
+}
+.rcorner thead th {
+				background-color: #009640;
+                                border-radius: 15px;
+			}
+                        
+                         .footer {
+   position: fixed;
+    bottom: 0;
+    }
+    .col-md-3{
+        line-height: 1.6;
+    }
+    
+
+tbody tr:nth-child(odd) {
+   background-color: #B7B7B7;
+}
+
+
+    
