@@ -1,4 +1,3 @@
-<?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
 <section class="col-lg-6 connectedSortable">
     <div class="card">
         <div class="card-header border-0">
@@ -17,9 +16,9 @@
                     <?php foreach ($dash['my_opportunities'] as $opp_temp) { ?>
                         <tr>
                             <td><?php echo $opp_temp['opp_name'];?></td>
-                            <td><?php echo $opp_temp['sales_stage'];?></td>
+                            <td></td>
                             <td>
-                                <a href="<?php echo $base_link; ?>opportunity/view/<?php echo $opp_temp['opp_id'];?>" class="text-muted">
+                                <a href="#" class="text-muted">
                                     <i class="fas fa-search"></i>
                                 </a>
                             </td>

@@ -25,6 +25,7 @@
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
+
       <?php $this->load->view('dashboard/dash_top_section'); ?>
       <!-- Main row -->
       <div class="row">

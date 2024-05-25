@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mickai 4.0 | Dashboard</title>
+  <title>Mickai 3.0 | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -50,26 +50,18 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/bs-stepper/css/bs-stepper.min.css">
   <!-- dropzonejs -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/dropzone/min/dropzone.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/toastr/toastr.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/mickai4.css">
   <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-
-  <!-- Ion Slider -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/mickai4.css">
-  <style>
-    .ui-timepicker-standard { z-index: 10000 !important; }
-</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
@@ -81,8 +73,20 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-green navbar-light">
-    <?php $this->load->view('layout/navbar_nav'); ?>
+  <nav class="main-header navbar navbar-expand navbar-orange navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="<?php echo $base_link; ?>dashboard/" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -111,49 +115,68 @@
           </form>
         </div>
       </li>
+<!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fa fa-user"></i>
           
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-          <a href="<?php echo $base_link; ?>settings/profile/" class="dropdown-item">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
             <div class="media">
               <img src="<?php echo base_url(); ?>assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  <?php echo substr($this->session->userdata('first_name')." ".$this->session->userdata('last_name'),0,18); ?>
+                  <?php echo $this->session->userdata('user_name'); ?>
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                 </h3>
-                <small>See your profile</small>
+               
               </div>
             </div>
+            <!-- Message End -->
           </a>
-
           <div class="dropdown-divider"></div>
-
-          <a href="<?php echo $base_link; ?>settings/" class="dropdown-item">
-            <div class="media">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  <span class="img-size-50 mr-3 img-circle"><i class="fas fa-cog"></i></span>
-                  Settings
-                </h3>
-              </div>
-            </div>
-          </a>
-
-          <div class="dropdown-divider"></div>
-
           <a href="<?php echo $base_link; ?>user_authentication/userLogout" class="dropdown-item">
+            <!-- Message Start -->
             <div class="media">
+             
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Sign-out
                   <span class="float-right text-sm text-muted"><i class="fa fa-power-off"></i></span>
                 </h3>
+                
               </div>
             </div>
+            <!-- Message End -->
           </a>
         
 

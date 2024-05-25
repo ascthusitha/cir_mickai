@@ -42,7 +42,7 @@ class User_authentication extends MY_Controller {
                 $userData = $this->user_model->getUserData($user);
                 $permissionData = $this->user_model->getPermission($userData['user_group_id']);
                 $comp_data=$this->company_model->get_company_details();
-            
+               
                 $sessionData = array(
                     'user_name' => $userData['username'],
                     'first_name' => $userData['fname'],

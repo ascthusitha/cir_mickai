@@ -16,15 +16,15 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition login-page  dark-mode" onload="setenv();">
+<body class="hold-transition login-page  light-mode" onload="setenv();">
 <?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
 <div class="login-box">
     <div class="login-logo">
-    <a href="#"><img src="<?php echo base_url(); ?>assets/img/logo.png"  class="img-responsive" alt="" />
+        <a href="#"><img src="<?php echo base_url(); ?>assets/img/logo.png" width="250px" height="130px"  class="img-responsive" alt="" />
 
   </div>
   <!-- /.login-logo -->
-  <div class="card">
+  <div class="card dark-mode">
     <div class="card-body login-card-body ">
       <p class="login-box-msg">Sign in</p>
       <form action="<?php echo $base_link; ?>user_authentication/userLogin" id="login-form" method="post">

@@ -25,12 +25,11 @@ class Car_model extends CI_Model {
     }
 
     function get_car() {
-        $this->db->select('c.*, CONCAT(u.user_fname," ",u.user_lname) AS created_user');
-        $this->db->from('car c');
-        $this->db->join('user u', 'c.created_by=u.user_id', 'left');
-        $this->db->where('c.deleted',0);
-        $query = $this->db->get();
-        return $query->result();
+        $this->db->select('*');
+     
+         $this->db->where('deleted',0);
+        $query = $this->db->get('car');
+                return $query->result();
     }
 
     function add() {

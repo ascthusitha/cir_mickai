@@ -59,6 +59,23 @@ class Account extends MY_Controller{
                     }
 		
 }
+    public function quick_save(){
+        $name=$_POST['account_name'];
+   		$response = array();
+   		$id=$this->account_model->addQAccount();
+   
+                    if($id>0){
+                       $response['msg']='success';
+                       $response['id']=$id;
+                       $response['name']=$name;
+                    }else{
+                       $response['msg']='error';
+                       $response['id']=0;
+                       $response['name']='';
+                    }
+                    echo json_encode($response);
+		
+}
  public function view($acc_id){
 //         //load view
 //       // $this->output->enable_profiler(TRUE);

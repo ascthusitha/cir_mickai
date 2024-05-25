@@ -1,4 +1,3 @@
-<?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -36,7 +35,7 @@
           </div>
         </div>
         <div class="card-body">
-                    <form action="<?php echo $base_link; ?>user/saveUser" id="user-form"  method="post">
+                    <form action="<?php echo base_url(); ?>user/saveUser" id="user-form"  method="post">
                         <fieldset>
                             <div class="col-sm-12">
                                 <div class="col-sm-4">

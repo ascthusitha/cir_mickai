@@ -1,7 +1,4 @@
-<?php
-  $base_link = $this->config->item('base_url').$this->config->item('index_page');
-  $permissionData = $this->session->userdata['permissionData'];
-?>
+<?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -41,33 +38,19 @@
             <div class="card-body">
                 <form class="well form-horizontal" action="<?php echo $base_link; ?>opportunity/save" method="post"  id="opportunity_form">
                     <fieldset>
+
+
+
+
                         <div class="card card-secondary">
+                          
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
+                                      <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Opportunity</label>
-                                            <input type="text" id="opp_name" name="opp_name" class="form-control" placeholder="Enter ..." value="<?= isset($opportunity['opp_name'])?$opportunity['opp_name']:''; ?>">
-                                            <input type="hidden" id="opp_id" name="opp_id" class="form-control" placeholder="Enter ..." value="<?= isset($opportunity['opp_id'])?$opportunity['opp_id']:'';?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Physician Name</label>
-                                            <select id="acc_id" name="acc_id" class="chosen-select form-control text-tip" title="Account Name">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($accounts as $key=>$account) {
-                                                        if($key == $opportunity['acc_id']){
-                                                            echo "<option value='".$key."' selected='selected'>".$account."</option>";
-                                                        }else{
-                                                            echo "<option value='".$key."'>".$account."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
+                                            <?php echo form_dropdown('task_id', $tasks, isset($task['td_id']) ? $task['td_id'] : '0', 'id="task_id" class="form-control"'); ?> 
                                         </div>
                                     </div>
                                 </div>
@@ -75,178 +58,124 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Expected Close</label>
-                                            <input type="text" id="expected_close" name="expected_close" class="form-control datepicker" value="<?= isset($opportunity['expected_close'])?$opportunity['expected_close']:''; ?>" placeholder="Enter ..." autocomplete="off">
+                                            <label>Subject</label>
+                                            <input type="text" id="opp_name" name="opp_name" class="form-control" placeholder="Enter ..." value="<?= $task['opp_name']; ?>">
+                                            <input type="hidden" id="opp_id" name="opp_id" class="form-control" placeholder="Enter ..." value="<?= $task['opp_id']; ?>">
                                         </div>
                                     </div>
-       
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Account Name</label>
+                                            <?php echo form_dropdown('acc_id', $accounts, isset($task['acc_id']) ? $task['acc_id'] : '0', 'id="acc_id" class="form-control"'); ?> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Start Date</label>
+                                            <input type="text" id="assign_date" name="assign_date" class="form-control datepicker" value="<?= $task['assign_date']; ?>" placeholder="Enter ..." autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Start Time</label>
+                                            <input type="text" id="assign_time" name="assign_time" class="form-control timepicker" value="<?= $task['assign_time']; ?>" placeholder="Enter ..." autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>End Date</label>
+                                            <input type="text" id="expected_close" name="expected_close" class="form-control datepicker" value="<?= $task['expected_close']; ?>" placeholder="Enter ..." autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>End Time</label>
+                                            <input type="text" id="expected_close_time" name="expected_close_time" class="form-control timepicker" value="<?= $task['expected_close_time']; ?>" placeholder="Enter ..." autocomplete="off">
+                                        </div>
+
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label >Product 1</label>
-                                        <select id="product_id1" name="product_id1" class="chosen-select form-control text-tip" title="Product 1">
-                                            <option value="0"> [ Please Select ] </option>
-                                            <?php
-                                                foreach ($products as $product) {
-                                                    if($product->id == $opportunity['product_id1']){
-                                                        echo "<option value='".$product->id."' selected='selected'>".$product->name."</option>";
-                                                    }else{
-                                                        echo "<option value='".$product->id."'>".$product->name."</option>";
-                                                    }
-                                                }
-                                            ?>
-                                        </select>
+                                        <?php echo form_dropdown('product_id1', $products, isset($task['product_id1']) ? $task['product_id1'] : '0', 'id="product_id1" class="form-control"'); ?> 
                                     </div>
                                     <div class="col-sm-6">
                                         <label >Product 2</label>
-                                        <select id="product_id2" name="product_id2" class="chosen-select form-control text-tip" title="Product 2">
-                                            <option value="0"> [ Please Select ] </option>
-                                            <?php
-                                                foreach ($products as $product) {
-                                                    if($product->id == $opportunity['product_id2']){
-                                                        echo "<option value='".$product->id."' selected='selected'>".$product->name."</option>";
-                                                    }else{
-                                                        echo "<option value='".$product->id."'>".$product->name."</option>";
-                                                    }
-                                                }
-                                            ?>
-                                        </select>
+                                        <?php echo form_dropdown('product_id2', $products, isset($task['product_id2']) ? $task['product_id2'] : '0', 'id="product_id2" class="form-control"'); ?> 
                                     </div>
                                 </div>
                              
                                 <div class="row">
-                                    <?php if (in_array(40, $permissionData)) { ?>
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Assign To</label>
-                                            <select id="assign_to" name="assign_to" class="chosen-select form-control text-tip" title="Assign To">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($users as $key=>$user) {
-                                                        if($key == $opportunity['assign_to']){
-                                                            echo "<option value='".$key."' selected='selected'>".$user."</option>";
-                                                        }else{
-                                                            echo "<option value='".$key."'>".$user."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
+                                            <?php echo form_dropdown('assign_to', $users, isset($task['assign_to']) ? $task['assign_to'] : '0', 'id="assign_to" class="form-control"'); ?> 
                                         </div>
                                     </div>
-                                    <?php } ?>
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Patient</label>
-                                            <select id="contact_id" name="contact_id" class="chosen-select form-control text-tip" title="Contact">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($contacts as $key=>$contact) {
-                                                        if($key == $opportunity['contact_id']){
-                                                            echo "<option value='".$key."' selected='selected'>".$contact."</option>";
-                                                        }else{
-                                                            echo "<option value='".$key."'>".$contact."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
+                                            <label>Contact</label>
+                                            <?php echo form_dropdown('contact_id', $contacts, isset($task['contact_id']) ? $task['contact_id'] : '0', 'id="contact_id" class="form-control"'); ?> 
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Probability (%)</label>
-                                            <input type="text" id="opp_probability" name="opp_probability" class="form-control" placeholder="Enter ..." value="<?= isset($opportunity['probability'])?$opportunity['probability']:''; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Sales Stage</label>
-                                            <select id="opp_sales_stage" name="opp_sales_stage" class="chosen-select form-control text-tip" title="Sales Stage">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($sales_stages as $ss) {
-                                                        if($ss->ss_id == $opportunity['sales_stage']){
-                                                            echo "<option value='".$ss->ss_id."' selected='selected'>".$ss->sales_stage."</option>";
-                                                        }else{
-                                                            echo "<option value='".$ss->ss_id."'>".$ss->sales_stage."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
+                                
                                 </div>
+                                <!-- /.card-body -->
+                   
 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Lead Source</label>
-                                            <select id="opp_lead_source" name="opp_lead_source" class="chosen-select form-control text-tip" title="Lead Source">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($lead_sources as $ls) {
-                                                        if($ls->ls_id == $opportunity['ls_id']){
-                                                            echo "<option value='".$ls->ls_id."' selected='selected'>".$ls->lead_source_name."</option>";
-                                                        }else{
-                                                            echo "<option value='".$ls->ls_id."'>".$ls->lead_source_name."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Next Step</label>
-                                            <select id="opp_next_step" name="opp_next_step" class="chosen-select form-control text-tip" title="Next Step">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($sales_stages as $ss) {
-                                                        if($ss->ss_id == $opportunity['next_step']){
-                                                            echo "<option value='".$ss->ss_id."' selected='selected'>".$ss->sales_stage."</option>";
-                                                        }else{
-                                                            echo "<option value='".$ss->ss_id."'>".$ss->sales_stage."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
 
-                            </div>
                             <!-- /.card-body -->
-
                             <!-- Text area -->
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" id="description" placeholder="Description"><?php echo isset($opportunity['description'])?$opportunity['description']:''; ?></textarea>
+                                            <textarea class="form-control" name="description" id="description" placeholder="Description"><?php echo $task['description'] ?></textarea>
+
+
+                                        </div>
+                                    </div>
+                                     <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                    
+ <?php $status_list=['Scheduled','Completed'];echo form_dropdown('current_status', $status_list, isset($sales_call['current_status']) ? $sales_call['current_status'] : '0', 'id="current_status" class="form-control"'); ?> 
+
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Button -->
                                 <div class="row">
                                     <div class="col-sm-6">
+                                
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-success" ><?= isset($btn_value) ? $btn_value : 'Save'; ?> </button>
+                                            <button type="submit" class="btn btn-success" ><?= $btn_value ? $btn_value : 'Save'; ?> </button>
                                             <button type="reset" class="btn btn-default" >Clear </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>                           
 
+
                         </div> 
+
+
+
+
+
+
 
                     </fieldset>
                 </form>
@@ -268,28 +197,6 @@
 <!-- /.content-wrapper -->
 
 <!-- Page specific script -->
-<script>
-  $(function () {
-    var base_url = "<?php echo $base_link; ?>";
-    $( "#acc_id" ).change(function() {
-        acc_id = this.value;
-        $("#contact_id").html('');
-        $.ajax({
-            type: 'POST',
-            url: base_url + 'contact/get_contact_dropdown/',
-            data: {acc_id: acc_id},
-            success: function (response) {
-                $("#contact_id").append("<option value='' > [ Please Select ] </option>");
-                var obj = jQuery.parseJSON(response);
-                $.each(obj, function(key,value) {
-                    $("#contact_id").append("<option value="+key+">"+value+"</option>");
-                }); 
-            }
-        });
-    });
-  })
-</script>
-
 <script type="text/javascript">
     $(document).ready(function () {
         var base_url = "<?php echo base_url(); ?>";
@@ -329,7 +236,7 @@
                         //$("#company-form").hide('slow');
                         if ($.trim(data) == "success") {
                             $('#results').addClass('alert alert-success');
-                            $('#results').html('Oppertunity successfully added');
+                            $('#results').html('Opportunity successfully added');
                         } else {
                             $('#results').addClass('alert alert-danger');
                             $('#results').html('error');
@@ -363,7 +270,7 @@
             changeYear: true,
             
             numberOfMonths: 1,
-            dateFormat: 'yy-mm-dd',
+            dateFormat: 'dd-M-y',
             beforeShow: function () {
                 $(".ui-datepicker").css('font-size', 12)
             }

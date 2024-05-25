@@ -1,7 +1,4 @@
-<?php
-  $base_link = $this->config->item('base_url').$this->config->item('index_page');
-  $permissionData = $this->session->userdata['permissionData'];
-?>
+<?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -9,12 +6,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Doctor Appointment Schedule</h1>
+                    <h1>Phone Call Schedule</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Activities</a></li>
-                        <li class="breadcrumb-item active">Doctor Appointment Schedule</li>
+                        <li class="breadcrumb-item active">Phone Call Schedule</li>
                     </ol>
                 </div>
             </div>
@@ -54,36 +51,14 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Subject</label>
-                                            <select id="subject" name="subject" class="chosen-select form-control text-tip" title="Subject">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($subjects as $subject) {
-                                                        if($subject->id == $phone_call['subject']){
-                                                            echo "<option value='".$subject->id."' selected='selected'>".$subject->name."</option>";
-                                                        }else{
-                                                            echo "<option value='".$subject->id."'>".$subject->name."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
-                                            <input type="hidden" id="pc_id" name="pc_id" class="form-control" placeholder="Enter ..." value="<?=isset($phone_call['pc_id'])?$phone_call['pc_id']:''; ?>">
+                                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter ..." value="<?= $phone_call['subject']; ?>">
+                                            <input type="hidden" id="pc_id" name="pc_id" class="form-control" placeholder="Enter ..." value="<?= $phone_call['pc_id']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Physician Name</label>
-                                            <select id="acc_id" name="acc_id" class="chosen-select form-control text-tip" title="Account Name">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($accounts as $key=>$account) {
-                                                        if($key == $phone_call['acc_id']){
-                                                            echo "<option value='".$key."' selected='selected'>".$account."</option>";
-                                                        }else{
-                                                            echo "<option value='".$key."'>".$account."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
+                                            <label>Account Name</label>
+                                            <?php echo form_dropdown('acc_id', $accounts, isset($phone_call['acc_id']) ? $phone_call['acc_id'] : '0', 'id="acc_id" class="form-control"'); ?> 
                                         </div>
                                     </div>
                                 </div>
@@ -92,128 +67,40 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Start Date</label>
-                                            <input type="text" id="start_date" name="start_date" class="form-control datepicker" value="<?= isset($phone_call['start_date'])?$phone_call['start_date']:''; ?>" placeholder="Enter ..." autocomplete="off">
+                                            <input type="text" id="start_date" name="start_date" class="form-control datepicker" value="<?= $phone_call['start_date']; ?>" placeholder="Enter ..." autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Start Time</label>
-                                            <input type="text" id="start_time" name="start_time" class="form-control timepicker" value="<?= isset($phone_call['start_time'])?$phone_call['start_time']:''; ?>" placeholder="Enter ..." autocomplete="off">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>End Date</label>
-                                            <input type="text" id="end_date" name="end_date" class="form-control datepicker" value="<?= isset($phone_call['end_date'])?$phone_call['end_date']:''; ?>" placeholder="Enter ..." autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>End Time</label>
-                                            <input type="text" id="end_time" name="end_time" class="form-control timepicker" value="<?= isset($phone_call['end_time'])?$phone_call['end_time']:''; ?>" placeholder="Enter ..." autocomplete="off">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Location</label>
-                                            <input type="text" id="location" name="location" class="form-control datepicker" value="<?= isset($phone_call['location'])?$phone_call['location']:''; ?>" placeholder="Enter ..." autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Status</label>
-                                            <select id="current_status" name="current_status" class="chosen-select form-control text-tip" title="Status">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($stats as $stat) {
-                                                        if($stat->id == $phone_call['current_status']){
-                                                            echo "<option value='".$stat->id."' selected='selected'>".$stat->name."</option>";
-                                                        }else{
-                                                            echo "<option value='".$stat->id."'>".$stat->name."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
+                                            <input type="text" id="start_time" name="start_time" class="form-control timepicker" value="<?= $phone_call['start_time']; ?>" placeholder="Enter ..." autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label >Product 1</label>
-                                        <select id="product_id1" name="product_id1" class="chosen-select form-control text-tip" title="Product 1">
-                                            <option value="0"> [ Please Select ] </option>
-                                            <?php
-                                                foreach ($products as $product) {
-                                                    if($product->id == $phone_call['product_id1']){
-                                                        echo "<option value='".$product->id."' selected='selected'>".$product->name."</option>";
-                                                    }else{
-                                                        echo "<option value='".$product->id."'>".$product->name."</option>";
-                                                    }
-                                                }
-                                            ?>
-                                        </select>
+                                        <?php echo form_dropdown('product_id1', $products, isset($phone_call['product_id1']) ? $phone_call['product_id1'] : '0', 'id="product_id1" class="form-control"'); ?> 
                                     </div>
                                     <div class="col-sm-6">
                                         <label >Product 2</label>
-                                        <select id="product_id2" name="product_id2" class="chosen-select form-control text-tip" title="Product 2">
-                                            <option value="0"> [ Please Select ] </option>
-                                            <?php
-                                                foreach ($products as $product) {
-                                                    if($product->id == $phone_call['product_id2']){
-                                                        echo "<option value='".$product->id."' selected='selected'>".$product->name."</option>";
-                                                    }else{
-                                                        echo "<option value='".$product->id."'>".$product->name."</option>";
-                                                    }
-                                                }
-                                            ?>
-                                        </select>
+                                        <?php echo form_dropdown('product_id2', $products, isset($phone_call['product_id2']) ? $phone_call['product_id2'] : '0', 'id="product_id2" class="form-control"'); ?> 
                                     </div>
                                 </div>
                              
                                 <div class="row">
-                                    <?php if (in_array(40, $permissionData)) { ?>
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Assign To</label>
-                                            <select id="assign_to" name="assign_to" class="chosen-select form-control text-tip" title="Assign To">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($users as $key=>$user) {
-                                                        if($key == $phone_call['assign_to']){
-                                                            echo "<option value='".$key."' selected='selected'>".$user."</option>";
-                                                        }else{
-                                                            echo "<option value='".$key."'>".$user."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
+                                            <?php echo form_dropdown('assign_to', $users, isset($phone_call['assign_to']) ? $phone_call['assign_to'] : '0', 'id="assign_to" class="form-control"'); ?> 
                                         </div>
                                     </div>
-                                    <?php } ?>
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Contact</label>
-                                            <select id="contact_id" name="contact_id" class="chosen-select form-control text-tip" title="Contact">
-                                                <option value=""> [ Please Select ] </option>
-                                                <?php
-                                                    foreach ($contacts as $key=>$contact) {
-                                                        if($key == $phone_call['contact_id']){
-                                                            echo "<option value='".$key."' selected='selected'>".$contact."</option>";
-                                                        }else{
-                                                            echo "<option value='".$key."'>".$contact."</option>";
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
+                                            <?php echo form_dropdown('contact_id', $contacts, isset($phone_call['contact_id']) ? $phone_call['contact_id'] : '0', 'id="contact_id" class="form-control"'); ?> 
                                         </div>
                                     </div>
                                 </div>
@@ -231,8 +118,16 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" id="description" placeholder="Description"><?php echo isset($phone_call['description'])?$phone_call['description']:'' ?></textarea>
+                                            <textarea class="form-control" name="description" id="description" placeholder="Description"><?php echo $phone_call['description'] ?></textarea>
 
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                    
+ <?php $status_list=['Scheduled','Completed'];echo form_dropdown('current_status', $status_list, isset($phone_call['current_status']) ? $phone_call['current_status'] : '0', 'id="current_status" class="form-control"'); ?> 
 
                                         </div>
                                     </div>
@@ -242,7 +137,7 @@
                                     <div class="col-sm-6">
                                 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-success" ><?= isset($btn_value)? $btn_value : 'Save'; ?> </button>
+                                            <button type="submit" class="btn btn-success" ><?= $btn_value ? $btn_value : 'Save'; ?> </button>
                                             <button type="reset" class="btn btn-default" >Clear </button>
                                         </div>
                                     </div>
@@ -278,28 +173,6 @@
 <!-- /.content-wrapper -->
 
 <!-- Page specific script -->
-<script>
-  $(function () {
-    var base_url = "<?php echo $base_link; ?>";
-    $( "#acc_id" ).change(function() {
-        acc_id = this.value;
-        $("#contact_id").html('');
-        $.ajax({
-            type: 'POST',
-            url: base_url + 'contact/get_contact_dropdown/',
-            data: {acc_id: acc_id},
-            success: function (response) {
-                $("#contact_id").append("<option value='' > [ Please Select ] </option>");
-                var obj = jQuery.parseJSON(response);
-                $.each(obj, function(key,value) {
-                    $("#contact_id").append("<option value="+key+">"+value+"</option>");
-                }); 
-            }
-        });
-    });
-  })
-</script>
-
 <script type="text/javascript">
     $(document).ready(function () {
         var base_url = "<?php echo base_url(); ?>";
@@ -307,8 +180,10 @@
         $('#phone_call_form').validate({
             rules: {
                 subject: {
+                    minlength: 2,
                     required: true
                 }, start_date: {
+                    
                     required: true
                 },
 //                billing_address: {
@@ -316,7 +191,7 @@
 //                }
             }, messages: {
                 subject: {
-                    required: "Please select a Subject",
+                    required: "Please enter a Subject",
                     
                 }, start_date: {
                     required: "Please enter a Start Date",
@@ -342,7 +217,7 @@
                             $('#results').addClass('alert alert-danger');
                             $('#results').html('error');
                         }
-                        var URL = "<?php echo $base_link; ?>phone_call/";
+                        var URL = "<?php echo base_url(); ?>phone_call/";
                         setTimeout(function () {
                             window.location = URL;
                         }, 1000);
@@ -366,18 +241,8 @@
                 $(".ui-datepicker").css('font-size', 12)
             }
         });
-        $("#end_date").datepicker({
-            //defaultDate: "+1w",
-            changeMonth: true,
-            changeYear: true,
-            
-            numberOfMonths: 1,
-            dateFormat: 'dd-M-y',
-            beforeShow: function () {
-                $(".ui-datepicker").css('font-size', 12)
-            }
-        });
-        $('#start_time,#end_time').timepicker({
+
+        $('#start_time').timepicker({
             timeFormat: 'h:mm p',
             interval: 15,
             minTime: '10',

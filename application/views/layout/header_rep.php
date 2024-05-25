@@ -74,7 +74,19 @@
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-orange navbar-light">
-    <?php $this->load->view('layout/navbar_nav'); ?>
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="<?php echo $base_link; ?>dashboard/" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -82,49 +94,69 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
+
+<!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fa fa-user"></i>
           
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-          <a href="<?php echo $base_link; ?>settings/profile/" class="dropdown-item">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
             <div class="media">
               <img src="<?php echo base_url(); ?>assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  <?php echo substr($this->session->userdata('first_name')." ".$this->session->userdata('last_name'),0,18); ?>
+                  <?php echo $this->session->userdata('user_name'); ?>
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                 </h3>
-                <small>See your profile</small>
+               
               </div>
             </div>
+            <!-- Message End -->
           </a>
-
           <div class="dropdown-divider"></div>
-
-          <a href="<?php echo $base_link; ?>settings/" class="dropdown-item">
-            <div class="media">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  <span class="img-size-50 mr-3 img-circle"><i class="fas fa-cog"></i></span>
-                  Settings
-                </h3>
-              </div>
-            </div>
-          </a>
-
-          <div class="dropdown-divider"></div>
-
           <a href="<?php echo $base_link; ?>user_authentication/userLogout" class="dropdown-item">
+            <!-- Message Start -->
             <div class="media">
+             
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Sign-out
                   <span class="float-right text-sm text-muted"><i class="fa fa-power-off"></i></span>
                 </h3>
+                
               </div>
             </div>
+            <!-- Message End -->
           </a>
         
 

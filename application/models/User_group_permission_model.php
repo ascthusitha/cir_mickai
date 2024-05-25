@@ -151,7 +151,6 @@ class User_group_permission_model extends CI_Model {
         $user_grouparray = array();
         $this->db->select('user_group_id, user_group_name');
         $this->db->where('user_group_id <>1');
-        $this->db->where('deleted',0);
         $this->db->order_by('user_group_name', 'ASC');
         $query = $this->db->get('user_group');
         if ($query->num_rows() > 0) {
@@ -164,10 +163,12 @@ class User_group_permission_model extends CI_Model {
 
     function get_permission_categories() {
         $table1 = $this->table_permission_categories;
+
         $this->db->select('a.*');
         $this->db->from($table1.' a');
-        $this->db->where('a.active',1);
+
         $this->db->order_by("a.order", "asc");
+
         $query = $this->db->get();
         $result = $query->result_array();
 		return $result;
@@ -175,10 +176,12 @@ class User_group_permission_model extends CI_Model {
 
     function get_permission_links() {
         $table1 = $this->table_permission_links;
+
         $this->db->select('a.*');
         $this->db->from($table1.' a');
-        $this->db->where('a.active',1);
+
         $this->db->order_by("a.order", "asc");
+
         $query = $this->db->get();
         foreach ($query->result() as $row){
             $result[$row->permission_cat][$row->id] = array('id'=>$row->id,'name'=>$row->name);

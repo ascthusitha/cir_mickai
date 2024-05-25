@@ -25,12 +25,11 @@ class Country_model extends CI_Model {
     }
 
     function get_country() {
-        $this->db->select('c.*, CONCAT(u.user_fname," ",u.user_lname) AS created_user');
-        $this->db->from('country c');
-        $this->db->join('user u', 'c.created_by=u.user_id', 'left');
-        $this->db->where('c.deleted',0);
-        $query = $this->db->get();
-        return $query->result();
+        $this->db->select('*');
+     
+         $this->db->where('deleted',0);
+        $query = $this->db->get('country');
+                return $query->result();
     }
 
     function add() {
