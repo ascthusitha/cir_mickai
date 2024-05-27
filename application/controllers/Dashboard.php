@@ -25,7 +25,6 @@ class Dashboard extends MY_Controller{
     public function index() {
         $data['user'] = $this->session->userdata('first_name');
         $user_id = $this->session->userdata('user_id');
-        if($user_id==NULL){ redirect('/'); }
 //        $data['dash'] = $this->dash_lib->get_default_dashboard($user_id);
         $data['dash'] = $this->dash_lib->get_default_dashboard();
         $this->menu_lib->get_active_menu(1);

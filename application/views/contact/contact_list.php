@@ -1,153 +1,129 @@
-<?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-3">
-          <h1><?=$title;?></h1>
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-3">
+            <h1><?=$title;?></h1>
+          </div>
+          <div class="col-sm-1">
+             <a href="<?php echo base_url(); ?>contact/add" class="btn btn-block bg-gradient-success btn-flat">Add New</a>
+            
+          </div>
+          <div class="col-sm-8">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#"><?=$title;?></a></li>
+              <!-- <li class="breadcrumb-item active">Blank Page</li> -->
+            </ol>
+          </div>
         </div>
-        <div class="col-sm-9">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><i class="nav-icon fas fa-address-book"></i> Contacts </li>
-            <li class="breadcrumb-item"><a href="#"><?=$title;?></a></li>
-          </ol>
-        </div>
-      </div>
-    </div><!-- /.container-fluid -->
-  </section>
+      </div><!-- /.container-fluid -->
+    </section>
 
-  <!-- Main content -->
-  <section class="content">
-    <!-- Default box -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-tools">
-          <a href="<?php echo $base_link; ?>contact/add" type="button" class="btn btn-primary btn-block"><i class="fas fa-plus-circle"></i> Add New</a>
-        </div>
-      </div>
-      <div class="card-body">
-        <table class="table table-striped table-bordered" width="100%"  id="contact_table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Contact Name</th>
-              <th>Account</th> 
-              <th>Office Phone</th>
-              <th>Mobile</th>
-              <th>Alternate Phone </th>
-              <th>Email </th>
-              <th>City</th>
-              <th>Created by</th>
-              <th>&nbsp; </th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-              if (count($contact)) {
-                $i=1;
-                foreach ($contact as $g) {
-            ?>
-            <tr id="tr_<?php echo $g->contact_id;?>">
-              <td><?php echo $i;?></td>
-              <td><?php echo anchor('contact/view/' . $g->contact_id, $g->contact_name."".$g->contact_lname );?></td>
-              <td><?php echo $g->acc_name;?></td>
-              <td><?php echo $g->office_phone;?></td>
-              <td><?php echo $g->mobile;?></td>
-              <td><?php echo $g->alternate_phone;?></td>
-              <td><?php echo $g->email;?></td>
-              <td><?php echo $g->other_city;?></td>
-              <td><?php echo $g->user_fname;?></td>
-              <td><button type="button" class="btn del-mod" data-id="<?php echo $g->contact_id;?>" data-toggle="modal" data-target="#modal-del"><span class='fa fa-trash-alt'></span></button></td>
-            </tr>
-            <?php
-                  $i++;
-                }
-              }
-            ?>
-          </tbody>
-        </table>
+    <!-- Main content -->
+    <section class="content">
 
-      </div>
-      <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
-  </section>
-  <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><?=$title?></h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+           <table class="table table-striped table-bordered" width="100%"  id="contact_table">
+                        <thead><tr>
+                                <th>#</th>
+                                <th>Contact Name</th>
+                                <th>Account</th> 
+                                <th>Office Phone</th>
+                                <th>Mobile</th>
+                                <th>Alternate Phone </th>
+                                <th>Email </th>
+                                <th>City</th>
+                                <th>Created by</th>
+                                <th>&nbsp; </th>
+                            </tr></thead>
+                        <tbody>
+                            <?php
+                            if (count($contact)) {
+                                $i=1;
+                              
+                                foreach ($contact as $g) {
+                                    echo "<tr>";
+                                    echo "<td>" . $i . "</td>";
+                                    echo "<td>" . anchor('contact/view/' . $g->contact_id, $g->contact_name." ".$g->contact_lname) . "</td>";
+                                    echo "<td> " . $g->acc_name ." </td>";
+                                    echo "<td>" . $g->office_phone . "</td>";
+                                    echo "<td>" . $g->mobile . "</td>";
+                                    echo "<td>" . $g->alternate_phone . "</td>";
+                                    echo "<td>" . $g->email . "</td>";
+                                    echo "<td>" . $g->o_city . "</td>";
+                                    echo "<td>" . $g->user_fname . "</td>";
+                                    echo "<td><a href='javascript:void(0)' onclick='deleteContact($g->contact_id)' ><span class='fa fa-trash-alt'></span></a></td>";
+                                    echo "</tr>";
+                                    $i++;
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
                    
-<div class="modal fade" id="modal-del">
-  <div class="modal-dialog">
-    <div class="modal-content bg-danger">
-      <div class="modal-header">
-        <h4 class="modal-title">Are you sure</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+ <!-- /.card-body -->
+
+        <!-- /.card-footer-->
       </div>
-      <div class="modal-body">
-        <p>Are you sure want to delete this Account ?</p>
-      </div>
-      <input type="hidden" id="delId" name="delId" value="">
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-outline-light" id="del-yes">&nbsp;&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
   </div>
-  <!-- /.modal-dialog -->
-</div>
+  <!-- /.content-wrapper -->
+                   
 
 <script type="text/javascript">
-  $( ".del-mod" ).click(function() {
-    var id = $(this).attr("data-id");
-    $('#delId').val(id);
-  });
-
-  $( "#del-yes" ).click(function() {
-    var id = $('#delId').val();
-    var base_url = "<?php echo $base_link; ?>";
-    var Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
+        $(document).ready(function () {
+        $('#contact_table').DataTable({
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "sPaginationType": "full_numbers",
+            "iDisplayLength": 5,
+        });
     });
-    $.ajax({
-      type: 'POST',
-      url: base_url + 'contact/delete/',
-      data: {contact_id: id},
-      success: function (data) {
-        if ($.trim(data) == 'Success') {
-          $('#tr_'+id).hide();
-          $('#modal-del').modal('toggle');
-          Toast.fire({
-            icon: 'success',
-            title: ' Account Successfully Removed'
-          });
+        function deleteContact(contact_id) {
+        var val = confirm('Are you sure want to delete this  Contact ?');
+        var base_url = "<?php echo base_url(); ?>";
+        if (val) {
+            $.ajax({
+                type: 'POST',
+                url: base_url + 'contact/delete/',
+                data: {contact_id: contact_id},
+                success: function (data) {
+
+                    if ($.trim(data) == 'success') {
+                        alert(" Contact Successfully Removed");
+                        location.reload();
+                    } else {
+                        alert(data);
+                    }
+                    //$('#transport_table').html(data);     
+                }
+            });
         } else {
-          $('#modal-del').modal('toggle');
-          Toast.fire({
-            icon: 'success',
-            title: ' Not Removed'
-          });
+            return false;
         }
-      }
-    });
-  });
-
-  $(document).ready(function () {
-    $('#contact_table').DataTable({
-      "bPaginate": true,
-      "bLengthChange": true,
-      "bFilter": true,
-      "bInfo": false,
-      "bAutoWidth": false,
-      "sPaginationType": "full_numbers",
-      "iDisplayLength": 5,
-    });
-  });
+    }
 </script>
+

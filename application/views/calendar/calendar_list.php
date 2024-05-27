@@ -1,7 +1,4 @@
-<?php
-  $base_link = $this->config->item('base_url').$this->config->item('index_page');
-  $permissionData = $this->session->userdata['permissionData'];
-?>
+<?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -34,17 +31,22 @@
                 <div class="card-body">
                   <!-- the events -->
                   <div id="external-events">
-                    <div class="external-event bg-yellow">Doctor Appointment</div>
-                    <div class="external-event bg-green">External Appointment</div>
-                    <div class="external-event bg-lightblue">Alert/Reminders</div>
-                    <div class="external-event bg-red">Opportunity</div>
-                    <div class="external-event bg-lime">Time Sheet</div>
+                    <div class="external-event bg-success">Sales Call</div>
+                    <div class="external-event bg-warning">Phone Call</div>
+                    <div class="external-event bg-info">Meeting</div>
+                    <div class="external-event bg-danger">Tasks</div>
+                   
+                    <div class="checkbox">
+                      <label for="drop-remove">
+                        <input type="checkbox" id="drop-remove">
+                        remove after drop
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
               </div>
               <!-- /.card -->
-              <?php if (in_array(18, $permissionData)) { ?>
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">User</h3>
@@ -65,7 +67,6 @@
                   </div>
                 </div>
               </div>
-              <?php } ?>
             </div>
           </div>
           <!-- /.col -->
@@ -92,7 +93,7 @@
   $(function () {
 
     $( "#assign_to" ).change(function() {
-      window.location = "<?php echo $base_link.'Calendar/index/';?>"+this.value;
+      window.location = "<?php echo $base_link.'calendar/index/';?>"+this.value;
     });
 
     /* initialize the external events
@@ -168,7 +169,6 @@
           $colour['aqua']       = "#00c0ef";
           $colour['green']      = "#00a65a";
           $colour['light-blue'] = "#3c8dbc";
-          $colour['lime']       = "#01ff70";
 
           foreach ($calendar_activities as $activity) {
             $tmp_title    = $activity->subject;
@@ -190,10 +190,10 @@
               $etime = date("H:i:s", strtotime($activity->end_time)); 
               $tmp_end = $tmp_end.' '.$etime;
             }
-            if($sdate == NULL ||  $stime == NULL ||  $edate == NULL ||  $etime == NULL){
-              $tmp_all_day  = 'true';
+            if($stime == NULL ||  $edate == NULL ||  $etime == NULL){
+              $tmp_all_day  = true;
             }else{
-              $tmp_all_day  = 'false';
+              $tmp_all_day  = false;
             }
             if($activity->activity_type==1){
               $tmp_bg_color     = $colour['green'];
@@ -211,10 +211,6 @@
               $tmp_bg_color     = $colour['red'];
               $tmp_border_color = $colour['red'];
               $tmp_url = $base_link."opportunity/view/".$activity->activity_id;
-            }else if($activity->activity_type==5){
-              $tmp_bg_color     = $colour['lime'];
-              $tmp_border_color = $colour['lime'];
-              $tmp_url = $base_link."timesheet/view/".$activity->activity_id;
             }else{
               $tmp_bg_color     = $colour['aqua'];
               $tmp_border_color = $colour['aqua'];

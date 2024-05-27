@@ -52,14 +52,14 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Account Name</label>
-                                            <input type="text" id="f_fname" name="acc_name" class="form-control" placeholder="Enter ..." value="<?= isset($account['acc_name'])?$account['acc_name']:''; ?>">
-                                            <input type="hidden" id="acc_id" name="acc_id" class="form-control" placeholder="Enter ..." value="<?= isset($account['acc_id'])?$account['acc_id']:''; ?>">
+                                            <input type="text" id="f_fname" name="acc_name" class="form-control" placeholder="Enter ..." value="<?= $account['acc_name']; ?>">
+                                            <input type="hidden" id="acc_id" name="acc_id" class="form-control" placeholder="Enter ..." value="<?= $account['acc_id']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Business Name</label>
-                                            <input type="text" id="b_name" name="b_name" class="form-control" value="<?= isset($account['b_name'])?$account['b_name']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="b_name" name="b_name" class="form-control" value="<?= $account['b_name']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                 </div>
@@ -68,13 +68,13 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Office Phone</label>
-                                            <input type="text" id="mobile" name="mobile" class="form-control" value="<?= isset($account['office_phone'])?$account['office_phone']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="mobile" name="mobile" class="form-control" value="<?= $account['office_phone']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Alternate  Phone</label>
-                                            <input type="text" id="telephone" name="telephone" class="form-control" value="<?= isset($account['alternate_phone'])?$account['alternate_phone']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="telephone" name="telephone" class="form-control" value="<?= $account['alternate_phone']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                 </div>
@@ -83,13 +83,13 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="text" id="email" name="email" class="form-control" value="<?= isset($account['email'])?$account['email']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="email" name="email" class="form-control" value="<?= $account['email']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Fax</label>
-                                            <input type="text" id="fax" name="fax" class="form-control" value="<?= isset($account['fax'])?$account['fax']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="fax" name="fax" class="form-control" value="<?= $account['fax']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>VAT No</label>
-                                            <input type="text" id="vat_no" name="vat_no" class="form-control" value="<?= isset($account['vat_no'])?$account['vat_no']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="vat_no" name="vat_no" class="form-control" value="<?= $account['vat_no']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
 
@@ -128,13 +128,13 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Office Address</label>
-                                            <textarea id="o_address" name="o_address" class="form-control" placeholder="Enter ..." rows="5" cols="10"><?= isset($account['o_address'])?$account['o_address']:''; ?></textarea>
+                                            <textarea id="o_address" name="o_address" class="form-control" placeholder="Enter ..." rows="5" cols="10"><?= $account['o_address']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Shipping Address</label>
-                                            <textarea id="s_address" name="s_address" class="form-control" placeholder="Enter ..." rows="5" cols="10"><?= isset($account['s_address'])?$account['s_address']:''; ?></textarea>
+                                            <textarea id="s_address" name="s_address" class="form-control" placeholder="Enter ..." rows="5" cols="10"><?= $account['s_address']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -143,13 +143,13 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Office City</label>
-                                            <input type="text" id="o_city" name="o_city" class="form-control" value="<?= isset($account['o_city'])?$account['o_city']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="o_city" name="o_city" class="form-control" value="<?= $account['o_city']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Shipping City</label>
-                                            <input type="text" id="s_city" name="s_city" class="form-control" value="<?= isset($account['s_city'])?$account['s_city']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="s_city" name="s_city" class="form-control" value="<?= $account['s_city']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                 </div>
@@ -158,13 +158,13 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Office Province</label>
-                                            <input type="text" id="o_province" name="o_province" class="form-control" value="<?= isset($account['o_province'])?$account['o_province']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="o_province" name="o_province" class="form-control" value="<?= $account['o_province']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Shipping Province</label>
-                                            <input type="text" id="s_province" name="s_province" class="form-control" value="<?= isset($account['s_province'])?$account['s_province']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="s_province" name="s_province" class="form-control" value="<?= $account['s_province']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                 </div>
@@ -173,13 +173,13 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Office Postal Code</label>
-                                            <input type="text" id="o_post" name="o_post" class="form-control" value="<?= isset($account['o_post'])?$account['o_post']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="o_post" name="o_post" class="form-control" value="<?= $account['o_post']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Shipping Postal Code</label>
-                                            <input type="text" id="s_post" name="s_post" class="form-control" value="<?= isset($account['s_postal_code'])?$account['s_postal_code']:''; ?>" placeholder="Enter ...">
+                                            <input type="text" id="s_post" name="s_post" class="form-control" value="<?= $account['s_postal_code']; ?>" placeholder="Enter ...">
                                         </div>
                                     </div>
                                 </div>
@@ -209,7 +209,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" id="description" placeholder="Description"><?php echo isset($account['description'])?$account['description']:''; ?></textarea>
+                                            <textarea class="form-control" name="description" id="description" placeholder="Description"><?php echo $account['description'] ?></textarea>
 
 
                                         </div>
@@ -220,7 +220,7 @@
                                     <div class="col-sm-6">
                                         <label></label>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-success" ><?= isset($btn_value) ? $btn_value : 'Save'; ?> </button>
+                                            <button type="submit" class="btn btn-success" ><?= $btn_value ? $btn_value : 'Save'; ?> </button>
                                             <button type="reset" class="btn btn-default" >Clear </button>
                                         </div>
                                     </div>

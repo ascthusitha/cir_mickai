@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Description of car
+ * Description of country
  *
  * @author Thusitha
  */
@@ -15,43 +15,43 @@ class Car extends MY_Controller {
         $this->load->library(array('form_validation'));
         $this->load->helper('url');
         $this->load->model('car_model');
-        $this->load->library('Menu_Lib');
     }
 
     public function index() {
-        $data['cars'] = $this->car_model->get_car();
-        $this->menu_lib->get_active_menu(28,33);
+        //$this->output->enable_profiler(TRUE);
+
+        $data['cars'] = $this->country_model->get_country();
+
         //load view
         $data['user'] = $this->session->userdata('first_name');
-        $data['title'] = "Car";
+        $data['title'] = "Country";
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu_bar');
-        $this->load->view('car/car_list', $data);
+        $this->load->view('country/country_list', $data);
         $this->load->view('layout/footer', $data);
     }
 
     public function add() {
 
         $data['user'] = $this->session->userdata('first_name');
-        $this->menu_lib->get_active_menu(28,33);
-        $data['car'] = array("car_id" => 0);
+        $data['country'] = array("country_id" => 0);
 
-        $data['title'] = "Car Add";
-        $data['link_back'] = anchor('car/listing/', 'Back to list of car Name', array('class' => 'back'));
+        $data['title'] = "Country Add";
+        $data['link_back'] = anchor('country/listing/', 'Back to list of country Name', array('class' => 'back'));
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu_bar');
-        $this->load->view('car/car_add', $data);
+        $this->load->view('country/country_add', $data);
         $this->load->view('layout/footer', $data);
     }
 
     public function save() {
-        $this->form_validation->set_rules('car_name', 'car Name', 'trim|required');
+        $this->form_validation->set_rules('country_name', 'country Name', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
 
             echo validation_errors();
         } else {
-            if ($this->car_model->add()) {
+            if ($this->country_model->add()) {
                 echo 'success';
             } else {
                 echo 'error';
@@ -63,19 +63,19 @@ class Car extends MY_Controller {
     public function view($id) {
         $data['user'] = $this->session->userdata('first_name');
 
-        $data['car'] = $this->car_model->get_detail($id);
-        $data['title'] = "car";
+        $data['country'] = $this->country_model->get_detail($id);
+        $data['title'] = "country";
         $data['btn_value'] = 'Update';
-        $data['link_back'] = anchor('car/listing/', 'Back to list of car', array('class' => 'back'));
+        $data['link_back'] = anchor('country/listing/', 'Back to list of country', array('class' => 'back'));
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu_bar');
-        $this->load->view('car/car_add', $data);
+        $this->load->view('country/country_add', $data);
         $this->load->view('layout/footer', $data);
     }
 
     function delete() {
-        $id = $_POST['car_id'];
-        $status = $this->car_model->delete($id);
+        $id = $_POST['country_id'];
+        $status = $this->country_model->delete($id);
         if ($status) {
             echo 'Success';
         } else {
@@ -85,6 +85,6 @@ class Car extends MY_Controller {
 
 }
 
-/* End of file car.php */
-/* Location: ./application/controllers/car.php */
+/* End of file country.php */
+/* Location: ./application/controllers/country.php */
 ?>

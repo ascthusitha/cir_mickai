@@ -1,8 +1,8 @@
   <footer class="main-footer">
-    <strong>Copyright &copy; <?php echo date("Y"); ?><a href="https://ascensorpartners.com">      Ascensor Partners Inc</a>.</strong>
+    <strong>Copyright &copy; <?php echo date("Y"); ?><a href="https://ascensorpartners.com">      Ascensor Partners Pvt Ltd</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 4.0
+     Powered By Mickai <b>Version</b> 3.0
     </div>
   </footer>
 </div>
@@ -72,20 +72,9 @@
 <!-- fullCalendar 2.2.5 -->
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/fullcalendar/main.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/sweetalert2/sweetalert2.min.js"></script>
 
-<script src="<?php echo base_url(); ?>assets/plugins/toastr/toastr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
-
-<!-- Ion Slider -->
-<script src="<?php echo base_url(); ?>assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
-<!-- Bootstrap slider -->
-<script src="<?php echo base_url(); ?>assets/plugins/bootstrap-slider/bootstrap-slider.min.js"></script>
-
-
-
-
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

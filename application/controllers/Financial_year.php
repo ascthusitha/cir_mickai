@@ -24,7 +24,7 @@ class Financial_year extends MY_Controller{
            $data['user'] = $this->session->userdata('first_name');
         $data['f_year'] = $this->fyear_model->get_fyear();
         $data['users'] = $this->user_model->get_user_dropdown1();
-        $this->menu_lib->get_active_menu(32,3);
+        $this->menu_lib->get_active_menu(2,3);
         $data['title'] = "Financial Year ";
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu_bar');

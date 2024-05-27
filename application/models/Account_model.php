@@ -47,7 +47,26 @@ Class Account_model extends CI_Model {
         $query = $this->db->get();
         return $query->row_array();
     }
+public function addQAccount(){
+     $data = array(
+            
+            'acc_name' => $this->input->post('account_name'));
+                    $date = new DateTime();
+$date->setTimezone(new DateTimeZone('Asia/Colombo'));
+$fdate = $date->format('Y-m-d H:i:s'); 
 
+            
+            $code = $this->code_generation_m->getCode('ACC');
+            $this->db->set('acc_code', $code);
+            $this->db->set('created_by', $this->session->userdata('user_id'));
+            $this->db->set('created_date',$fdate);
+            $this->db->insert($this->table, $data);
+             $id = $this->db->insert_id();
+            $this->code_generation_m->updateCode('ACC');
+           
+            return $id;
+
+}
     public function addAccount() {
 
         $acc_id = $this->input->post('acc_id');
@@ -117,6 +136,7 @@ $fdate = $date->format('Y-m-d H:i:s');
         $this->db->where('deleted', '0');
                $this->db->order_by('acc_name', 'ASC');
         $query = $this->db->get('account');
+        $cusarray[''] = '-- Select --';
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $cusarray[$row->acc_id] = $row->acc_name;

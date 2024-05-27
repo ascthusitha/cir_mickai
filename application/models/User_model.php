@@ -1,10 +1,13 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+    <?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 /**
  * Description of userModel
  *
  * @author Thusitha
  */
-
 class User_model extends CI_Model {
 
     public $table = 'user';
@@ -143,7 +146,6 @@ class User_model extends CI_Model {
             'user_mobile' => $this->input->post('mobile'),
             'user_username' => $this->input->post('username'),
             'user_group_id' => $this->input->post('user_group'),
-            'user_code' => $this->input->post('u_code'),
             'created_by' => $this->session->userdata('user_id')
         );
         if ($this->input->post('cpassword')) {
@@ -160,44 +162,15 @@ $fdate = $date->format('Y-m-d H:i:s');
             $this->db->update($this->table, $data);
             return TRUE;
         } else {
+            
+            $ucode = $this->code_generation_m->getCode('U');
+            $this->db->set('user_code',$ucode);
             $this->db->set('created_date',$fdate);
+            
             $this->db->insert($this->table, $data);
+            $this->code_generation_m->updateCode('U');
             return TRUE;
         }
-    }
-
-    function updateUser() {
-        $id = $this->input->post('user_id');
-        $data = array(
-            'user_fname' => $this->input->post('fname'),
-            'user_lname' => $this->input->post('lname'),
-            'user_address' => $this->input->post('address'),
-            'user_email' => $this->input->post('email'),
-            'dob' => date("Y-m-d", strtotime($this->input->post('dob'))),
-            'user_telephone' => $this->input->post('telephone'),
-            'user_mobile' => $this->input->post('mobile'),
-        );
-        $date = new DateTime();
-        $date->setTimezone(new DateTimeZone('Asia/Colombo'));
-        $fdate = $date->format('Y-m-d H:i:s'); 
-        $this->db->set('created_date',$fdate);
-        $this->db->where('user_id', $id);
-        $this->db->update($this->table, $data);
-        return TRUE;
-    }
-
-    function updatePassword() {
-        $id = $this->input->post('user_id');
-        if ($this->input->post('cpassword')) {
-            $this->db->set('user_password', sha1($this->input->post('cpassword')));
-        }
-        $date = new DateTime();
-        $date->setTimezone(new DateTimeZone('Asia/Colombo'));
-        $fdate = $date->format('Y-m-d H:i:s'); 
-        $this->db->set('created_date',$fdate);
-        $this->db->where('user_id', $id);
-        $this->db->update($this->table, $data);
-        return TRUE;
     }
 
     public function deleteUser($id) {
@@ -228,23 +201,10 @@ $fdate = $date->format('Y-m-d H:i:s');
         $this->db->select('user_id, user_username');
         $this->db->where('user.user_id <>', '1');
         $query = $this->db->get('user');
-        if ($query->num_rows() > 0) {
-            foreach ($query->result() as $row) {
-                $userarray[$row->user_id] = $row->user_username;
-            }
-        }
-        return $userarray;
-    }
-
-    function get_user_fullname_dropdown() {
-        $userarray = array();
-        $this->db->select('user_id, user_fname, user_lname');
-        $this->db->where('user.user_id <>', '1');
-        $query = $this->db->get('user');
         $userarray[' '] = '-- Select --';
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
-                $userarray[$row->user_id] = $row->user_fname.' '.$row->user_lname;
+                $userarray[$row->user_id] = $row->user_username;
             }
         }
         return $userarray;
@@ -378,7 +338,6 @@ $fdate = $date->format('Y-m-d H:i:s');
             return $value['pl_id'];
         } , $result);
         return $array;
-        
     }
 
 }

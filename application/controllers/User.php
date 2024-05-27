@@ -14,7 +14,6 @@ class User extends MY_Controller {
         $this->load->model('user_model');
         $this->load->model('code_generation_m');
         $this->load->model('user_group_permission_model');
-        $this->load->library('Reference_Lib');
         $this->load->library('Menu_Lib');
     }
 
@@ -46,7 +45,7 @@ class User extends MY_Controller {
 
         $data['user'] = $this->session->userdata('first_name');
         $data['user1'] = array("user_id" => 0,"user_group_id"=>0);
-        $data['u_code'] = $this->reference_lib->getCode('User Code');
+        $data['u_code'] = $this->code_generation_m->getCode('U');
         $data['title'] = "System User";
         $data['user_groups'] = $this->user_group_permission_model->get_user_group_dropdown();
         // $data['link_back'] = anchor('user/listing/','Back to list of Tour Operator',array('class'=>'back'));
@@ -59,7 +58,6 @@ class User extends MY_Controller {
     public function saveUser() {
 
         if ($this->user_model->addUser()) {
-            $this->reference_lib->increaseCode('User Code');
             echo 'success';
         } else {
             echo 'error';
