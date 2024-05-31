@@ -45,7 +45,8 @@ class Mapplication extends MY_Controller {
     }
 
     public function save() {
-        $this->form_validation->set_rules('application_name', 'application Name', 'trim|required');
+
+        $this->form_validation->set_rules('applicant_initial', 'applicant initial', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
 

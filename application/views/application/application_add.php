@@ -348,7 +348,7 @@
 								<p>Fill all form fields to proceed to the next step</p>
 								<div class="row">
 									<div class="col-md-12 mx-0">
-										<form id="msform">
+										<form  class="well form-horizontal" id="msform" action="<?php echo base_url(); ?>Mapplication/save" method="post">
 											<!-- progressbar -->
 											<ul id="progressbar">
 												<li class="active" id="personal"><strong>APPLICANT DETAILS</strong></li>
@@ -373,7 +373,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="applicant_initial">
-																	<option>Select Initial</option>
+																	<option value="">Select Initial</option>
 																	<option value="mr">Mr.</option>
 																	<option value="mrs">Mrs.</option>
 																	<option value="ms">Ms.</option>
@@ -438,7 +438,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="applicant_current_address_type">
-																	<option>Select Address Type</option>
+																	<option value="">Select Address Type</option>
 																	<option value="own">Own</option>
 																	<option value="parent">Parent</option>
 																	<option value="rent">Rent</option>
@@ -517,7 +517,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="applicant_prior_address_type">
-																	<option>Select Address Type</option>
+																	<option value="">Select Address Type</option>
 																	<option value="own">Own</option>
 																	<option value="parent">Parent</option>
 																	<option value="rent">Rent</option>
@@ -595,7 +595,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="applicant_gender">
-																	<option>Select Gender</option>
+																	<option value="">Select Gender</option>
 																	<option value="male">Male</option>
 																	<option value="female">Female</option>
 																</select>
@@ -616,7 +616,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="applicant_marital_status">
-																	<option>Select Marital Status</option>
+																	<option value="">Select Marital Status</option>
 																	<option value="single">Single</option>
 																	<option value="married">Married</option>
 																	<option value="widowed">Widowed</option>
@@ -646,7 +646,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="co_applicant_initial">
-																	<option>Select Initial</option>
+																	<option value="">Select Initial</option>
 																	<option value="mr">Mr.</option>
 																	<option value="mrs">Mrs.</option>
 																	<option value="ms">Ms.</option>
@@ -711,7 +711,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="co_applicant_current_address_type">
-																	<option>Select Address Type</option>
+																	<option value="">Select Address Type</option>
 																	<option value="own">Own</option>
 																	<option value="parent">Parent</option>
 																	<option value="rent">Rent</option>
@@ -790,7 +790,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="co_applicant_prior_address_type">
-																	<option>Select Address Type</option>
+																	<option value="">Select Address Type</option>
 																	<option value="own">Own</option>
 																	<option value="parent">Parent</option>
 																	<option value="rent">Rent</option>
@@ -869,7 +869,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="co_applicant_gender">
-																	<option>Select Gender</option>
+																	<option value="">Select Gender</option>
 																	<option value="male">Male</option>
 																	<option value="female">Female</option>
 																</select>
@@ -890,7 +890,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="co_applicant_marital_status">
-																	<option>Select Marital Status</option>
+																	<option value="">Select Marital Status</option>
 																	<option value="single">Single</option>
 																	<option value="married">Married</option>
 																	<option value="widowed">Widowed</option>
@@ -1036,7 +1036,7 @@
 																<label for="exampleInputEmail1">Employer</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_current_employer"
+																	   name="applicant_previous_employer"
 																	   placeholder="Enter previous employer">
 															</div>
 														</div>
@@ -1112,7 +1112,7 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="applicant_employment_current_year">
+																	   name="applicant_employment_previous_year">
 															</div>
 														</div>
 
@@ -1123,7 +1123,7 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="applicant_employment_current_month">
+																	   name="applicant_employment_previous_month">
 															</div>
 														</div>
 
@@ -1245,7 +1245,7 @@
 																<label for="exampleInputEmail1">Employer</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_current_employer"
+																	   name="co_applicant_previous_employer"
 																	   placeholder="Enter previous employer">
 															</div>
 														</div>
@@ -1321,7 +1321,7 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="co_applicant_employment_current_year">
+																	   name="co_applicant_employment_previous_year">
 															</div>
 														</div>
 
@@ -1332,7 +1332,7 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="co_applicant_employment_current_month">
+																	   name="co_applicant_employment_previous_month">
 															</div>
 														</div>
 
@@ -1370,7 +1370,7 @@
 																		Employed($)</label>
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
-																		   name="applicant_income_full_time"
+																		   name="applicant_income_self_employed"
 																		   placeholder="Enter self-employed income">
 																</div>
 															</div>
@@ -1483,7 +1483,7 @@
 																		Employed($)</label>
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
-																		   name="co_applicant_income_full_time"
+																		   name="co_applicant_income_self_employed"
 																		   placeholder="Enter self-employed income">
 																</div>
 															</div>
@@ -1596,7 +1596,7 @@
 																	<select class="custom-select form-control-border"
 																			id="exampleSelectBorder"
 																			name="purpose_of_loan">
-																		<option>Select Purpose of Loan</option>
+																		<option value="">Select Purpose of Loan</option>
 																		<option value="pre_approval">Pre-Approval
 																		</option>
 																		<option value="home_purchase">Home Purchase
@@ -1820,8 +1820,8 @@
 																<label for="exampleInputEmail1">Type of Heating</label>
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
-																		name="property_type">
-																	<option>Select Type of Heating</option>
+																		name="property_type_of_heating">
+																	<option value="">Select Type of Heating</option>
 																	<option value="electric_baseboard">Electric
 																		Baseboard
 																	</option>
@@ -1849,7 +1849,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="property_type">
-																	<option>Select Property Type</option>
+																	<option value="">Select Property Type</option>
 																	<option value="detached">Detached</option>
 																	<option value="semi_detached">Semi-Detached</option>
 																	<option value="high_rise_apartment">High Rise
@@ -1880,7 +1880,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="property_zoning">
-																	<option>Select Zoning</option>
+																	<option value="">Select Zoning</option>
 																	<option value="residential">Residential</option>
 																	<option value="commercial">Commercial</option>
 																	<option value="farm">Farm</option>
@@ -1906,7 +1906,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="property_title">
-																	<option>Select Property Title</option>
+																	<option value="">Select Property Title</option>
 																	<option value="freehold">Freehold</option>
 																	<option value="leasehold">Leasehold</option>
 																	<option value="condominium_or_state">
@@ -1922,7 +1922,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="property_garage_type">
-																	<option>Select Garage Type</option>
+																	<option value="">Select Garage Type</option>
 																	<option value="attached">Attached</option>
 																	<option value="owner_occupied">Owner Occupied
 																	</option>
@@ -1939,7 +1939,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="property_garage_size">
-																	<option>Select Garage Size</option>
+																	<option value="">Select Garage Size</option>
 																	<option value="single">Single</option>
 																	<option value="double">Double</option>
 																	<option value="triple">Triple</option>
@@ -2230,7 +2230,7 @@
 																<select class="custom-select form-control-border"
 																		id="exampleSelectBorder"
 																		name="mortgage_holder">
-																	<option>Select Mortgage Holder</option>
+																	<option value="">Select Mortgage Holder</option>
 																	<option value="1">1st</option>
 																	<option value="2">2nd</option>
 																	<option value="3">3rd</option>
@@ -2920,10 +2920,20 @@
 													</div>
 												<input type="button" name="previous"
 													   class="previous action-button-previous" value="Previous Step"/>
-												<input type="submit" name="submit" class="submit action-button"
-													   value="Submit"/>
+<!--												<input type="button" name="submit" class="submit action-button"-->
+<!--													   value="Submit"/>-->
+
+												<button type="submit" class="submit action-button"> Submit </button>
+
 											</fieldset>
 										</form>
+
+										<div class="row">
+											<div class="col-sm-12">
+												<div class="alert "  role="alert" id="results"> </div>
+											</div>
+										</div>
+
 									</div>
 								</div>
 							</div>
@@ -3024,9 +3034,20 @@
 			$(".progress-bar").css("width", percent + "%")
 		}
 
-		$(".submit").click(function () {
-			return false;
-		});
+		// $(".submit").click(function () {
+		// 	let form = $("#msform");
+		// 	$.ajax({
+		// 		url: $(form).attr('action'),
+		// 		type: $(form).attr('method'),
+		// 		data: $(form).serialize(), // Serialize the form data
+		// 		success: function(response){
+		// 			$('#response').html(response); // Display the response
+		// 		},
+		// 		error: function(xhr, status, error){
+		// 			console.error(error); // Log any error
+		// 		}
+		// 	});
+		// });
 	});
 
 
@@ -3073,4 +3094,52 @@
 	//
 	//        });
 	//    }); // end document.ready
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var base_url = "<?php echo base_url(); ?>";
+
+		$('#msform').validate({
+			rules: {
+				applicant_initial: {
+					required: true
+				}
+			}, messages: {
+				applicant_initial: {
+					required: "Please enter a initial",
+				}
+			},
+			highlight: function (element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+
+			submitHandler: function (form) {
+				$.ajax({
+					type: $(form).attr('method'),
+					url: $(form).attr('action'),
+					data: $(form).serialize(),
+					success: function (data)
+					{
+						//$("#company-form").hide('slow');
+						if ($.trim(data) == "success") {
+							$('#results').addClass('alert alert-success');
+							$('#results').html('Application successfully saved');
+							var URL = "<?php echo base_url(); ?>mapplication/";
+							setTimeout(function () {
+								window.location = URL;
+							}, 1000);
+						} else {
+							$('#results').addClass('alert alert-danger');
+							$('#results').html('error');
+						}
+
+					}
+				});
+
+				return false; // required to block normal submit since you used ajax
+			}
+
+		});
+	}); // end document.ready
 </script>
