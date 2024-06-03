@@ -34,6 +34,10 @@ class Mapplication extends MY_Controller
 		$this->load->view('layout/footer', $data);
 	}
 
+	/**
+	 * This is add form.
+	 * @return void
+	 */
 	public function add()
 	{
 
@@ -49,9 +53,9 @@ class Mapplication extends MY_Controller
 		$data['propertyTypes'] = array('detached' => 'Detached', 'semi_detached' => 'Semi-Detached', 'high_rise_apartment' => 'High Rise Apartment', 'bungalow' => 'Bungalow', 'row_house_or_townhouse' => 'Row House/Townhouse', 'other' => 'Other');
 		$data['zoning'] = array('residential' => 'Residential', 'commercial' => 'Commercial', 'farm' => 'Farm', 'other' => 'Other');
 		$data['propertyTitles'] = array('freehold' => 'Freehold', 'leasehold' => 'Leasehold', 'condominium_or_state' => 'Condominium/State');
-		$data['garageTypes'] = array('attached' => 'Attached', 'owner_occupied' => 'Owner Occupied', 'detached' => 'Detached','rental_property' => 'Rental Property');
-		$data['garageSizes'] = array('single' => 'Single', 'double' => 'Double', 'triple' => 'Triple','specify' => 'Specify');
-		$data['holders'] = array('1' => '1st', '2' => '2nd', '3' => '3rd','other' => 'Other');
+		$data['garageTypes'] = array('attached' => 'Attached', 'owner_occupied' => 'Owner Occupied', 'detached' => 'Detached', 'rental_property' => 'Rental Property');
+		$data['garageSizes'] = array('single' => 'Single', 'double' => 'Double', 'triple' => 'Triple', 'specify' => 'Specify');
+		$data['holders'] = array('1' => '1st', '2' => '2nd', '3' => '3rd', 'other' => 'Other');
 
 		$data['title'] = "Application Add";
 		$data['link_back'] = anchor('application/listing/', 'Back to list of application Name', array('class' => 'back'));
@@ -100,20 +104,77 @@ class Mapplication extends MY_Controller
 
 	}
 
+	/**
+	 * This is view application.
+	 * @param $id
+	 * @return void
+	 */
 	public function view($id)
 	{
 		$data['user'] = $this->session->userdata('first_name');
 
 		$data['application'] = $this->mapplication_model->get_detail($id);
+		$data['data'] = $this->mapplication_model->get_detail($id);
+		$data['initials'] = array('mr' => 'Mr.', 'mrs' => 'Mrs.', 'ms' => 'Ms.', 'dr' => 'Dr.', 'other' => 'Other');
+		$data['address_types'] = array('own' => 'Own', 'parent' => 'Parent', 'rent' => 'Rent');
+		$data['genders'] = array('male' => 'Male', 'female' => 'Female');
+		$data['maritalStatues'] = array('single' => 'Single', 'married' => 'Married', 'widowed' => 'Widowed', 'separated' => 'Separated', 'divorced' => 'Divorced', 'common_law' => 'Common Law');
+		$data['loanPurposes'] = array('pre_approval' => 'Pre-Approval', 'home_purchase' => 'Home Purchase', 'transfer_of_mortgage' => 'Transfer Of Mortgage', 'refinance_or_equity' => 'Refinance/Equity');
+		$data['heatingTypes'] = array('electric_baseboard' => 'Electric Baseboard', 'water_heating' => 'Water Heating', 'force_air' => 'Force Air', 'other' => 'Other');
+		$data['propertyTypes'] = array('detached' => 'Detached', 'semi_detached' => 'Semi-Detached', 'high_rise_apartment' => 'High Rise Apartment', 'bungalow' => 'Bungalow', 'row_house_or_townhouse' => 'Row House/Townhouse', 'other' => 'Other');
+		$data['zoning'] = array('residential' => 'Residential', 'commercial' => 'Commercial', 'farm' => 'Farm', 'other' => 'Other');
+		$data['propertyTitles'] = array('freehold' => 'Freehold', 'leasehold' => 'Leasehold', 'condominium_or_state' => 'Condominium/State');
+		$data['garageTypes'] = array('attached' => 'Attached', 'owner_occupied' => 'Owner Occupied', 'detached' => 'Detached', 'rental_property' => 'Rental Property');
+		$data['garageSizes'] = array('single' => 'Single', 'double' => 'Double', 'triple' => 'Triple', 'specify' => 'Specify');
+		$data['holders'] = array('1' => '1st', '2' => '2nd', '3' => '3rd', 'other' => 'Other');
+
 		$data['title'] = "application";
 		$data['btn_value'] = 'Update';
 		$data['link_back'] = anchor('application/listing/', 'Back to list of application', array('class' => 'back'));
 		$this->load->view('layout/header', $data);
 		$this->load->view('layout/menu_bar');
-		$this->load->view('application/application_add', $data);
+		$this->load->view('application/application_view', $data);
 		$this->load->view('layout/footer', $data);
 	}
 
+	/**
+	 * This is edit application form.
+	 * @param $id
+	 * @return void
+	 */
+	public function edit($id)
+	{
+		$data['user'] = $this->session->userdata('first_name');
+
+		$data['application_id'] = $id;
+		$data['application'] = $this->mapplication_model->get_detail($id);
+		$data['data'] = $this->mapplication_model->get_detail($id);
+		$data['initials'] = array('mr' => 'Mr.', 'mrs' => 'Mrs.', 'ms' => 'Ms.', 'dr' => 'Dr.', 'other' => 'Other');
+		$data['address_types'] = array('own' => 'Own', 'parent' => 'Parent', 'rent' => 'Rent');
+		$data['genders'] = array('male' => 'Male', 'female' => 'Female');
+		$data['maritalStatues'] = array('single' => 'Single', 'married' => 'Married', 'widowed' => 'Widowed', 'separated' => 'Separated', 'divorced' => 'Divorced', 'common_law' => 'Common Law');
+		$data['loanPurposes'] = array('pre_approval' => 'Pre-Approval', 'home_purchase' => 'Home Purchase', 'transfer_of_mortgage' => 'Transfer Of Mortgage', 'refinance_or_equity' => 'Refinance/Equity');
+		$data['heatingTypes'] = array('electric_baseboard' => 'Electric Baseboard', 'water_heating' => 'Water Heating', 'force_air' => 'Force Air', 'other' => 'Other');
+		$data['propertyTypes'] = array('detached' => 'Detached', 'semi_detached' => 'Semi-Detached', 'high_rise_apartment' => 'High Rise Apartment', 'bungalow' => 'Bungalow', 'row_house_or_townhouse' => 'Row House/Townhouse', 'other' => 'Other');
+		$data['zoning'] = array('residential' => 'Residential', 'commercial' => 'Commercial', 'farm' => 'Farm', 'other' => 'Other');
+		$data['propertyTitles'] = array('freehold' => 'Freehold', 'leasehold' => 'Leasehold', 'condominium_or_state' => 'Condominium/State');
+		$data['garageTypes'] = array('attached' => 'Attached', 'owner_occupied' => 'Owner Occupied', 'detached' => 'Detached', 'rental_property' => 'Rental Property');
+		$data['garageSizes'] = array('single' => 'Single', 'double' => 'Double', 'triple' => 'Triple', 'specify' => 'Specify');
+		$data['holders'] = array('1' => '1st', '2' => '2nd', '3' => '3rd', 'other' => 'Other');
+
+		$data['title'] = "application";
+		$data['btn_value'] = 'Update';
+		$data['link_back'] = anchor('application/listing/', 'Back to list of application', array('class' => 'back'));
+		$this->load->view('layout/header', $data);
+		$this->load->view('layout/menu_bar');
+		$this->load->view('application/application_edit', $data);
+		$this->load->view('layout/footer', $data);
+	}
+
+	/**
+	 * This is application delete function, this function used to change delete column value 0 to 1.
+	 * @return void
+	 */
 	function delete()
 	{
 		$id = $_POST['application_id'];
@@ -122,6 +183,45 @@ class Mapplication extends MY_Controller
 			echo 'Success';
 		} else {
 			echo $status;
+		}
+	}
+
+
+	/**
+	 * @return void
+	 */
+	public function update()
+	{
+		if ($this->mapplication_model->update()) {
+			echo 'success';
+		} else {
+			echo 'error';
+		}
+//		$this->form_validation->set_rules('applicant_initial', 'applicant initial', 'trim|required');
+//
+//		if ($this->form_validation->run() == FALSE) {
+//
+//			echo validation_errors();
+//		} else {
+//			if ($this->mapplication_model->add()) {
+//				echo 'success';
+//			} else {
+//				echo 'error';
+//			}
+//			//$this->listing();
+//		}
+	}
+
+	/**
+	 * This function used to store data temporarily
+	 * @return void
+	 */
+	public function tempUpdate()
+	{
+		if ($this->mapplication_model->tempUpdate()) {
+			echo 'success';
+		} else {
+			echo 'error';
 		}
 	}
 

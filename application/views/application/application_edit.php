@@ -304,7 +304,6 @@
 		font-weight: lighter
 	}
 </style>
-<?php $base_link = $this->config->item('base_url').$this->config->item('index_page');?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -345,11 +344,12 @@
 					<div class="row justify-content-center mt-0">
 						<div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center p-0 mt-3 mb-2">
 							<div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-								<h2><strong>View Your Mortgage Application</strong></h2>
+								<h2><strong>Edit Your Mortgage Application</strong></h2>
+								<p>Fill all form fields to proceed to the next step</p>
 								<div class="row">
 									<div class="col-md-12 mx-0">
 										<form class="well form-horizontal" id="msform"
-											  action="<?php echo base_url(); ?>Mapplication/save" method="post">
+											  action="<?php echo base_url(); ?>Mapplication/update" method="post">
 											<!-- progressbar -->
 											<ul id="progressbar">
 												<li class="active" id="personal"><strong>APPLICANT DETAILS</strong></li>
@@ -361,6 +361,8 @@
 												<li id="financial"><strong>FINANCIAL</strong></li>
 												<li id="general"><strong>GENERAL</strong></li>
 											</ul>
+
+											<input type="hidden" value="<?php echo $application_id ?>" id="application_id">
 											<!-- fieldsets -->
 
 
@@ -3187,8 +3189,7 @@
 												<!--												<input type="button" name="submit" class="submit action-button"-->
 												<!--													   value="Submit"/>-->
 
-												<a href='<?php echo $base_link?>mapplication' type="button" class="action-button"> Cancel </a>
-
+												<button type="submit" class="submit action-button"> Submit</button>
 
 											</fieldset>
 										</form>
@@ -3217,6 +3218,45 @@
 
 
 <script type="text/javascript">
+
+	/**
+	 * This function used to save application temp data.
+	 */
+	function saveFormData() {
+		let form = $('#msform');
+		let URL = "<?php echo base_url(); ?>Mapplication/tempSave";
+		$.ajax({
+			type: $(form).attr('method'),
+			url: URL,
+			data: $(form).serialize(),
+			success: function (data) {
+				console.log('success');
+			}
+		});
+	}
+
+
+	/**
+	 * This function used to draft application temp data.
+	 */
+	function draftFormData() {
+		let form = $('#msform');
+		let URL = "<?php echo base_url(); ?>Mapplication/tempUpdate";
+		$.ajax({
+			type: $(form).attr('method'),
+			url: URL,
+			data: $(form).serialize(),
+			success: function (data) {
+				if ($.trim(data) == "success") {
+					$('#results').addClass('alert alert-success');
+					$('#results').html('Application successfully draft');
+				} else {
+					$('#results').addClass('alert alert-danger');
+					$('#results').html('error');
+				}
+			}
+		});
+	}
 
 	/**
 	 * This is toggle action function
@@ -3457,6 +3497,7 @@
 				duration: 500
 			});
 			setProgressBar(++current);
+			saveFormData();
 			document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 		});
 
@@ -3479,6 +3520,7 @@
 				duration: 500
 			});
 			setProgressBar(--current);
+			saveFormData();
 			document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 		});
 
@@ -3516,6 +3558,7 @@
 				});
 				setProgressBar(stepIndex + 1);
 				current = stepIndex + 1;
+				saveFormData();
 				document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 			}
 
@@ -3530,4 +3573,51 @@
 
 	});
 
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var base_url = "<?php echo base_url(); ?>";
+
+		$('#msform').validate({
+			rules: {
+				applicant_initial: {
+					required: true
+				}
+			}, messages: {
+				applicant_initial: {
+					required: "Please enter a initial",
+				}
+			},
+			highlight: function (element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+
+			submitHandler: function (form) {
+				$.ajax({
+					type: $(form).attr('method'),
+					url: $(form).attr('action'),
+					data: $(form).serialize(),
+					success: function (data) {
+						//$("#company-form").hide('slow');
+						if ($.trim(data) == "success") {
+							$('#results').addClass('alert alert-success');
+							$('#results').html('Application successfully updated');
+							var URL = "<?php echo base_url(); ?>mapplication/";
+							setTimeout(function () {
+								window.location = URL;
+							}, 1000);
+						} else {
+							$('#results').addClass('alert alert-danger');
+							$('#results').html('error');
+						}
+
+					}
+				});
+
+				return false; // required to block normal submit since you used ajax
+			}
+
+		});
+	}); // end document.ready
 </script>
