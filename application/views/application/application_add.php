@@ -376,7 +376,8 @@
 																		name="applicant_initial">
 																	<option value="">Select Initial</option>
 																	<?php foreach ($initials as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['applicant_initial'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['applicant_initial'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -384,14 +385,16 @@
 															</div>
 														</div>
 
-														<div class="col-md-2" id="other_initial_group" style="display: none;">
+														<div class="col-md-2" id="other_initial_group"
+															 style="display: none;">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Initial <span
 																		class="span-font">(If initial other)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="applicant_other_initial"
-																	   placeholder="Enter initial" value="<?= isset($data['applicant_other_initial']) ? $data['applicant_other_initial'] : ''; ?>">
+																	   placeholder="Enter initial"
+																	   value="<?= isset($data['applicant_other_initial']) ? $data['applicant_other_initial'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-8">
@@ -400,7 +403,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="applicant_name"
-																	   placeholder="Enter name(First, Middle, Last)" value="<?= isset($data['applicant_name']) ? $data['applicant_name'] : ''; ?>">
+																	   placeholder="Enter name(First, Middle, Last)"
+																	   value="<?= isset($data['applicant_name']) ? $data['applicant_name'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-12">
@@ -411,7 +415,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="applicant_current_city" value="<?= isset($data['applicant_current_city']) ? $data['applicant_current_city'] : ''; ?>">
+																	   name="applicant_current_city"
+																	   value="<?= isset($data['applicant_current_city']) ? $data['applicant_current_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -420,7 +425,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="applicant_current_province" value="<?= isset($data['applicant_current_province']) ? $data['applicant_current_province'] : ''; ?>">
+																	   name="applicant_current_province"
+																	   value="<?= isset($data['applicant_current_province']) ? $data['applicant_current_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -429,7 +435,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="applicant_current_postal_code" value="<?= isset($data['applicant_current_postal_code']) ? $data['applicant_current_postal_code'] : ''; ?>">
+																	   name="applicant_current_postal_code"
+																	   value="<?= isset($data['applicant_current_postal_code']) ? $data['applicant_current_postal_code'] : ''; ?>">
 															</div>
 														</div>
 
@@ -441,7 +448,8 @@
 																		name="applicant_current_address_type">
 																	<option value="">Select Address Type</option>
 																	<?php foreach ($address_types as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['applicant_current_address_type'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['applicant_current_address_type'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -455,7 +463,8 @@
 																		class="span-font">(If address is rent)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputName" name="applicant_rent"
-																	   placeholder="Enter rent" value="<?= isset($data['applicant_rent']) ? $data['applicant_rent'] : ''; ?>">
+																	   placeholder="Enter rent"
+																	   value="<?= isset($data['applicant_rent']) ? $data['applicant_rent'] : ''; ?>">
 															</div>
 														</div>
 
@@ -467,7 +476,8 @@
 																</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_current_address_spend_year" value="<?= isset($data['applicant_current_address_spend_year']) ? $data['applicant_current_address_spend_year'] : ''; ?>">
+																	   name="applicant_current_address_spend_year"
+																	   value="<?= isset($data['applicant_current_address_spend_year']) ? $data['applicant_current_address_spend_year'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -478,7 +488,8 @@
 																</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_current_address_spend_month" value="<?= isset($data['applicant_current_address_spend_month']) ? $data['applicant_current_address_spend_month'] : ''; ?>">
+																	   name="applicant_current_address_spend_month"
+																	   value="<?= isset($data['applicant_current_address_spend_month']) ? $data['applicant_current_address_spend_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -492,7 +503,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="applicant_prior_city" value="<?= isset($data['applicant_prior_city']) ? $data['applicant_prior_city'] : ''; ?>">
+																	   name="applicant_prior_city"
+																	   value="<?= isset($data['applicant_prior_city']) ? $data['applicant_prior_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -501,7 +513,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="applicant_prior_province" value="<?= isset($data['applicant_prior_province']) ? $data['applicant_prior_province'] : ''; ?>">
+																	   name="applicant_prior_province"
+																	   value="<?= isset($data['applicant_prior_province']) ? $data['applicant_prior_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -510,7 +523,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="applicant_prior_postal_code" value="<?= isset($data['applicant_prior_postal_code']) ? $data['applicant_prior_postal_code'] : ''; ?>">
+																	   name="applicant_prior_postal_code"
+																	   value="<?= isset($data['applicant_prior_postal_code']) ? $data['applicant_prior_postal_code'] : ''; ?>">
 															</div>
 														</div>
 
@@ -522,7 +536,8 @@
 																		name="applicant_prior_address_type">
 																	<option value="">Select Address Type</option>
 																	<?php foreach ($address_types as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['applicant_prior_address_type'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['applicant_prior_address_type'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -530,13 +545,15 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="applicant_prior_rent" style="display: none">
+														<div class="col-md-3" id="applicant_prior_rent"
+															 style="display: none">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Rent <span
 																		class="span-font">(If address is rent)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputName" name="applicant_prior_rent"
-																	   placeholder="Enter rent" value="<?= isset($data['applicant_prior_rent']) ? $data['applicant_prior_rent'] : ''; ?>">
+																	   placeholder="Enter rent"
+																	   value="<?= isset($data['applicant_prior_rent']) ? $data['applicant_prior_rent'] : ''; ?>">
 															</div>
 														</div>
 
@@ -546,7 +563,8 @@
 																		class="span-font">(Time Spent at thisAddress)</span></label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_prior_address_spend_year" value="<?= isset($data['applicant_prior_address_spend_year']) ? $data['applicant_prior_address_spend_year'] : ''; ?>">
+																	   name="applicant_prior_address_spend_year"
+																	   value="<?= isset($data['applicant_prior_address_spend_year']) ? $data['applicant_prior_address_spend_year'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -555,7 +573,8 @@
 																		class="span-font">(Time Spent at thisAddress)</span></label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_prior_address_spend_month" value="<?= isset($data['applicant_prior_address_spend_month']) ? $data['applicant_prior_address_spend_month'] : ''; ?>">
+																	   name="applicant_prior_address_spend_month"
+																	   value="<?= isset($data['applicant_prior_address_spend_month']) ? $data['applicant_prior_address_spend_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -567,7 +586,8 @@
 																<label for="exampleInputEmail1">Home#</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_home_number" value="<?= isset($data['applicant_home_number']) ? $data['applicant_home_number'] : ''; ?>">
+																	   name="applicant_home_number"
+																	   value="<?= isset($data['applicant_home_number']) ? $data['applicant_home_number'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -575,7 +595,8 @@
 																<label for="exampleInputEmail1">Cell#</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_cell_number" value="<?= isset($data['applicant_cell_number']) ? $data['applicant_cell_number'] : ''; ?>">
+																	   name="applicant_cell_number"
+																	   value="<?= isset($data['applicant_cell_number']) ? $data['applicant_cell_number'] : ''; ?>">
 															</div>
 														</div>
 
@@ -584,14 +605,16 @@
 																<label for="exampleInputEmail1">Birth Date</label>
 																<input type="date" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_birth_date" value="<?= isset($data['applicant_birth_date']) ? $data['applicant_birth_date'] : ''; ?>">
+																	   name="applicant_birth_date"
+																	   value="<?= isset($data['applicant_birth_date']) ? $data['applicant_birth_date'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">S.I.N</label>
 																<input type="number" class="form-control"
-																	   id="exampleInputName" name="applicant_sin" value="<?= isset($data['applicant_sin']) ? $data['applicant_sin'] : ''; ?>">
+																	   id="exampleInputName" name="applicant_sin"
+																	   value="<?= isset($data['applicant_sin']) ? $data['applicant_sin'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -602,7 +625,8 @@
 																		name="applicant_gender">
 																	<option value="">Select Gender</option>
 																	<?php foreach ($genders as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['applicant_gender'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['applicant_gender'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -615,7 +639,8 @@
 																	Dependents</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="applicant_number_of_dependents" value="<?= isset($data['applicant_number_of_dependents']) ? $data['applicant_number_of_dependents'] : ''; ?>">
+																	   name="applicant_number_of_dependents"
+																	   value="<?= isset($data['applicant_number_of_dependents']) ? $data['applicant_number_of_dependents'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -626,7 +651,8 @@
 																		name="applicant_marital_status">
 																	<option value="">Select Marital Status</option>
 																	<?php foreach ($maritalStatues as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['applicant_marital_status'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['applicant_marital_status'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -638,7 +664,8 @@
 																<label for="exampleInputEmail1">Email</label>
 																<input type="email" class="form-control"
 																	   id="exampleInputName" name="applicant_email"
-																	   placeholder="Enter email" value="<?= isset($data['applicant_email']) ? $data['applicant_email'] : ''; ?>">
+																	   placeholder="Enter email"
+																	   value="<?= isset($data['applicant_email']) ? $data['applicant_email'] : ''; ?>">
 															</div>
 														</div>
 
@@ -655,7 +682,8 @@
 																		name="co_applicant_initial">
 																	<option value="">Select Initial</option>
 																	<?php foreach ($initials as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['co_applicant_initial'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['co_applicant_initial'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -663,14 +691,16 @@
 															</div>
 														</div>
 
-														<div class="col-md-2" id="co_other_initial_group" style="display: none">
+														<div class="col-md-2" id="co_other_initial_group"
+															 style="display: none">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Initial <span
 																		class="span-font">(If initial other)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="co_applicant_other_initial"
-																	   placeholder="Enter initial" value="<?= isset($data['applicant_email']) ? $data['applicant_email'] : ''; ?>">
+																	   placeholder="Enter initial"
+																	   value="<?= isset($data['applicant_email']) ? $data['applicant_email'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-8">
@@ -679,7 +709,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="co_applicant_name"
-																	   placeholder="Enter name(First, Middle, Last)" value="<?= isset($data['co_applicant_name']) ? $data['co_applicant_name'] : ''; ?>">
+																	   placeholder="Enter name(First, Middle, Last)"
+																	   value="<?= isset($data['co_applicant_name']) ? $data['co_applicant_name'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-12">
@@ -690,7 +721,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="co_applicant_current_city" value="<?= isset($data['co_applicant_current_city']) ? $data['co_applicant_current_city'] : ''; ?>">
+																	   name="co_applicant_current_city"
+																	   value="<?= isset($data['co_applicant_current_city']) ? $data['co_applicant_current_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -699,7 +731,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="co_applicant_current_province" value="<?= isset($data['co_applicant_current_province']) ? $data['co_applicant_current_province'] : ''; ?>">
+																	   name="co_applicant_current_province"
+																	   value="<?= isset($data['co_applicant_current_province']) ? $data['co_applicant_current_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -708,7 +741,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="co_applicant_current_postal_code" value="<?= isset($data['co_applicant_current_postal_code']) ? $data['co_applicant_current_postal_code'] : ''; ?>">
+																	   name="co_applicant_current_postal_code"
+																	   value="<?= isset($data['co_applicant_current_postal_code']) ? $data['co_applicant_current_postal_code'] : ''; ?>">
 															</div>
 														</div>
 
@@ -720,7 +754,8 @@
 																		name="co_applicant_current_address_type">
 																	<option value="">Select Address Type</option>
 																	<?php foreach ($address_types as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['co_applicant_current_address_type'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['co_applicant_current_address_type'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -728,13 +763,15 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="co_applicant_rent" style="display: none">
+														<div class="col-md-3" id="co_applicant_rent"
+															 style="display: none">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Rent<span
 																		class="span-font">(If address is rent)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputName" name="co_applicant_rent"
-																	   placeholder="Enter rent" value="<?= isset($data['co_applicant_rent']) ? $data['co_applicant_rent'] : ''; ?>">
+																	   placeholder="Enter rent"
+																	   value="<?= isset($data['co_applicant_rent']) ? $data['co_applicant_rent'] : ''; ?>">
 															</div>
 														</div>
 
@@ -746,7 +783,8 @@
 																</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_current_address_spend_year" value="<?= isset($data['co_applicant_current_address_spend_year']) ? $data['co_applicant_current_address_spend_year'] : ''; ?>">
+																	   name="co_applicant_current_address_spend_year"
+																	   value="<?= isset($data['co_applicant_current_address_spend_year']) ? $data['co_applicant_current_address_spend_year'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -757,7 +795,8 @@
 																</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_current_address_spend_month" value="<?= isset($data['co_applicant_current_address_spend_month']) ? $data['co_applicant_current_address_spend_month'] : ''; ?>">
+																	   name="co_applicant_current_address_spend_month"
+																	   value="<?= isset($data['co_applicant_current_address_spend_month']) ? $data['co_applicant_current_address_spend_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -771,7 +810,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="co_applicant_prior_city" value="<?= isset($data['co_applicant_prior_city']) ? $data['co_applicant_prior_city'] : ''; ?>">
+																	   name="co_applicant_prior_city"
+																	   value="<?= isset($data['co_applicant_prior_city']) ? $data['co_applicant_prior_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -780,7 +820,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="co_applicant_prior_province" value="<?= isset($data['co_applicant_prior_province']) ? $data['co_applicant_prior_province'] : ''; ?>">
+																	   name="co_applicant_prior_province"
+																	   value="<?= isset($data['co_applicant_prior_province']) ? $data['co_applicant_prior_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -789,7 +830,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="co_applicant_prior_postal_code" value="<?= isset($data['co_applicant_prior_postal_code']) ? $data['co_applicant_prior_postal_code'] : ''; ?>">
+																	   name="co_applicant_prior_postal_code"
+																	   value="<?= isset($data['co_applicant_prior_postal_code']) ? $data['co_applicant_prior_postal_code'] : ''; ?>">
 															</div>
 														</div>
 
@@ -801,7 +843,8 @@
 																		name="co_applicant_prior_address_type">
 																	<option value="">Select Address Type</option>
 																	<?php foreach ($address_types as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['co_applicant_prior_address_type'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['co_applicant_prior_address_type'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -809,14 +852,16 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="co_applicant_prior_rent" style="display:none;">
+														<div class="col-md-3" id="co_applicant_prior_rent"
+															 style="display:none;">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Rent <span
 																		class="span-font">(If address is rent)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="co_applicant_prior_rent"
-																	   placeholder="Enter rent" value="<?= isset($data['co_applicant_prior_rent']) ? $data['co_applicant_prior_rent'] : ''; ?>">
+																	   placeholder="Enter rent"
+																	   value="<?= isset($data['co_applicant_prior_rent']) ? $data['co_applicant_prior_rent'] : ''; ?>">
 															</div>
 														</div>
 
@@ -826,7 +871,8 @@
 																		class="span-font">(Time Spent at thisAddress)</span></label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_prior_address_spend_year" value="<?= isset($data['co_applicant_prior_address_spend_year']) ? $data['co_applicant_prior_address_spend_year'] : ''; ?>">
+																	   name="co_applicant_prior_address_spend_year"
+																	   value="<?= isset($data['co_applicant_prior_address_spend_year']) ? $data['co_applicant_prior_address_spend_year'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -835,7 +881,8 @@
 																		class="span-font">(Time Spent at thisAddress)</span></label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_prior_address_spend_month" value="<?= isset($data['co_applicant_prior_address_spend_month']) ? $data['co_applicant_prior_address_spend_month'] : ''; ?>">
+																	   name="co_applicant_prior_address_spend_month"
+																	   value="<?= isset($data['co_applicant_prior_address_spend_month']) ? $data['co_applicant_prior_address_spend_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -847,7 +894,8 @@
 																<label for="exampleInputEmail1">Home#</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_home_number" value="<?= isset($data['co_applicant_home_number']) ? $data['co_applicant_home_number'] : ''; ?>">
+																	   name="co_applicant_home_number"
+																	   value="<?= isset($data['co_applicant_home_number']) ? $data['co_applicant_home_number'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -855,7 +903,8 @@
 																<label for="exampleInputEmail1">Cell#</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_cell_number" value="<?= isset($data['co_applicant_cell_number']) ? $data['co_applicant_cell_number'] : ''; ?>">
+																	   name="co_applicant_cell_number"
+																	   value="<?= isset($data['co_applicant_cell_number']) ? $data['co_applicant_cell_number'] : ''; ?>">
 															</div>
 														</div>
 
@@ -864,14 +913,16 @@
 																<label for="exampleInputEmail1">Birth Date</label>
 																<input type="date" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_birth_date" value="<?= isset($data['co_applicant_birth_date']) ? $data['co_applicant_birth_date'] : ''; ?>">
+																	   name="co_applicant_birth_date"
+																	   value="<?= isset($data['co_applicant_birth_date']) ? $data['co_applicant_birth_date'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">S.I.N</label>
 																<input type="number" class="form-control"
-																	   id="exampleInputName" name="co_applicant_sin" value="<?= isset($data['co_applicant_sin']) ? $data['co_applicant_sin'] : ''; ?>">
+																	   id="exampleInputName" name="co_applicant_sin"
+																	   value="<?= isset($data['co_applicant_sin']) ? $data['co_applicant_sin'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -882,7 +933,8 @@
 																		name="co_applicant_gender">
 																	<option value="">Select Gender</option>
 																	<?php foreach ($genders as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['co_applicant_gender'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['co_applicant_gender'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -895,7 +947,8 @@
 																	Dependents</label>
 																<input type="number" class="form-control"
 																	   id="exampleInputName"
-																	   name="co_applicant_number_of_dependents" value="<?= isset($data['co_applicant_number_of_dependents']) ? $data['co_applicant_number_of_dependents'] : ''; ?>">
+																	   name="co_applicant_number_of_dependents"
+																	   value="<?= isset($data['co_applicant_number_of_dependents']) ? $data['co_applicant_number_of_dependents'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -906,7 +959,8 @@
 																		name="co_applicant_marital_status">
 																	<option value="">Select Marital Status</option>
 																	<?php foreach ($maritalStatues as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['co_applicant_marital_status'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['co_applicant_marital_status'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -918,7 +972,8 @@
 																<label for="exampleInputEmail1">Email</label>
 																<input type="email" class="form-control"
 																	   id="exampleInputName" name="co_applicant_email"
-																	   placeholder="Enter email" value="<?= isset($data['co_applicant_email']) ? $data['co_applicant_email'] : ''; ?>">
+																	   placeholder="Enter email"
+																	   value="<?= isset($data['co_applicant_email']) ? $data['co_applicant_email'] : ''; ?>">
 															</div>
 														</div>
 
@@ -948,7 +1003,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="applicant_current_employer"
-																	   placeholder="Enter current employer" value="<?= isset($data['applicant_current_employer']) ? $data['applicant_current_employer'] : ''; ?>">
+																	   placeholder="Enter current employer"
+																	   value="<?= isset($data['applicant_current_employer']) ? $data['applicant_current_employer'] : ''; ?>">
 															</div>
 														</div>
 
@@ -958,7 +1014,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="applicant_current_job_title"
-																	   placeholder="Enter current job title" value="<?= isset($data['applicant_current_job_title']) ? $data['applicant_current_job_title'] : ''; ?>">
+																	   placeholder="Enter current job title"
+																	   value="<?= isset($data['applicant_current_job_title']) ? $data['applicant_current_job_title'] : ''; ?>">
 															</div>
 														</div>
 
@@ -967,7 +1024,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="applicant_employment_current_city" value="<?= isset($data['applicant_employment_current_city']) ? $data['applicant_employment_current_city'] : ''; ?>">
+																	   name="applicant_employment_current_city"
+																	   value="<?= isset($data['applicant_employment_current_city']) ? $data['applicant_employment_current_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -976,7 +1034,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="applicant_employment_current_province" value="<?= isset($data['applicant_employment_current_province']) ? $data['applicant_employment_current_province'] : ''; ?>">
+																	   name="applicant_employment_current_province"
+																	   value="<?= isset($data['applicant_employment_current_province']) ? $data['applicant_employment_current_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -985,7 +1044,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="applicant_employment_current_postal_code" value="<?= isset($data['applicant_employment_current_postal_code']) ? $data['applicant_employment_current_postal_code'] : ''; ?>">
+																	   name="applicant_employment_current_postal_code"
+																	   value="<?= isset($data['applicant_employment_current_postal_code']) ? $data['applicant_employment_current_postal_code'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -994,7 +1054,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter income"
-																	   name="applicant_current_income" value="<?= isset($data['applicant_current_income']) ? $data['applicant_current_income'] : ''; ?>">
+																	   name="applicant_current_income"
+																	   value="<?= isset($data['applicant_current_income']) ? $data['applicant_current_income'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1003,7 +1064,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter phone number"
-																	   name="applicant_employment_current_phone" value="<?= isset($data['applicant_employment_current_phone']) ? $data['applicant_employment_current_phone'] : ''; ?>">
+																	   name="applicant_employment_current_phone"
+																	   value="<?= isset($data['applicant_employment_current_phone']) ? $data['applicant_employment_current_phone'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1012,7 +1074,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter fax number"
-																	   name="applicant_employment_current_fax" value="<?= isset($data['applicant_employment_current_fax']) ? $data['applicant_employment_current_fax'] : ''; ?>">
+																	   name="applicant_employment_current_fax"
+																	   value="<?= isset($data['applicant_employment_current_fax']) ? $data['applicant_employment_current_fax'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1023,7 +1086,8 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="applicant_employment_current_year" value="<?= isset($data['applicant_employment_current_year']) ? $data['applicant_employment_current_year'] : ''; ?>">
+																	   name="applicant_employment_current_year"
+																	   value="<?= isset($data['applicant_employment_current_year']) ? $data['applicant_employment_current_year'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1034,7 +1098,8 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="applicant_employment_current_month" value="<?= isset($data['applicant_employment_current_month']) ? $data['applicant_employment_current_month'] : ''; ?>">
+																	   name="applicant_employment_current_month"
+																	   value="<?= isset($data['applicant_employment_current_month']) ? $data['applicant_employment_current_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1049,7 +1114,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="applicant_previous_employer"
-																	   placeholder="Enter previous employer" value="<?= isset($data['applicant_previous_employer']) ? $data['applicant_previous_employer'] : ''; ?>">
+																	   placeholder="Enter previous employer"
+																	   value="<?= isset($data['applicant_previous_employer']) ? $data['applicant_previous_employer'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1059,7 +1125,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="applicant_previous_job_title"
-																	   placeholder="Enter previous job title" value="<?= isset($data['applicant_previous_job_title']) ? $data['applicant_previous_job_title'] : ''; ?>">
+																	   placeholder="Enter previous job title"
+																	   value="<?= isset($data['applicant_previous_job_title']) ? $data['applicant_previous_job_title'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1068,7 +1135,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="applicant_employment_previous_city" value="<?= isset($data['applicant_employment_previous_city']) ? $data['applicant_employment_previous_city'] : ''; ?>">
+																	   name="applicant_employment_previous_city"
+																	   value="<?= isset($data['applicant_employment_previous_city']) ? $data['applicant_employment_previous_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1077,7 +1145,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="applicant_employment_previous_province" value="<?= isset($data['applicant_employment_previous_province']) ? $data['applicant_employment_previous_province'] : ''; ?>">
+																	   name="applicant_employment_previous_province"
+																	   value="<?= isset($data['applicant_employment_previous_province']) ? $data['applicant_employment_previous_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1086,7 +1155,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="applicant_employment_previous_postal_code" value="<?= isset($data['applicant_employment_previous_postal_code']) ? $data['applicant_employment_previous_postal_code'] : ''; ?>">
+																	   name="applicant_employment_previous_postal_code"
+																	   value="<?= isset($data['applicant_employment_previous_postal_code']) ? $data['applicant_employment_previous_postal_code'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1095,7 +1165,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter income"
-																	   name="applicant_previous_income" value="<?= isset($data['applicant_previous_income']) ? $data['applicant_previous_income'] : ''; ?>">
+																	   name="applicant_previous_income"
+																	   value="<?= isset($data['applicant_previous_income']) ? $data['applicant_previous_income'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1104,7 +1175,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter phone number"
-																	   name="applicant_employment_previous_phone" value="<?= isset($data['applicant_employment_previous_phone']) ? $data['applicant_employment_previous_phone'] : ''; ?>">
+																	   name="applicant_employment_previous_phone"
+																	   value="<?= isset($data['applicant_employment_previous_phone']) ? $data['applicant_employment_previous_phone'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1113,7 +1185,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter fax number"
-																	   name="applicant_employment_previous_fax" value="<?= isset($data['applicant_employment_previous_fax']) ? $data['applicant_employment_previous_fax'] : ''; ?>">
+																	   name="applicant_employment_previous_fax"
+																	   value="<?= isset($data['applicant_employment_previous_fax']) ? $data['applicant_employment_previous_fax'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1124,7 +1197,8 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="applicant_employment_previous_year" value="<?= isset($data['applicant_employment_previous_year']) ? $data['applicant_employment_previous_year'] : ''; ?>">
+																	   name="applicant_employment_previous_year"
+																	   value="<?= isset($data['applicant_employment_previous_year']) ? $data['applicant_employment_previous_year'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1135,7 +1209,8 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="applicant_employment_previous_month" value="<?= isset($data['applicant_employment_previous_month']) ? $data['applicant_employment_previous_month'] : ''; ?>">
+																	   name="applicant_employment_previous_month"
+																	   value="<?= isset($data['applicant_employment_previous_month']) ? $data['applicant_employment_previous_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1157,7 +1232,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="co_applicant_current_employer"
-																	   placeholder="Enter current employer" value="<?= isset($data['co_applicant_current_employer']) ? $data['co_applicant_current_employer'] : ''; ?>">
+																	   placeholder="Enter current employer"
+																	   value="<?= isset($data['co_applicant_current_employer']) ? $data['co_applicant_current_employer'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1167,7 +1243,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="co_applicant_current_job_title"
-																	   placeholder="Enter current job title" value="<?= isset($data['co_applicant_current_job_title']) ? $data['co_applicant_current_job_title'] : ''; ?>">
+																	   placeholder="Enter current job title"
+																	   value="<?= isset($data['co_applicant_current_job_title']) ? $data['co_applicant_current_job_title'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1176,7 +1253,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="co_applicant_employment_current_city" value="<?= isset($data['co_applicant_employment_current_city']) ? $data['co_applicant_employment_current_city'] : ''; ?>">
+																	   name="co_applicant_employment_current_city"
+																	   value="<?= isset($data['co_applicant_employment_current_city']) ? $data['co_applicant_employment_current_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1185,7 +1263,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="co_applicant_employment_current_province" value="<?= isset($data['co_applicant_employment_current_province']) ? $data['co_applicant_employment_current_province'] : ''; ?>">
+																	   name="co_applicant_employment_current_province"
+																	   value="<?= isset($data['co_applicant_employment_current_province']) ? $data['co_applicant_employment_current_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1194,7 +1273,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="co_applicant_employment_current_postal_code" value="<?= isset($data['co_applicant_employment_current_postal_code']) ? $data['co_applicant_employment_current_postal_code'] : ''; ?>">
+																	   name="co_applicant_employment_current_postal_code"
+																	   value="<?= isset($data['co_applicant_employment_current_postal_code']) ? $data['co_applicant_employment_current_postal_code'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1203,7 +1283,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter income"
-																	   name="co_applicant_current_income" value="<?= isset($data['co_applicant_current_income']) ? $data['co_applicant_current_income'] : ''; ?>">
+																	   name="co_applicant_current_income"
+																	   value="<?= isset($data['co_applicant_current_income']) ? $data['co_applicant_current_income'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1212,7 +1293,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter phone number"
-																	   name="co_applicant_employment_current_phone" value="<?= isset($data['co_applicant_employment_current_phone']) ? $data['co_applicant_employment_current_phone'] : ''; ?>">
+																	   name="co_applicant_employment_current_phone"
+																	   value="<?= isset($data['co_applicant_employment_current_phone']) ? $data['co_applicant_employment_current_phone'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1221,7 +1303,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter fax number"
-																	   name="co_applicant_employment_current_fax" value="<?= isset($data['co_applicant_employment_current_fax']) ? $data['co_applicant_employment_current_fax'] : ''; ?>">
+																	   name="co_applicant_employment_current_fax"
+																	   value="<?= isset($data['co_applicant_employment_current_fax']) ? $data['co_applicant_employment_current_fax'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1232,7 +1315,8 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="co_applicant_employment_current_year" value="<?= isset($data['co_applicant_employment_current_year']) ? $data['co_applicant_employment_current_year'] : ''; ?>">
+																	   name="co_applicant_employment_current_year"
+																	   value="<?= isset($data['co_applicant_employment_current_year']) ? $data['co_applicant_employment_current_year'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1243,7 +1327,8 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="co_applicant_employment_current_month" value="<?= isset($data['co_applicant_employment_current_month']) ? $data['co_applicant_employment_current_month'] : ''; ?>">
+																	   name="co_applicant_employment_current_month"
+																	   value="<?= isset($data['co_applicant_employment_current_month']) ? $data['co_applicant_employment_current_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1258,7 +1343,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="co_applicant_previous_employer"
-																	   placeholder="Enter previous employer" value="<?= isset($data['co_applicant_previous_employer']) ? $data['co_applicant_previous_employer'] : ''; ?>">
+																	   placeholder="Enter previous employer"
+																	   value="<?= isset($data['co_applicant_previous_employer']) ? $data['co_applicant_previous_employer'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1268,7 +1354,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputName"
 																	   name="co_applicant_previous_job_title"
-																	   placeholder="Enter previous job title" value="<?= isset($data['co_applicant_previous_job_title']) ? $data['co_applicant_previous_job_title'] : ''; ?>">
+																	   placeholder="Enter previous job title"
+																	   value="<?= isset($data['co_applicant_previous_job_title']) ? $data['co_applicant_previous_job_title'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1277,7 +1364,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="co_applicant_employment_previous_city" value="<?= isset($data['co_applicant_employment_previous_city']) ? $data['co_applicant_employment_previous_city'] : ''; ?>">
+																	   name="co_applicant_employment_previous_city"
+																	   value="<?= isset($data['co_applicant_employment_previous_city']) ? $data['co_applicant_employment_previous_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1286,7 +1374,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="co_applicant_employment_previous_province" value="<?= isset($data['co_applicant_employment_previous_province']) ? $data['co_applicant_employment_previous_province'] : ''; ?>">
+																	   name="co_applicant_employment_previous_province"
+																	   value="<?= isset($data['co_applicant_employment_previous_province']) ? $data['co_applicant_employment_previous_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1295,7 +1384,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="co_applicant_employment_previous_postal_code" value="<?= isset($data['co_applicant_employment_previous_postal_code']) ? $data['co_applicant_employment_previous_postal_code'] : ''; ?>">
+																	   name="co_applicant_employment_previous_postal_code"
+																	   value="<?= isset($data['co_applicant_employment_previous_postal_code']) ? $data['co_applicant_employment_previous_postal_code'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1304,7 +1394,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter income"
-																	   name="co_applicant_previous_income" value="<?= isset($data['co_applicant_previous_income']) ? $data['co_applicant_previous_income'] : ''; ?>">
+																	   name="co_applicant_previous_income"
+																	   value="<?= isset($data['co_applicant_previous_income']) ? $data['co_applicant_previous_income'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1313,7 +1404,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter phone number"
-																	   name="co_applicant_employment_previous_phone" value="<?= isset($data['co_applicant_employment_previous_phone']) ? $data['co_applicant_employment_previous_phone'] : ''; ?>">
+																	   name="co_applicant_employment_previous_phone"
+																	   value="<?= isset($data['co_applicant_employment_previous_phone']) ? $data['co_applicant_employment_previous_phone'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1322,7 +1414,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter fax number"
-																	   name="co_applicant_employment_previous_fax" value="<?= isset($data['co_applicant_employment_previous_fax']) ? $data['co_applicant_employment_previous_fax'] : ''; ?>">
+																	   name="co_applicant_employment_previous_fax"
+																	   value="<?= isset($data['co_applicant_employment_previous_fax']) ? $data['co_applicant_employment_previous_fax'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1333,7 +1426,8 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="co_applicant_employment_previous_year" value="<?= isset($data['co_applicant_employment_previous_year']) ? $data['co_applicant_employment_previous_year'] : ''; ?>">
+																	   name="co_applicant_employment_previous_year"
+																	   value="<?= isset($data['co_applicant_employment_previous_year']) ? $data['co_applicant_employment_previous_year'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1344,7 +1438,8 @@
 																<input type="number" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter value"
-																	   name="co_applicant_employment_previous_month" value="<?= isset($data['co_applicant_employment_previous_month']) ? $data['co_applicant_employment_previous_month'] : ''; ?>">
+																	   name="co_applicant_employment_previous_month"
+																	   value="<?= isset($data['co_applicant_employment_previous_month']) ? $data['co_applicant_employment_previous_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1373,7 +1468,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_full_time"
-																		   placeholder="Enter full time income" value="<?= isset($data['applicant_income_full_time']) ? $data['applicant_income_full_time'] : ''; ?>">
+																		   placeholder="Enter full time income"
+																		   value="<?= isset($data['applicant_income_full_time']) ? $data['applicant_income_full_time'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1384,7 +1480,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_self_employed"
-																		   placeholder="Enter self-employed income" value="<?= isset($data['applicant_income_self_employed']) ? $data['applicant_income_self_employed'] : ''; ?>">
+																		   placeholder="Enter self-employed income"
+																		   value="<?= isset($data['applicant_income_self_employed']) ? $data['applicant_income_self_employed'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1394,7 +1491,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_contract"
-																		   placeholder="Enter contract income" value="<?= isset($data['applicant_income_contract']) ? $data['applicant_income_contract'] : ''; ?>">
+																		   placeholder="Enter contract income"
+																		   value="<?= isset($data['applicant_income_contract']) ? $data['applicant_income_contract'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1405,7 +1503,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_commission"
-																		   placeholder="Enter commission income" value="<?= isset($data['applicant_income_commission']) ? $data['applicant_income_commission'] : ''; ?>">
+																		   placeholder="Enter commission income"
+																		   value="<?= isset($data['applicant_income_commission']) ? $data['applicant_income_commission'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1416,7 +1515,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_part_time_w_guaranteed"
-																		   placeholder="Enter part time W/Guaranteed Hrs income" value="<?= isset($data['applicant_income_part_time_w_guaranteed']) ? $data['applicant_income_part_time_w_guaranteed'] : ''; ?>">
+																		   placeholder="Enter part time W/Guaranteed Hrs income"
+																		   value="<?= isset($data['applicant_income_part_time_w_guaranteed']) ? $data['applicant_income_part_time_w_guaranteed'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1427,7 +1527,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_part_time_w_o_guaranteed"
-																		   placeholder="Enter part time W/O Guaranteed Hrs income" value="<?= isset($data['applicant_income_part_time_w_o_guaranteed']) ? $data['applicant_income_part_time_w_o_guaranteed'] : ''; ?>">
+																		   placeholder="Enter part time W/O Guaranteed Hrs income"
+																		   value="<?= isset($data['applicant_income_part_time_w_o_guaranteed']) ? $data['applicant_income_part_time_w_o_guaranteed'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1437,7 +1538,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_rental"
-																		   placeholder="Enter rental income" value="<?= isset($data['applicant_income_rental']) ? $data['applicant_income_rental'] : ''; ?>">
+																		   placeholder="Enter rental income"
+																		   value="<?= isset($data['applicant_income_rental']) ? $data['applicant_income_rental'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1448,7 +1550,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_investment"
-																		   placeholder="Enter investment income" value="<?= isset($data['applicant_income_investment']) ? $data['applicant_income_investment'] : ''; ?>">
+																		   placeholder="Enter investment income"
+																		   value="<?= isset($data['applicant_income_investment']) ? $data['applicant_income_investment'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1458,7 +1561,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_other"
-																		   placeholder="Enter other income" value="<?= isset($data['applicant_income_other']) ? $data['applicant_income_other'] : ''; ?>">
+																		   placeholder="Enter other income"
+																		   value="<?= isset($data['applicant_income_other']) ? $data['applicant_income_other'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1468,7 +1572,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_income_total"
-																		   placeholder="Enter total income" value="<?= isset($data['applicant_income_total']) ? $data['applicant_income_total'] : ''; ?>">
+																		   placeholder="Enter total income"
+																		   value="<?= isset($data['applicant_income_total']) ? $data['applicant_income_total'] : ''; ?>">
 																</div>
 															</div>
 														</div>
@@ -1486,7 +1591,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_full_time"
-																		   placeholder="Enter full time income" value="<?= isset($data['co_applicant_income_full_time']) ? $data['co_applicant_income_full_time'] : ''; ?>">
+																		   placeholder="Enter full time income"
+																		   value="<?= isset($data['co_applicant_income_full_time']) ? $data['co_applicant_income_full_time'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1497,7 +1603,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_self_employed"
-																		   placeholder="Enter self-employed income" value="<?= isset($data['co_applicant_income_self_employed']) ? $data['co_applicant_income_self_employed'] : ''; ?>">
+																		   placeholder="Enter self-employed income"
+																		   value="<?= isset($data['co_applicant_income_self_employed']) ? $data['co_applicant_income_self_employed'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1507,7 +1614,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_contract"
-																		   placeholder="Enter contract income" value="<?= isset($data['co_applicant_income_contract']) ? $data['co_applicant_income_contract'] : ''; ?>">
+																		   placeholder="Enter contract income"
+																		   value="<?= isset($data['co_applicant_income_contract']) ? $data['co_applicant_income_contract'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1518,7 +1626,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_commission"
-																		   placeholder="Enter commission income" value="<?= isset($data['co_applicant_income_commission']) ? $data['co_applicant_income_commission'] : ''; ?>">
+																		   placeholder="Enter commission income"
+																		   value="<?= isset($data['co_applicant_income_commission']) ? $data['co_applicant_income_commission'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1529,7 +1638,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_part_time_w_guaranteed"
-																		   placeholder="Enter part time W/Guaranteed Hrs income" value="<?= isset($data['co_applicant_income_part_time_w_guaranteed']) ? $data['co_applicant_income_part_time_w_guaranteed'] : ''; ?>">
+																		   placeholder="Enter part time W/Guaranteed Hrs income"
+																		   value="<?= isset($data['co_applicant_income_part_time_w_guaranteed']) ? $data['co_applicant_income_part_time_w_guaranteed'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1540,7 +1650,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_part_time_w_o_guaranteed"
-																		   placeholder="Enter part time W/O Guaranteed Hrs income" value="<?= isset($data['co_applicant_income_part_time_w_o_guaranteed']) ? $data['co_applicant_income_part_time_w_o_guaranteed'] : ''; ?>">
+																		   placeholder="Enter part time W/O Guaranteed Hrs income"
+																		   value="<?= isset($data['co_applicant_income_part_time_w_o_guaranteed']) ? $data['co_applicant_income_part_time_w_o_guaranteed'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1550,7 +1661,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_rental"
-																		   placeholder="Enter rental income" value="<?= isset($data['co_applicant_income_rental']) ? $data['co_applicant_income_rental'] : ''; ?>">
+																		   placeholder="Enter rental income"
+																		   value="<?= isset($data['co_applicant_income_rental']) ? $data['co_applicant_income_rental'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1561,7 +1673,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_investment"
-																		   placeholder="Enter investment income" value="<?= isset($data['co_applicant_income_investment']) ? $data['co_applicant_income_investment'] : ''; ?>">
+																		   placeholder="Enter investment income"
+																		   value="<?= isset($data['co_applicant_income_investment']) ? $data['co_applicant_income_investment'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1571,7 +1684,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_other"
-																		   placeholder="Enter other income" value="<?= isset($data['co_applicant_income_other']) ? $data['co_applicant_income_other'] : ''; ?>">
+																		   placeholder="Enter other income"
+																		   value="<?= isset($data['co_applicant_income_other']) ? $data['co_applicant_income_other'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1581,7 +1695,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="co_applicant_income_total"
-																		   placeholder="Enter total income" value="<?= isset($data['co_applicant_income_total']) ? $data['co_applicant_income_total'] : ''; ?>">
+																		   placeholder="Enter total income"
+																		   value="<?= isset($data['co_applicant_income_total']) ? $data['co_applicant_income_total'] : ''; ?>">
 																</div>
 															</div>
 														</div>
@@ -1611,7 +1726,8 @@
 																			name="purpose_of_loan">
 																		<option value="">Select Purpose of Loan</option>
 																		<?php foreach ($loanPurposes as $key => $value): ?>
-																			<option value="<?php echo $key; ?>" <?php echo $data['purpose_of_loan'] === $key ? 'selected' : ''; ?>>
+																			<option
+																				value="<?php echo $key; ?>" <?php echo $data['purpose_of_loan'] === $key ? 'selected' : ''; ?>>
 																				<?php echo $value; ?>
 																			</option>
 																		<?php endforeach; ?>
@@ -1626,7 +1742,8 @@
 																	<input type="text" class="form-control"
 																		   id="exampleInputName"
 																		   name="applicant_loan_reason"
-																		   placeholder="Enter the reason" value="<?= isset($data['applicant_loan_reason']) ? $data['applicant_loan_reason'] : ''; ?>">
+																		   placeholder="Enter the reason"
+																		   value="<?= isset($data['applicant_loan_reason']) ? $data['applicant_loan_reason'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1637,7 +1754,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="sales_price"
-																		   placeholder="Enter sales price" value="<?= isset($data['sales_price']) ? $data['sales_price'] : ''; ?>">
+																		   placeholder="Enter sales price"
+																		   value="<?= isset($data['sales_price']) ? $data['sales_price'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1648,7 +1766,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="down_payment"
-																		   placeholder="Enter down payment" value="<?= isset($data['down_payment']) ? $data['down_payment'] : ''; ?>">
+																		   placeholder="Enter down payment"
+																		   value="<?= isset($data['down_payment']) ? $data['down_payment'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1659,7 +1778,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="mortgage_amount"
-																		   placeholder="Enter mortgage amount" value="<?= isset($data['mortgage_amount']) ? $data['mortgage_amount'] : ''; ?>">
+																		   placeholder="Enter mortgage amount"
+																		   value="<?= isset($data['mortgage_amount']) ? $data['mortgage_amount'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1670,7 +1790,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="date_fund"
-																		   placeholder="Enter date funds" value="<?= isset($data['date_fund']) ? $data['date_fund'] : ''; ?>">
+																		   placeholder="Enter date funds"
+																		   value="<?= isset($data['date_fund']) ? $data['date_fund'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1684,7 +1805,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="loan_gift"
-																		   placeholder="Enter gift amount" value="<?= isset($data['loan_gift']) ? $data['loan_gift'] : ''; ?>">
+																		   placeholder="Enter gift amount"
+																		   value="<?= isset($data['loan_gift']) ? $data['loan_gift'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1695,7 +1817,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="loan_investment"
-																		   placeholder="Enter investment amount" value="<?= isset($data['loan_investment']) ? $data['loan_investment'] : ''; ?>">
+																		   placeholder="Enter investment amount"
+																		   value="<?= isset($data['loan_investment']) ? $data['loan_investment'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1706,7 +1829,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="loan_bank_account"
-																		   placeholder="Enter bank account amount" value="<?= isset($data['loan_bank_account']) ? $data['loan_bank_account'] : ''; ?>">
+																		   placeholder="Enter bank account amount"
+																		   value="<?= isset($data['loan_bank_account']) ? $data['loan_bank_account'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1717,7 +1841,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="loan_borrowed_funds"
-																		   placeholder="Enter borrowed funds" value="<?= isset($data['loan_borrowed_funds']) ? $data['loan_borrowed_funds'] : ''; ?>">
+																		   placeholder="Enter borrowed funds"
+																		   value="<?= isset($data['loan_borrowed_funds']) ? $data['loan_borrowed_funds'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1728,7 +1853,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="loan_sweat_equity"
-																		   placeholder="Enter sweat equity" value="<?= isset($data['loan_sweat_equity']) ? $data['loan_sweat_equity'] : ''; ?>">
+																		   placeholder="Enter sweat equity"
+																		   value="<?= isset($data['loan_sweat_equity']) ? $data['loan_sweat_equity'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1738,7 +1864,8 @@
 																	<input type="number" class="form-control"
 																		   id="exampleInputName"
 																		   name="loan_other"
-																		   placeholder="Enter other equity" value="<?= isset($data['loan_other']) ? $data['loan_other'] : ''; ?>">
+																		   placeholder="Enter other equity"
+																		   value="<?= isset($data['loan_other']) ? $data['loan_other'] : ''; ?>">
 																</div>
 															</div>
 
@@ -1764,7 +1891,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter street"
-																	   name="property_street" value="<?= isset($data['property_street']) ? $data['property_street'] : ''; ?>">
+																	   name="property_street"
+																	   value="<?= isset($data['property_street']) ? $data['property_street'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1773,7 +1901,8 @@
 																<label for="exampleInputEmail1">City</label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1" placeholder="Enter city"
-																	   name="property_city" value="<?= isset($data['property_city']) ? $data['property_city'] : ''; ?>">
+																	   name="property_city"
+																	   value="<?= isset($data['property_city']) ? $data['property_city'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -1782,7 +1911,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter province"
-																	   name="property_province" value="<?= isset($data['property_province']) ? $data['property_province'] : ''; ?>">
+																	   name="property_province"
+																	   value="<?= isset($data['property_province']) ? $data['property_province'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -1791,7 +1921,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter postal code"
-																	   name="property_postal_code" value="<?= isset($data['property_postal_code']) ? $data['property_postal_code'] : ''; ?>">
+																	   name="property_postal_code"
+																	   value="<?= isset($data['property_postal_code']) ? $data['property_postal_code'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1805,7 +1936,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter LOT"
-																	   name="property_lot" value="<?= isset($data['property_lot']) ? $data['property_lot'] : ''; ?>">
+																	   name="property_lot"
+																	   value="<?= isset($data['property_lot']) ? $data['property_lot'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1815,7 +1947,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter plan"
-																	   name="property_plan" value="<?= isset($data['property_plan']) ? $data['property_plan'] : ''; ?>">
+																	   name="property_plan"
+																	   value="<?= isset($data['property_plan']) ? $data['property_plan'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1832,21 +1965,24 @@
 																		name="property_type_of_heating">
 																	<option value="">Select Type of Heating</option>
 																	<?php foreach ($heatingTypes as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['property_type_of_heating'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['property_type_of_heating'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
 																</select>
 															</div>
 														</div>
-														<div class="col-md-3" id="property_type_of_heating_group" style="display:none;">
+														<div class="col-md-3" id="property_type_of_heating_group"
+															 style="display:none;">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Other <span
 																		class="span-font">(If type of heating is other)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter other type of heating"
-																	   name="property_type_of_heating_other" value="<?= isset($data['property_type_of_heating_other']) ? $data['property_type_of_heating_other'] : ''; ?>">
+																	   name="property_type_of_heating_other"
+																	   value="<?= isset($data['property_type_of_heating_other']) ? $data['property_type_of_heating_other'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1859,21 +1995,24 @@
 																		name="property_type">
 																	<option value="">Select Property Type</option>
 																	<?php foreach ($propertyTypes as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['property_type'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['property_type'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
 																</select>
 															</div>
 														</div>
-														<div class="col-md-3" id="property_type_group" style="display: none">
+														<div class="col-md-3" id="property_type_group"
+															 style="display: none">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Other <span
 																		class="span-font">(If property type is other)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter other property type"
-																	   name="property_type_other" value="<?= isset($data['property_type_other']) ? $data['property_type_other'] : ''; ?>">
+																	   name="property_type_other"
+																	   value="<?= isset($data['property_type_other']) ? $data['property_type_other'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1885,7 +2024,8 @@
 																		name="property_zoning">
 																	<option value="">Select Zoning</option>
 																	<?php foreach ($zoning as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['property_zoning'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['property_zoning'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -1893,14 +2033,16 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="property_zoning_group" style="display: none">
+														<div class="col-md-3" id="property_zoning_group"
+															 style="display: none">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Other <span
 																		class="span-font">(If zoning is other)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter other zoning"
-																	   name="property_zoning_other" value="<?= isset($data['property_zoning_other']) ? $data['property_zoning_other'] : ''; ?>">
+																	   name="property_zoning_other"
+																	   value="<?= isset($data['property_zoning_other']) ? $data['property_zoning_other'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1912,7 +2054,8 @@
 																		name="property_title">
 																	<option value="">Select Property Title</option>
 																	<?php foreach ($propertyTitles as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['property_title'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['property_title'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -1928,7 +2071,8 @@
 																		name="property_garage_type">
 																	<option value="">Select Garage Type</option>
 																	<?php foreach ($garageTypes as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['property_garage_type'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['property_garage_type'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -1944,7 +2088,8 @@
 																		name="property_garage_size">
 																	<option value="">Select Garage Size</option>
 																	<?php foreach ($garageSizes as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['property_garage_size'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['property_garage_size'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -1952,14 +2097,16 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="property_garage_size_group" style="display:none;">
+														<div class="col-md-3" id="property_garage_size_group"
+															 style="display:none;">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Specify <span
 																		class="span-font">(If garage size is specify)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter other zoning"
-																	   name="property_garage_size_specify" value="<?= isset($data['property_garage_size_specify']) ? $data['property_garage_size_specify'] : ''; ?>">
+																	   name="property_garage_size_specify"
+																	   value="<?= isset($data['property_garage_size_specify']) ? $data['property_garage_size_specify'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1969,7 +2116,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter number of storey"
-																	   name="property_number_of_storey" value="<?= isset($data['property_number_of_storey']) ? $data['property_number_of_storey'] : ''; ?>">
+																	   name="property_number_of_storey"
+																	   value="<?= isset($data['property_number_of_storey']) ? $data['property_number_of_storey'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1980,7 +2128,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter insurance cost"
-																	   name="property_insurance_cost_per_month" value="<?= isset($data['property_insurance_cost_per_month']) ? $data['property_insurance_cost_per_month'] : ''; ?>">
+																	   name="property_insurance_cost_per_month"
+																	   value="<?= isset($data['property_insurance_cost_per_month']) ? $data['property_insurance_cost_per_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -1991,7 +2140,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter heating cost"
-																	   name="property_heating_cost_per_month" value="<?= isset($data['property_heating_cost_per_month']) ? $data['property_heating_cost_per_month'] : ''; ?>">
+																	   name="property_heating_cost_per_month"
+																	   value="<?= isset($data['property_heating_cost_per_month']) ? $data['property_heating_cost_per_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2002,7 +2152,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter hydro cost"
-																	   name="property_hydro_cost_per_month" value="<?= isset($data['property_hydro_cost_per_month']) ? $data['property_hydro_cost_per_month'] : ''; ?>">
+																	   name="property_hydro_cost_per_month"
+																	   value="<?= isset($data['property_hydro_cost_per_month']) ? $data['property_hydro_cost_per_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2013,7 +2164,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter maintenance fee"
-																	   name="property_maintenance_fee_per_month" value="<?= isset($data['property_maintenance_fee_per_month']) ? $data['property_maintenance_fee_per_month'] : ''; ?>">
+																	   name="property_maintenance_fee_per_month"
+																	   value="<?= isset($data['property_maintenance_fee_per_month']) ? $data['property_maintenance_fee_per_month'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2023,7 +2175,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter property tax"
-																	   name="property_tax" value="<?= isset($data['property_tax']) ? $data['property_tax'] : ''; ?>">
+																	   name="property_tax"
+																	   value="<?= isset($data['property_tax']) ? $data['property_tax'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2033,7 +2186,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter lot size"
-																	   name="property_lot_size" value="<?= isset($data['property_lot_size']) ? $data['property_lot_size'] : ''; ?>">
+																	   name="property_lot_size"
+																	   value="<?= isset($data['property_lot_size']) ? $data['property_lot_size'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2043,7 +2197,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter liveable space"
-																	   name="property_liveable_space" value="<?= isset($data['property_liveable_space']) ? $data['property_liveable_space'] : ''; ?>">
+																	   name="property_liveable_space"
+																	   value="<?= isset($data['property_liveable_space']) ? $data['property_liveable_space'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2054,7 +2209,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter current estimated value"
-																	   name="property_current_estimated_value" value="<?= isset($data['property_current_estimated_value']) ? $data['property_current_estimated_value'] : ''; ?>">
+																	   name="property_current_estimated_value"
+																	   value="<?= isset($data['property_current_estimated_value']) ? $data['property_current_estimated_value'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2064,7 +2220,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter age of property"
-																	   name="property_age" value="<?= isset($data['property_age']) ? $data['property_age'] : ''; ?>">
+																	   name="property_age"
+																	   value="<?= isset($data['property_age']) ? $data['property_age'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2074,7 +2231,8 @@
 																<input type="date" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter age of property"
-																	   name="property_date_of_purchase" value="<?= isset($data['property_date_of_purchase']) ? $data['property_date_of_purchase'] : ''; ?>">
+																	   name="property_date_of_purchase"
+																	   value="<?= isset($data['property_date_of_purchase']) ? $data['property_date_of_purchase'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2085,7 +2243,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter original purchase price"
-																	   name="property_original_purchase_price" value="<?= isset($data['property_original_purchase_price']) ? $data['property_original_purchase_price'] : ''; ?>">
+																	   name="property_original_purchase_price"
+																	   value="<?= isset($data['property_original_purchase_price']) ? $data['property_original_purchase_price'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2111,7 +2270,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter mortgage type"
-																	   name="mortgage_type" value="<?= isset($data['mortgage_type']) ? $data['mortgage_type'] : ''; ?>">
+																	   name="mortgage_type"
+																	   value="<?= isset($data['mortgage_type']) ? $data['mortgage_type'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2122,7 +2282,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter original mtg amount"
-																	   name="mortgage_original_mtg_amount" value="<?= isset($data['mortgage_original_mtg_amount']) ? $data['mortgage_original_mtg_amount'] : ''; ?>">
+																	   name="mortgage_original_mtg_amount"
+																	   value="<?= isset($data['mortgage_original_mtg_amount']) ? $data['mortgage_original_mtg_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2132,7 +2293,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter mortgage balance"
-																	   name="mortgage_balance" value="<?= isset($data['mortgage_balance']) ? $data['mortgage_balance'] : ''; ?>">
+																	   name="mortgage_balance"
+																	   value="<?= isset($data['mortgage_balance']) ? $data['mortgage_balance'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2142,7 +2304,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter mortgage payment"
-																	   name="mortgage_payment" value="<?= isset($data['mortgage_payment']) ? $data['mortgage_payment'] : ''; ?>">
+																	   name="mortgage_payment"
+																	   value="<?= isset($data['mortgage_payment']) ? $data['mortgage_payment'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2153,7 +2316,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter payment frequency"
-																	   name="mortgage_payment_frequency" value="<?= isset($data['mortgage_payment_frequency']) ? $data['mortgage_payment_frequency'] : ''; ?>">
+																	   name="mortgage_payment_frequency"
+																	   value="<?= isset($data['mortgage_payment_frequency']) ? $data['mortgage_payment_frequency'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2163,7 +2327,8 @@
 																<input type="date" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter maturity date"
-																	   name="mortgage_maturity_date" value="<?= isset($data['mortgage_maturity_date']) ? $data['mortgage_maturity_date'] : ''; ?>">
+																	   name="mortgage_maturity_date"
+																	   value="<?= isset($data['mortgage_maturity_date']) ? $data['mortgage_maturity_date'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2173,7 +2338,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter term type"
-																	   name="mortgage_term_type" value="<?= isset($data['mortgage_term_type']) ? $data['mortgage_term_type'] : ''; ?>">
+																	   name="mortgage_term_type"
+																	   value="<?= isset($data['mortgage_term_type']) ? $data['mortgage_term_type'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2183,7 +2349,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amortization"
-																	   name="mortgage_amortization" value="<?= isset($data['mortgage_amortization']) ? $data['mortgage_amortization'] : ''; ?>">
+																	   name="mortgage_amortization"
+																	   value="<?= isset($data['mortgage_amortization']) ? $data['mortgage_amortization'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2194,7 +2361,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter remaining amortization"
-																	   name="mortgage_remaining_amortization" value="<?= isset($data['mortgage_remaining_amortization']) ? $data['mortgage_remaining_amortization'] : ''; ?>">
+																	   name="mortgage_remaining_amortization"
+																	   value="<?= isset($data['mortgage_remaining_amortization']) ? $data['mortgage_remaining_amortization'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2204,7 +2372,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter rate type"
-																	   name="mortgage_rate_type" value="<?= isset($data['mortgage_rate_type']) ? $data['mortgage_rate_type'] : ''; ?>">
+																	   name="mortgage_rate_type"
+																	   value="<?= isset($data['mortgage_rate_type']) ? $data['mortgage_rate_type'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2214,7 +2383,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter interest rate"
-																	   name="mortgage_interest_rate" value="<?= isset($data['mortgage_interest_rate']) ? $data['mortgage_interest_rate'] : ''; ?>">
+																	   name="mortgage_interest_rate"
+																	   value="<?= isset($data['mortgage_interest_rate']) ? $data['mortgage_interest_rate'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2225,7 +2395,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter insurer (CMHC) number"
-																	   name="mortgage_insurer_cmhc_number" value="<?= isset($data['mortgage_insurer_cmhc_number']) ? $data['mortgage_insurer_cmhc_number'] : ''; ?>">
+																	   name="mortgage_insurer_cmhc_number"
+																	   value="<?= isset($data['mortgage_insurer_cmhc_number']) ? $data['mortgage_insurer_cmhc_number'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2237,7 +2408,8 @@
 																		name="mortgage_holder">
 																	<option value="">Select Mortgage Holder</option>
 																	<?php foreach ($holders as $key => $value): ?>
-																		<option value="<?php echo $key; ?>" <?php echo $data['mortgage_holder'] === $key ? 'selected' : ''; ?>>
+																		<option
+																			value="<?php echo $key; ?>" <?php echo $data['mortgage_holder'] === $key ? 'selected' : ''; ?>>
 																			<?php echo $value; ?>
 																		</option>
 																	<?php endforeach; ?>
@@ -2245,14 +2417,16 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="mortgage_holder_group" style="display: none">
+														<div class="col-md-3" id="mortgage_holder_group"
+															 style="display: none">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Other <span
 																		class="span-font">(If mortgage holder is other)</span></label>
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter mortgage other"
-																	   name="mortgage_holder_other" value="<?= isset($data['mortgage_holder_other']) ? $data['mortgage_holder_other'] : ''; ?>">
+																	   name="mortgage_holder_other"
+																	   value="<?= isset($data['mortgage_holder_other']) ? $data['mortgage_holder_other'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2262,7 +2436,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter mortgage number"
-																	   name="mortgage_number" value="<?= isset($data['mortgage_number']) ? $data['mortgage_number'] : ''; ?>">
+																	   name="mortgage_number"
+																	   value="<?= isset($data['mortgage_number']) ? $data['mortgage_number'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2300,7 +2475,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_value_of_property_institution" value="<?= isset($data['financial_value_of_property_institution']) ? $data['financial_value_of_property_institution'] : ''; ?>">
+																	   name="financial_value_of_property_institution"
+																	   value="<?= isset($data['financial_value_of_property_institution']) ? $data['financial_value_of_property_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2309,7 +2485,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_value_of_property_amount" value="<?= isset($data['financial_value_of_property_amount']) ? $data['financial_value_of_property_amount'] : ''; ?>">
+																	   name="financial_value_of_property_amount"
+																	   value="<?= isset($data['financial_value_of_property_amount']) ? $data['financial_value_of_property_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2326,7 +2503,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_cash_in_bank_institution" value="<?= isset($data['financial_cash_in_bank_institution']) ? $data['financial_cash_in_bank_institution'] : ''; ?>">
+																	   name="financial_cash_in_bank_institution"
+																	   value="<?= isset($data['financial_cash_in_bank_institution']) ? $data['financial_cash_in_bank_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2335,7 +2513,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_cash_in_bank_amount" value="<?= isset($data['financial_cash_in_bank_amount']) ? $data['financial_cash_in_bank_amount'] : ''; ?>">
+																	   name="financial_cash_in_bank_amount"
+																	   value="<?= isset($data['financial_cash_in_bank_amount']) ? $data['financial_cash_in_bank_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2352,7 +2531,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_deposit_on_purchase_institution" value="<?= isset($data['financial_deposit_on_purchase_institution']) ? $data['financial_deposit_on_purchase_institution'] : ''; ?>">
+																	   name="financial_deposit_on_purchase_institution"
+																	   value="<?= isset($data['financial_deposit_on_purchase_institution']) ? $data['financial_deposit_on_purchase_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2361,7 +2541,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_deposit_on_purchase_amount" value="<?= isset($data['financial_deposit_on_purchase_amount']) ? $data['financial_deposit_on_purchase_amount'] : ''; ?>">
+																	   name="financial_deposit_on_purchase_amount"
+																	   value="<?= isset($data['financial_deposit_on_purchase_amount']) ? $data['financial_deposit_on_purchase_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2378,7 +2559,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_other_real_estates_institution" value="<?= isset($data['financial_other_real_estates_institution']) ? $data['financial_other_real_estates_institution'] : ''; ?>">
+																	   name="financial_other_real_estates_institution"
+																	   value="<?= isset($data['financial_other_real_estates_institution']) ? $data['financial_other_real_estates_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2387,7 +2569,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_other_real_estates_amount" value="<?= isset($data['financial_other_real_estates_amount']) ? $data['financial_other_real_estates_amount'] : ''; ?>">
+																	   name="financial_other_real_estates_amount"
+																	   value="<?= isset($data['financial_other_real_estates_amount']) ? $data['financial_other_real_estates_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2403,7 +2586,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_household_goods_institution" value="<?= isset($data['financial_household_goods_institution']) ? $data['financial_household_goods_institution'] : ''; ?>">
+																	   name="financial_household_goods_institution"
+																	   value="<?= isset($data['financial_household_goods_institution']) ? $data['financial_household_goods_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2412,7 +2596,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_household_goods_amount" value="<?= isset($data['financial_household_goods_amount']) ? $data['financial_household_goods_amount'] : ''; ?>">
+																	   name="financial_household_goods_amount"
+																	   value="<?= isset($data['financial_household_goods_amount']) ? $data['financial_household_goods_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2428,7 +2613,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_car_1_institution" value="<?= isset($data['financial_car_1_institution']) ? $data['financial_car_1_institution'] : ''; ?>">
+																	   name="financial_car_1_institution"
+																	   value="<?= isset($data['financial_car_1_institution']) ? $data['financial_car_1_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2437,7 +2623,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_car_1_amount" value="<?= isset($data['financial_car_1_amount']) ? $data['financial_car_1_amount'] : ''; ?>">
+																	   name="financial_car_1_amount"
+																	   value="<?= isset($data['financial_car_1_amount']) ? $data['financial_car_1_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2453,7 +2640,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_car_2_institution" value="<?= isset($data['financial_car_2_institution']) ? $data['financial_car_2_institution'] : ''; ?>">
+																	   name="financial_car_2_institution"
+																	   value="<?= isset($data['financial_car_2_institution']) ? $data['financial_car_2_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2462,7 +2650,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_car_2_amount" value="<?= isset($data['financial_car_2_amount']) ? $data['financial_car_2_amount'] : ''; ?>">
+																	   name="financial_car_2_amount"
+																	   value="<?= isset($data['financial_car_2_amount']) ? $data['financial_car_2_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2479,7 +2668,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_rrsp_institution" value="<?= isset($data['financial_rrsp_institution']) ? $data['financial_rrsp_institution'] : ''; ?>">
+																	   name="financial_rrsp_institution"
+																	   value="<?= isset($data['financial_rrsp_institution']) ? $data['financial_rrsp_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2488,7 +2678,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_rrsp_amount" value="<?= isset($data['financial_rrsp_amount']) ? $data['financial_rrsp_amount'] : ''; ?>">
+																	   name="financial_rrsp_amount"
+																	   value="<?= isset($data['financial_rrsp_amount']) ? $data['financial_rrsp_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2505,7 +2696,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_stock_bonds_etc_institution" value="<?= isset($data['financial_stock_bonds_etc_institution']) ? $data['financial_stock_bonds_etc_institution'] : ''; ?>">
+																	   name="financial_stock_bonds_etc_institution"
+																	   value="<?= isset($data['financial_stock_bonds_etc_institution']) ? $data['financial_stock_bonds_etc_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2514,7 +2706,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_stock_bonds_etc_amount" value="<?= isset($data['financial_stock_bonds_etc_amount']) ? $data['financial_stock_bonds_etc_amount'] : ''; ?>">
+																	   name="financial_stock_bonds_etc_amount"
+																	   value="<?= isset($data['financial_stock_bonds_etc_amount']) ? $data['financial_stock_bonds_etc_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2530,7 +2723,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_other_1_institution" value="<?= isset($data['financial_other_1_institution']) ? $data['financial_other_1_institution'] : ''; ?>">
+																	   name="financial_other_1_institution"
+																	   value="<?= isset($data['financial_other_1_institution']) ? $data['financial_other_1_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2539,7 +2733,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_other_1_amount" value="<?= isset($data['financial_other_1_amount']) ? $data['financial_other_1_amount'] : ''; ?>">
+																	   name="financial_other_1_amount"
+																	   value="<?= isset($data['financial_other_1_amount']) ? $data['financial_other_1_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2555,7 +2750,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_other_2_institution" value="<?= isset($data['financial_other_2_institution']) ? $data['financial_other_2_institution'] : ''; ?>">
+																	   name="financial_other_2_institution"
+																	   value="<?= isset($data['financial_other_2_institution']) ? $data['financial_other_2_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2564,7 +2760,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_other_2_amount" value="<?= isset($data['financial_other_2_amount']) ? $data['financial_other_2_amount'] : ''; ?>">
+																	   name="financial_other_2_amount"
+																	   value="<?= isset($data['financial_other_2_amount']) ? $data['financial_other_2_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2580,7 +2777,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter name of institution"
-																	   name="financial_other_3_institution" value="<?= isset($data['financial_other_3_institution']) ? $data['financial_other_3_institution'] : ''; ?>">
+																	   name="financial_other_3_institution"
+																	   value="<?= isset($data['financial_other_3_institution']) ? $data['financial_other_3_institution'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2589,7 +2787,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter amount"
-																	   name="financial_other_3_amount" value="<?= isset($data['financial_other_3_amount']) ? $data['financial_other_3_amount'] : ''; ?>">
+																	   name="financial_other_3_amount"
+																	   value="<?= isset($data['financial_other_3_amount']) ? $data['financial_other_3_amount'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2610,7 +2809,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter monthly payment"
-																	   name="financial_monthly_payment_mortgage_on_home" value="<?= isset($data['financial_monthly_payment_mortgage_on_home']) ? $data['financial_monthly_payment_mortgage_on_home'] : ''; ?>">
+																	   name="financial_monthly_payment_mortgage_on_home"
+																	   value="<?= isset($data['financial_monthly_payment_mortgage_on_home']) ? $data['financial_monthly_payment_mortgage_on_home'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2619,7 +2819,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter balance owing"
-																	   name="financial_balance_owing_mortgage_on_home" value="<?= isset($data['financial_balance_owing_mortgage_on_home']) ? $data['financial_balance_owing_mortgage_on_home'] : ''; ?>">
+																	   name="financial_balance_owing_mortgage_on_home"
+																	   value="<?= isset($data['financial_balance_owing_mortgage_on_home']) ? $data['financial_balance_owing_mortgage_on_home'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2635,7 +2836,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter monthly payment"
-																	   name="financial_monthly_payment_personal_loans" value="<?= isset($data['financial_monthly_payment_personal_loans']) ? $data['financial_monthly_payment_personal_loans'] : ''; ?>">
+																	   name="financial_monthly_payment_personal_loans"
+																	   value="<?= isset($data['financial_monthly_payment_personal_loans']) ? $data['financial_monthly_payment_personal_loans'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2644,7 +2846,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter balance owing"
-																	   name="financial_balance_owing_personal_loans" value="<?= isset($data['financial_balance_owing_personal_loans']) ? $data['financial_balance_owing_personal_loans'] : ''; ?>">
+																	   name="financial_balance_owing_personal_loans"
+																	   value="<?= isset($data['financial_balance_owing_personal_loans']) ? $data['financial_balance_owing_personal_loans'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2659,7 +2862,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter monthly payment"
-																	   name="financial_monthly_payment_other_loans" value="<?= isset($data['financial_monthly_payment_other_loans']) ? $data['financial_monthly_payment_other_loans'] : ''; ?>">
+																	   name="financial_monthly_payment_other_loans"
+																	   value="<?= isset($data['financial_monthly_payment_other_loans']) ? $data['financial_monthly_payment_other_loans'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2668,7 +2872,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter balance owing"
-																	   name="financial_balance_owing_other_loans" value="<?= isset($data['financial_balance_owing_other_loans']) ? $data['financial_balance_owing_other_loans'] : ''; ?>">
+																	   name="financial_balance_owing_other_loans"
+																	   value="<?= isset($data['financial_balance_owing_other_loans']) ? $data['financial_balance_owing_other_loans'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2683,7 +2888,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter monthly payment"
-																	   name="financial_monthly_payment_car_loan" value="<?= isset($data['financial_monthly_payment_car_loan']) ? $data['financial_monthly_payment_car_loan'] : ''; ?>">
+																	   name="financial_monthly_payment_car_loan"
+																	   value="<?= isset($data['financial_monthly_payment_car_loan']) ? $data['financial_monthly_payment_car_loan'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2692,7 +2898,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter balance owing"
-																	   name="financial_balance_owing_car_loan" value="<?= isset($data['financial_balance_owing_car_loan']) ? $data['financial_balance_owing_car_loan'] : ''; ?>">
+																	   name="financial_balance_owing_car_loan"
+																	   value="<?= isset($data['financial_balance_owing_car_loan']) ? $data['financial_balance_owing_car_loan'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2707,7 +2914,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter monthly payment"
-																	   name="financial_monthly_payment_credit_cards" value="<?= isset($data['financial_monthly_payment_credit_cards']) ? $data['financial_monthly_payment_credit_cards'] : ''; ?>">
+																	   name="financial_monthly_payment_credit_cards"
+																	   value="<?= isset($data['financial_monthly_payment_credit_cards']) ? $data['financial_monthly_payment_credit_cards'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2716,7 +2924,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter balance owing"
-																	   name="financial_balance_owing_credit_cards" value="<?= isset($data['financial_balance_owing_credit_cards']) ? $data['financial_balance_owing_credit_cards'] : ''; ?>">
+																	   name="financial_balance_owing_credit_cards"
+																	   value="<?= isset($data['financial_balance_owing_credit_cards']) ? $data['financial_balance_owing_credit_cards'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2732,7 +2941,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter monthly payment"
-																	   name="financial_monthly_payment_child_supports" value="<?= isset($data['financial_monthly_payment_child_supports']) ? $data['financial_monthly_payment_child_supports'] : ''; ?>">
+																	   name="financial_monthly_payment_child_supports"
+																	   value="<?= isset($data['financial_monthly_payment_child_supports']) ? $data['financial_monthly_payment_child_supports'] : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -2741,7 +2951,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter balance owing"
-																	   name="financial_balance_owing_child_supports" value="<?= isset($data['financial_balance_owing_child_supports']) ? $data['financial_balance_owing_child_supports'] : ''; ?>">
+																	   name="financial_balance_owing_child_supports"
+																	   value="<?= isset($data['financial_balance_owing_child_supports']) ? $data['financial_balance_owing_child_supports'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2789,7 +3000,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter your point"
-																	   name="general_judgements" value="<?= isset($data['general_judgements']) ? $data['general_judgements'] : ''; ?>">
+																	   name="general_judgements"
+																	   value="<?= isset($data['general_judgements']) ? $data['general_judgements'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2823,7 +3035,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter your point"
-																	   name="general_bankruptcy" value="<?= isset($data['general_bankruptcy']) ? $data['general_bankruptcy'] : ''; ?>">
+																	   name="general_bankruptcy"
+																	   value="<?= isset($data['general_bankruptcy']) ? $data['general_bankruptcy'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2858,7 +3071,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter your point"
-																	   name="general_assets_pledged" value="<?= isset($data['general_assets_pledged']) ? $data['general_assets_pledged'] : ''; ?>">
+																	   name="general_assets_pledged"
+																	   value="<?= isset($data['general_assets_pledged']) ? $data['general_assets_pledged'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2892,7 +3106,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter your point"
-																	   name="general_marriage_agreement" value="<?= isset($data['general_marriage_agreement']) ? $data['general_marriage_agreement'] : ''; ?>">
+																	   name="general_marriage_agreement"
+																	   value="<?= isset($data['general_marriage_agreement']) ? $data['general_marriage_agreement'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2925,7 +3140,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter your point"
-																	   name="general_guarantor" value="<?= isset($data['general_guarantor']) ? $data['general_guarantor'] : ''; ?>">
+																	   name="general_guarantor"
+																	   value="<?= isset($data['general_guarantor']) ? $data['general_guarantor'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2959,7 +3175,8 @@
 																<input type="text" class="form-control"
 																	   id="exampleInputEmail1"
 																	   placeholder="Enter your point"
-																	   name="general_guarantor_for_lease" value="<?= isset($data['general_guarantor_for_lease']) ? $data['general_guarantor_for_lease'] : ''; ?>">
+																	   name="general_guarantor_for_lease"
+																	   value="<?= isset($data['general_guarantor_for_lease']) ? $data['general_guarantor_for_lease'] : ''; ?>">
 															</div>
 														</div>
 
@@ -2971,7 +3188,9 @@
 												<!--													   value="Submit"/>-->
 
 												<button type="submit" class="submit action-button"> Submit</button>
-												<button type="button" class="action-button" onclick="draftFormData()"> Save Draft</button>
+												<button type="button" class="action-button" onclick="draftFormData()">
+													Save Temporarily
+												</button>
 
 											</fieldset>
 										</form>
@@ -3011,8 +3230,7 @@
 			type: $(form).attr('method'),
 			url: URL,
 			data: $(form).serialize(),
-			success: function (data)
-			{
+			success: function (data) {
 				console.log('success');
 			}
 		});
@@ -3029,8 +3247,7 @@
 			type: $(form).attr('method'),
 			url: URL,
 			data: $(form).serialize(),
-			success: function (data)
-			{
+			success: function (data) {
 				if ($.trim(data) == "success") {
 					$('#results').addClass('alert alert-success');
 					$('#results').html('Application successfully draft');
@@ -3048,8 +3265,8 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		/**
 		 * Applicant initial
-		* @type {HTMLElement}
-		*/
+		 * @type {HTMLElement}
+		 */
 		let applicantInitial = document.getElementById('applicant_initial');
 		let otherInitialGroup = document.getElementById('other_initial_group');
 
@@ -3060,6 +3277,7 @@
 				otherInitialGroup.style.display = 'none';
 			}
 		}
+
 		toggleOtherInitial();
 		applicantInitial.addEventListener('change', toggleOtherInitial);
 
@@ -3077,6 +3295,7 @@
 				rentAddress.style.display = 'none';
 			}
 		}
+
 		toggleRentAddress();
 		applicantCurrentAddress.addEventListener('change', toggleRentAddress);
 
@@ -3089,15 +3308,15 @@
 		let applicantPriorRent = document.getElementById('applicant_prior_rent');
 
 		function toggleAddressType() {
-			if (applicantPriorAddressType.value === 'rent'){
+			if (applicantPriorAddressType.value === 'rent') {
 				applicantPriorRent.style.display = 'block';
-			}else {
+			} else {
 				applicantPriorRent.style.display = 'none';
 			}
 		}
 
 		toggleAddressType();
-		applicantPriorAddressType.addEventListener('change',toggleAddressType)
+		applicantPriorAddressType.addEventListener('change', toggleAddressType)
 
 		/**
 		 * Co Applicant initial
@@ -3113,6 +3332,7 @@
 				otherInitialGroupCo.style.display = 'none';
 			}
 		}
+
 		toggleOtherInitialCo();
 		applicantInitialCo.addEventListener('change', toggleOtherInitialCo);
 
@@ -3131,6 +3351,7 @@
 				rentAddressCo.style.display = 'none';
 			}
 		}
+
 		toggleRentAddressCo();
 		applicantCurrentAddressCo.addEventListener('change', toggleRentAddressCo);
 
@@ -3143,16 +3364,16 @@
 		let applicantPriorRentCo = document.getElementById('co_applicant_prior_rent');
 
 		function toggleAddressTypeCo() {
-			if (applicantPriorAddressTypeCo.value === 'rent'){
+			if (applicantPriorAddressTypeCo.value === 'rent') {
 				applicantPriorRentCo.style.display = 'block';
-			}else {
+			} else {
 				applicantPriorRentCo.style.display = 'none';
 			}
 		}
 
 		toggleAddressTypeCo();
-		applicantPriorAddressTypeCo.addEventListener('change',toggleAddressTypeCo)
-		
+		applicantPriorAddressTypeCo.addEventListener('change', toggleAddressTypeCo)
+
 		/**
 		 * Property Heating
 		 * @type {HTMLElement}
@@ -3161,15 +3382,15 @@
 		let propertyOtherHeating = document.getElementById('property_type_of_heating_group');
 
 		function togglePropertyHeating() {
-			if (propertyHeatingType.value === 'other'){
+			if (propertyHeatingType.value === 'other') {
 				propertyOtherHeating.style.display = 'block';
-			}else {
+			} else {
 				propertyOtherHeating.style.display = 'none';
 			}
 		}
 
 		togglePropertyHeating();
-		propertyHeatingType.addEventListener('change',togglePropertyHeating)
+		propertyHeatingType.addEventListener('change', togglePropertyHeating)
 
 
 		/**
@@ -3180,15 +3401,15 @@
 		let propertyOtherType = document.getElementById('property_type_group');
 
 		function togglePropertyType() {
-			if (propertyType.value === 'other'){
+			if (propertyType.value === 'other') {
 				propertyOtherType.style.display = 'block';
-			}else {
+			} else {
 				propertyOtherType.style.display = 'none';
 			}
 		}
 
 		togglePropertyType();
-		propertyType.addEventListener('change',togglePropertyType)
+		propertyType.addEventListener('change', togglePropertyType)
 
 		/**
 		 * Property Zoning
@@ -3198,15 +3419,15 @@
 		let propertyOtherZoning = document.getElementById('property_zoning_group');
 
 		function togglePropertyZoning() {
-			if (propertyZoning.value === 'other'){
+			if (propertyZoning.value === 'other') {
 				propertyOtherZoning.style.display = 'block';
-			}else {
+			} else {
 				propertyOtherZoning.style.display = 'none';
 			}
 		}
 
 		togglePropertyZoning();
-		propertyZoning.addEventListener('change',togglePropertyZoning)
+		propertyZoning.addEventListener('change', togglePropertyZoning)
 
 		/**
 		 * Property Garage Size
@@ -3216,15 +3437,15 @@
 		let propertyOtherGarageSize = document.getElementById('property_garage_size_group');
 
 		function togglePropertyGarageSize() {
-			if (propertyGarageSize.value === 'specify'){
+			if (propertyGarageSize.value === 'specify') {
 				propertyOtherGarageSize.style.display = 'block';
-			}else {
+			} else {
 				propertyOtherGarageSize.style.display = 'none';
 			}
 		}
 
 		togglePropertyGarageSize();
-		propertyGarageSize.addEventListener('change',togglePropertyGarageSize)
+		propertyGarageSize.addEventListener('change', togglePropertyGarageSize)
 
 
 		/**
@@ -3235,18 +3456,21 @@
 		let mortgageHolderOther = document.getElementById('mortgage_holder_group');
 
 		function toggleMortgageHolder() {
-			if (mortgageHolder.value === 'other'){
+			if (mortgageHolder.value === 'other') {
 				mortgageHolderOther.style.display = 'block';
-			}else {
+			} else {
 				mortgageHolderOther.style.display = 'none';
 			}
 		}
 
 		toggleMortgageHolder();
-		mortgageHolder.addEventListener('change',toggleMortgageHolder)
+		mortgageHolder.addEventListener('change', toggleMortgageHolder)
 
 	});
 
+	/**
+	 *
+	 */
 	$(document).ready(function () {
 		var current_fs, next_fs, previous_fs; // fieldsets
 		var opacity;
@@ -3275,6 +3499,7 @@
 			});
 			setProgressBar(++current);
 			saveFormData();
+			document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 		});
 
 		$(".previous").click(function () {
@@ -3297,7 +3522,10 @@
 			});
 			setProgressBar(--current);
 			saveFormData();
+			document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 		});
+
+		var currentStage = 0;
 
 		$("#progressbar li").click(function () {
 
@@ -3305,26 +3533,37 @@
 			current_fs = $('fieldset:visible');
 			next_fs = $('fieldset').eq(stepIndex);
 
-			$("#progressbar li").removeClass("active");
-			for (var i = 0; i <= stepIndex; i++) {
-				$("#progressbar li").eq(i).addClass("active");
+			console.log(currentStage);
+			console.log(stepIndex);
+
+			if (stepIndex !== currentStage) {
+
+				currentStage = stepIndex;
+
+				$("#progressbar li").removeClass("active");
+				for (var i = 0; i <= stepIndex; i++) {
+					$("#progressbar li").eq(i).addClass("active");
+				}
+
+				next_fs.show();
+				current_fs.animate({opacity: 0}, {
+					step: function (now) {
+						opacity = 1 - now;
+						current_fs.css({
+							'display': 'none',
+							'position': 'relative'
+						});
+						next_fs.css({'opacity': opacity});
+					},
+					duration: 500
+				});
+				setProgressBar(stepIndex + 1);
+				current = stepIndex + 1;
+				saveFormData();
+				document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 			}
 
-			next_fs.show();
-			current_fs.animate({opacity: 0}, {
-				step: function (now) {
-					opacity = 1 - now;
-					current_fs.css({
-						'display': 'none',
-						'position': 'relative'
-					});
-					next_fs.css({'opacity': opacity});
-				},
-				duration: 500
-			});
-			setProgressBar(stepIndex + 1);
-			current = stepIndex + 1;
-			saveFormData();
+
 		});
 
 		function setProgressBar(curStep) {
