@@ -65,7 +65,10 @@
 							echo "<td>" . $g->applicant_current_province . "</td>";
 							echo "<td>" . $g->applicant_current_postal_code . "</td>";
 							echo "<td>" . $g->applicant_current_address_type . "</td>";
-							echo "<td><a href='javascript:void(0)' onclick='deleteApplication($g->id)' ><span class='fa fa-trash-alt'></span></a></td>";
+							echo "<td>
+									<a  href='javascript:void(0)' onclick='deleteApplication($g->id)' ><span class='fa fa-trash-alt'></span></a>
+									<a href='" . $base_link . "view/".$g->id."'><span class='fa fa-eye'></span></a>
+									</td>";
 							echo "</tr>";
 							$i++;
 						}

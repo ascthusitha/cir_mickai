@@ -372,7 +372,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Initial</label>
 																<select class="custom-select form-control-border"
-																		id="applicant_initial"
+																		id="exampleSelectBorder"
 																		name="applicant_initial">
 																	<option value="">Select Initial</option>
 																	<?php foreach ($initials as $key => $value): ?>
@@ -384,7 +384,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-2" id="other_initial_group" style="display: none;">
+														<div class="col-md-2">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Initial <span
 																		class="span-font">(If initial other)</span></label>
@@ -437,7 +437,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Current Address</label>
 																<select class="custom-select form-control-border"
-																		id="applicant_current_address_type"
+																		id="exampleSelectBorder"
 																		name="applicant_current_address_type">
 																	<option value="">Select Address Type</option>
 																	<?php foreach ($address_types as $key => $value): ?>
@@ -449,7 +449,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="applicant_rent" style="display: none">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Rent<span
 																		class="span-font">(If address is rent)</span></label>
@@ -518,7 +518,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Prior Address</label>
 																<select class="custom-select form-control-border"
-																		id="applicant_prior_address_type"
+																		id="exampleSelectBorder"
 																		name="applicant_prior_address_type">
 																	<option value="">Select Address Type</option>
 																	<?php foreach ($address_types as $key => $value): ?>
@@ -530,7 +530,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="applicant_prior_rent" style="display: none">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Rent <span
 																		class="span-font">(If address is rent)</span></label>
@@ -651,7 +651,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Initial</label>
 																<select class="custom-select form-control-border"
-																		id="co_applicant_initial"
+																		id="exampleSelectBorder"
 																		name="co_applicant_initial">
 																	<option value="">Select Initial</option>
 																	<?php foreach ($initials as $key => $value): ?>
@@ -663,7 +663,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-2" id="co_other_initial_group" style="display: none">
+														<div class="col-md-2">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Initial <span
 																		class="span-font">(If initial other)</span></label>
@@ -716,7 +716,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Current Address</label>
 																<select class="custom-select form-control-border"
-																		id="co_applicant_current_address_type"
+																		id="exampleSelectBorder"
 																		name="co_applicant_current_address_type">
 																	<option value="">Select Address Type</option>
 																	<?php foreach ($address_types as $key => $value): ?>
@@ -728,7 +728,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="co_applicant_rent" style="display: none">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Rent<span
 																		class="span-font">(If address is rent)</span></label>
@@ -797,7 +797,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Prior Address</label>
 																<select class="custom-select form-control-border"
-																		id="co_applicant_prior_address_type"
+																		id="exampleSelectBorder"
 																		name="co_applicant_prior_address_type">
 																	<option value="">Select Address Type</option>
 																	<?php foreach ($address_types as $key => $value): ?>
@@ -809,7 +809,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="co_applicant_prior_rent" style="display:none;">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Rent <span
 																		class="span-font">(If address is rent)</span></label>
@@ -1828,7 +1828,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Type of Heating</label>
 																<select class="custom-select form-control-border"
-																		id="property_type_of_heating"
+																		id="exampleSelectBorder"
 																		name="property_type_of_heating">
 																	<option value="">Select Type of Heating</option>
 																	<?php foreach ($heatingTypes as $key => $value): ?>
@@ -1839,7 +1839,7 @@
 																</select>
 															</div>
 														</div>
-														<div class="col-md-3" id="property_type_of_heating_group" style="display:none;">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Other <span
 																		class="span-font">(If type of heating is other)</span></label>
@@ -1855,7 +1855,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Property Type</label>
 																<select class="custom-select form-control-border"
-																		id="property_type"
+																		id="exampleSelectBorder"
 																		name="property_type">
 																	<option value="">Select Property Type</option>
 																	<?php foreach ($propertyTypes as $key => $value): ?>
@@ -1866,7 +1866,7 @@
 																</select>
 															</div>
 														</div>
-														<div class="col-md-3" id="property_type_group" style="display: none">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Other <span
 																		class="span-font">(If property type is other)</span></label>
@@ -1881,7 +1881,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Zoning</label>
 																<select class="custom-select form-control-border"
-																		id="property_zoning"
+																		id="exampleSelectBorder"
 																		name="property_zoning">
 																	<option value="">Select Zoning</option>
 																	<?php foreach ($zoning as $key => $value): ?>
@@ -1893,7 +1893,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="property_zoning_group" style="display: none">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Other <span
 																		class="span-font">(If zoning is other)</span></label>
@@ -1940,7 +1940,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Garage Size</label>
 																<select class="custom-select form-control-border"
-																		id="property_garage_size"
+																		id="exampleSelectBorder"
 																		name="property_garage_size">
 																	<option value="">Select Garage Size</option>
 																	<?php foreach ($garageSizes as $key => $value): ?>
@@ -1952,7 +1952,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="property_garage_size_group" style="display:none;">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Specify <span
 																		class="span-font">(If garage size is specify)</span></label>
@@ -2233,7 +2233,7 @@
 															<div class="form-group">
 																<label for="exampleInputEmail1">Mortgage Holder</label>
 																<select class="custom-select form-control-border"
-																		id="mortgage_holder"
+																		id="exampleSelectBorder"
 																		name="mortgage_holder">
 																	<option value="">Select Mortgage Holder</option>
 																	<?php foreach ($holders as $key => $value): ?>
@@ -2245,7 +2245,7 @@
 															</div>
 														</div>
 
-														<div class="col-md-3" id="mortgage_holder_group" style="display: none">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Other <span
 																		class="span-font">(If mortgage holder is other)</span></label>
@@ -3041,211 +3041,6 @@
 			}
 		});
 	}
-
-	/**
-	 * This is toggle action function
-	 */
-	document.addEventListener('DOMContentLoaded', function () {
-		/**
-		 * Applicant initial
-		* @type {HTMLElement}
-		*/
-		let applicantInitial = document.getElementById('applicant_initial');
-		let otherInitialGroup = document.getElementById('other_initial_group');
-
-		function toggleOtherInitial() {
-			if (applicantInitial.value === 'other') {
-				otherInitialGroup.style.display = 'block';
-			} else {
-				otherInitialGroup.style.display = 'none';
-			}
-		}
-		toggleOtherInitial();
-		applicantInitial.addEventListener('change', toggleOtherInitial);
-
-		/**
-		 * Applicant current address
-		 * @type {HTMLElement}
-		 */
-		let applicantCurrentAddress = document.getElementById('applicant_current_address_type');
-		let rentAddress = document.getElementById('applicant_rent');
-
-		function toggleRentAddress() {
-			if (applicantCurrentAddress.value === 'rent') {
-				rentAddress.style.display = 'block';
-			} else {
-				rentAddress.style.display = 'none';
-			}
-		}
-		toggleRentAddress();
-		applicantCurrentAddress.addEventListener('change', toggleRentAddress);
-
-
-		/**
-		 * Applicant current address type
-		 * @type {HTMLElement}
-		 */
-		let applicantPriorAddressType = document.getElementById('applicant_prior_address_type');
-		let applicantPriorRent = document.getElementById('applicant_prior_rent');
-
-		function toggleAddressType() {
-			if (applicantPriorAddressType.value === 'rent'){
-				applicantPriorRent.style.display = 'block';
-			}else {
-				applicantPriorRent.style.display = 'none';
-			}
-		}
-
-		toggleAddressType();
-		applicantPriorAddressType.addEventListener('change',toggleAddressType)
-
-		/**
-		 * Co Applicant initial
-		 * @type {HTMLElement}
-		 */
-		let applicantInitialCo = document.getElementById('co_applicant_initial');
-		let otherInitialGroupCo = document.getElementById('co_other_initial_group');
-
-		function toggleOtherInitialCo() {
-			if (applicantInitialCo.value === 'other') {
-				otherInitialGroupCo.style.display = 'block';
-			} else {
-				otherInitialGroupCo.style.display = 'none';
-			}
-		}
-		toggleOtherInitialCo();
-		applicantInitialCo.addEventListener('change', toggleOtherInitialCo);
-
-
-		/**
-		 * Co Applicant current address
-		 * @type {HTMLElement}
-		 */
-		let applicantCurrentAddressCo = document.getElementById('co_applicant_current_address_type');
-		let rentAddressCo = document.getElementById('co_applicant_rent');
-
-		function toggleRentAddressCo() {
-			if (applicantCurrentAddressCo.value === 'rent') {
-				rentAddressCo.style.display = 'block';
-			} else {
-				rentAddressCo.style.display = 'none';
-			}
-		}
-		toggleRentAddressCo();
-		applicantCurrentAddressCo.addEventListener('change', toggleRentAddressCo);
-
-
-		/**
-		 * Co Applicant current address type
-		 * @type {HTMLElement}
-		 */
-		let applicantPriorAddressTypeCo = document.getElementById('co_applicant_prior_address_type');
-		let applicantPriorRentCo = document.getElementById('co_applicant_prior_rent');
-
-		function toggleAddressTypeCo() {
-			if (applicantPriorAddressTypeCo.value === 'rent'){
-				applicantPriorRentCo.style.display = 'block';
-			}else {
-				applicantPriorRentCo.style.display = 'none';
-			}
-		}
-
-		toggleAddressTypeCo();
-		applicantPriorAddressTypeCo.addEventListener('change',toggleAddressTypeCo)
-		
-		/**
-		 * Property Heating
-		 * @type {HTMLElement}
-		 */
-		let propertyHeatingType = document.getElementById('property_type_of_heating');
-		let propertyOtherHeating = document.getElementById('property_type_of_heating_group');
-
-		function togglePropertyHeating() {
-			if (propertyHeatingType.value === 'other'){
-				propertyOtherHeating.style.display = 'block';
-			}else {
-				propertyOtherHeating.style.display = 'none';
-			}
-		}
-
-		togglePropertyHeating();
-		propertyHeatingType.addEventListener('change',togglePropertyHeating)
-
-
-		/**
-		 * Property Type
-		 * @type {HTMLElement}
-		 */
-		let propertyType = document.getElementById('property_type');
-		let propertyOtherType = document.getElementById('property_type_group');
-
-		function togglePropertyType() {
-			if (propertyType.value === 'other'){
-				propertyOtherType.style.display = 'block';
-			}else {
-				propertyOtherType.style.display = 'none';
-			}
-		}
-
-		togglePropertyType();
-		propertyType.addEventListener('change',togglePropertyType)
-
-		/**
-		 * Property Zoning
-		 * @type {HTMLElement}
-		 */
-		let propertyZoning = document.getElementById('property_zoning');
-		let propertyOtherZoning = document.getElementById('property_zoning_group');
-
-		function togglePropertyZoning() {
-			if (propertyZoning.value === 'other'){
-				propertyOtherZoning.style.display = 'block';
-			}else {
-				propertyOtherZoning.style.display = 'none';
-			}
-		}
-
-		togglePropertyZoning();
-		propertyZoning.addEventListener('change',togglePropertyZoning)
-
-		/**
-		 * Property Garage Size
-		 * @type {HTMLElement}
-		 */
-		let propertyGarageSize = document.getElementById('property_garage_size');
-		let propertyOtherGarageSize = document.getElementById('property_garage_size_group');
-
-		function togglePropertyGarageSize() {
-			if (propertyGarageSize.value === 'specify'){
-				propertyOtherGarageSize.style.display = 'block';
-			}else {
-				propertyOtherGarageSize.style.display = 'none';
-			}
-		}
-
-		togglePropertyGarageSize();
-		propertyGarageSize.addEventListener('change',togglePropertyGarageSize)
-
-
-		/**
-		 * Mortgage Holder
-		 * @type {HTMLElement}
-		 */
-		let mortgageHolder = document.getElementById('mortgage_holder');
-		let mortgageHolderOther = document.getElementById('mortgage_holder_group');
-
-		function toggleMortgageHolder() {
-			if (mortgageHolder.value === 'other'){
-				mortgageHolderOther.style.display = 'block';
-			}else {
-				mortgageHolderOther.style.display = 'none';
-			}
-		}
-
-		toggleMortgageHolder();
-		mortgageHolder.addEventListener('change',toggleMortgageHolder)
-
-	});
 
 	$(document).ready(function () {
 		var current_fs, next_fs, previous_fs; // fieldsets
