@@ -886,7 +886,7 @@ class Mapplication_model extends CI_Model
 		);
 
 		$this->db->trans_begin();
-		$where = array('id', $this->input->post('applicant_id'));
+		$where = array('id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table, $data);
 
@@ -894,7 +894,6 @@ class Mapplication_model extends CI_Model
 		 * This is mortgage applicant employment details save
 		 */
 		$data_employemnt = array(
-			'mortgage_application_id' => $last_id,
 			'applicant_current_employer' => $this->input->post('applicant_current_employer'),
 			'applicant_current_job_title' => $this->input->post('applicant_current_job_title'),
 			'applicant_employment_current_city' => $this->input->post('applicant_employment_current_city'),
@@ -937,7 +936,7 @@ class Mapplication_model extends CI_Model
 			'co_applicant_employment_previous_month' => $this->input->post('co_applicant_employment_previous_month'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_employment, $data_employemnt);
 
@@ -946,7 +945,6 @@ class Mapplication_model extends CI_Model
 		 * This is mortgage applicant financial details save
 		 */
 		$data_financial = array(
-			'mortgage_application_id' => $last_id,
 			'financial_value_of_property_institution' => $this->input->post('financial_value_of_property_institution'),
 			'financial_value_of_property_amount' => $this->input->post('financial_value_of_property_amount'),
 			'financial_cash_in_bank_institution' => $this->input->post('financial_cash_in_bank_institution'),
@@ -985,7 +983,7 @@ class Mapplication_model extends CI_Model
 			'financial_balance_owing_child_supports' => $this->input->post('financial_balance_owing_child_supports'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_financial, $data_financial);
 
@@ -994,7 +992,6 @@ class Mapplication_model extends CI_Model
 		 * This is mortgage applicant general details save
 		 */
 		$data_general = array(
-			'mortgage_application_id' => $last_id,
 			'general_is_judgements' => $this->input->post('general_is_judgements'),
 			'general_judgements' => $this->input->post('general_judgements'),
 			'general_is_bankruptcy' => $this->input->post('general_is_bankruptcy'),
@@ -1009,13 +1006,12 @@ class Mapplication_model extends CI_Model
 			'general_guarantor_for_lease' => $this->input->post('general_guarantor_for_lease'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_general, $data_general);
 
 
 		$data_income = array(
-			'mortgage_application_id' => $last_id,
 			'applicant_income_full_time' => $this->input->post('applicant_income_full_time'),
 			'applicant_income_self_employed' => $this->input->post('applicant_income_self_employed'),
 			'applicant_income_contract' => $this->input->post('applicant_income_contract'),
@@ -1038,7 +1034,7 @@ class Mapplication_model extends CI_Model
 			'co_applicant_income_total' => $this->input->post('co_applicant_income_total'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_income, $data_income);
 
@@ -1046,7 +1042,6 @@ class Mapplication_model extends CI_Model
 		 * This is mortgage applicant loan details save
 		 */
 		$data_loan = array(
-			'mortgage_application_id' => $last_id,
 			'purpose_of_loan' => $this->input->post('purpose_of_loan'),
 			'applicant_loan_reason' => $this->input->post('applicant_loan_reason'),
 			'sales_price' => $this->input->post('sales_price'),
@@ -1061,7 +1056,7 @@ class Mapplication_model extends CI_Model
 			'loan_other' => $this->input->post('loan_other'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_loan, $data_loan);
 
@@ -1069,7 +1064,6 @@ class Mapplication_model extends CI_Model
 		 * This is mortgage applicant mortgage details save
 		 */
 		$data_mortgage = array(
-			'mortgage_application_id' => $last_id,
 			'mortgage_type' => $this->input->post('mortgage_type'),
 			'mortgage_original_mtg_amount' => $this->input->post('mortgage_original_mtg_amount'),
 			'mortgage_balance' => $this->input->post('mortgage_balance'),
@@ -1087,7 +1081,7 @@ class Mapplication_model extends CI_Model
 			'mortgage_number' => $this->input->post('mortgage_number'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_mortgage, $data_mortgage);
 
@@ -1095,7 +1089,6 @@ class Mapplication_model extends CI_Model
 		 * This is mortgage applicant property details save
 		 */
 		$data_property = array(
-			'mortgage_application_id' => $last_id,
 			'property_street' => $this->input->post('property_street'),
 			'property_city' => $this->input->post('property_city'),
 			'property_province' => $this->input->post('property_province'),
@@ -1126,7 +1119,7 @@ class Mapplication_model extends CI_Model
 			'property_original_purchase_price' => $this->input->post('property_original_purchase_price'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_property, $data_property);
 
@@ -1203,7 +1196,7 @@ class Mapplication_model extends CI_Model
 		$this->db->trans_begin();
 
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table, $data);
 
@@ -1254,7 +1247,7 @@ class Mapplication_model extends CI_Model
 		);
 
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_employment, $data_employemnt);
 
@@ -1301,7 +1294,7 @@ class Mapplication_model extends CI_Model
 			'financial_balance_owing_child_supports' => $this->input->post('financial_balance_owing_child_supports'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_financial, $data_financial);
 
@@ -1324,7 +1317,7 @@ class Mapplication_model extends CI_Model
 			'general_guarantor_for_lease' => $this->input->post('general_guarantor_for_lease'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_general, $data_general);
 
@@ -1352,7 +1345,7 @@ class Mapplication_model extends CI_Model
 			'co_applicant_income_total' => $this->input->post('co_applicant_income_total'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_income, $data_income);
 
@@ -1376,7 +1369,7 @@ class Mapplication_model extends CI_Model
 		);
 
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_loan, $data_loan);
 
@@ -1402,7 +1395,7 @@ class Mapplication_model extends CI_Model
 			'mortgage_number' => $this->input->post('mortgage_number'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_mortgage, $data_mortgage);
 
@@ -1441,7 +1434,7 @@ class Mapplication_model extends CI_Model
 			'property_original_purchase_price' => $this->input->post('property_original_purchase_price'),
 		);
 
-		$where = array('mortgage_application_id', $this->input->post('applicant_id'));
+		$where = array('mortgage_application_id' => $this->input->post('applicant_id'));
 		$this->db->where($where);
 		$this->db->update($this->table_property, $data_property);
 

@@ -304,6 +304,7 @@
 		font-weight: lighter
 	}
 </style>
+<?php $base_link_url = $this->config->item('base_url');?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -328,7 +329,9 @@
 		<!-- Default box -->
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title"><?= $title; ?></h3>
+				<h3 class="card-title">
+					<a href="<?php echo $base_link_url ?>mapplication"> <?= $listTitle; ?> </a>
+				</h3>
 				<div class="card-tools">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
 						<i class="fas fa-minus"></i>
@@ -362,7 +365,7 @@
 												<li id="general"><strong>GENERAL</strong></li>
 											</ul>
 
-											<input type="hidden" value="<?php echo $application_id ?>" id="application_id">
+											<input type="hidden" value="<?php echo $applicant_id ?>" id="applicant_id" name="applicant_id">
 											<!-- fieldsets -->
 
 
@@ -2994,7 +2997,7 @@
 																<input type="radio" class="form-control"
 																	   id="exampleInputEmail1"
 																	   name="general_is_judgements" value="no"
-																	   style="margin-top: -37px" <?php echo $data['general_is_judgements'] === 'yes' ? 'checked' : ''; ?>>
+																	   style="margin-top: -37px" <?php echo $data['general_is_judgements'] === 'no' ? 'checked' : ''; ?>>
 															</div>
 														</div>
 														<div class="col-md-2">
@@ -3224,7 +3227,7 @@
 	 */
 	function saveFormData() {
 		let form = $('#msform');
-		let URL = "<?php echo base_url(); ?>Mapplication/tempSave";
+		let URL = "<?php echo base_url(); ?>Mapplication/tempUpdate";
 		$.ajax({
 			type: $(form).attr('method'),
 			url: URL,

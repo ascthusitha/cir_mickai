@@ -76,7 +76,7 @@
 	}
 
 	#msform .action-button {
-		width: 120px;
+		width: 140px;
 		background: skyblue;
 		font-weight: bold;
 		color: white;
@@ -304,6 +304,7 @@
 		font-weight: lighter
 	}
 </style>
+<?php $base_link_url = $this->config->item('base_url');?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -328,7 +329,9 @@
 		<!-- Default box -->
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title"><?= $title; ?></h3>
+				<h3 class="card-title">
+					<a href="<?php echo $base_link_url ?>mapplication"> <?= $listTitle; ?> </a>
+				</h3>
 				<div class="card-tools">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
 						<i class="fas fa-minus"></i>
@@ -3250,7 +3253,7 @@
 			success: function (data) {
 				if ($.trim(data) == "success") {
 					$('#results').addClass('alert alert-success');
-					$('#results').html('Application successfully draft');
+					$('#results').html('Application successfully saved');
 				} else {
 					$('#results').addClass('alert alert-danger');
 					$('#results').html('error');
@@ -3603,7 +3606,7 @@
 						//$("#company-form").hide('slow');
 						if ($.trim(data) == "success") {
 							$('#results').addClass('alert alert-success');
-							$('#results').html('Application successfully saved');
+							$('#results').html('Application successfully created');
 							var URL = "<?php echo base_url(); ?>mapplication/";
 							setTimeout(function () {
 								window.location = URL;

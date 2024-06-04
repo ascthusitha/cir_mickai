@@ -58,6 +58,7 @@ class Mapplication extends MY_Controller
 		$data['holders'] = array('1' => '1st', '2' => '2nd', '3' => '3rd', 'other' => 'Other');
 
 		$data['title'] = "Application Add";
+		$data['listTitle'] = "Application Lists";
 		$data['link_back'] = anchor('application/listing/', 'Back to list of application Name', array('class' => 'back'));
 		$this->load->view('layout/header', $data);
 		$this->load->view('layout/menu_bar');
@@ -128,7 +129,8 @@ class Mapplication extends MY_Controller
 		$data['garageSizes'] = array('single' => 'Single', 'double' => 'Double', 'triple' => 'Triple', 'specify' => 'Specify');
 		$data['holders'] = array('1' => '1st', '2' => '2nd', '3' => '3rd', 'other' => 'Other');
 
-		$data['title'] = "application";
+		$data['title'] = "Application View";
+		$data['listTitle'] = "Application Lists";
 		$data['btn_value'] = 'Update';
 		$data['link_back'] = anchor('application/listing/', 'Back to list of application', array('class' => 'back'));
 		$this->load->view('layout/header', $data);
@@ -146,7 +148,8 @@ class Mapplication extends MY_Controller
 	{
 		$data['user'] = $this->session->userdata('first_name');
 
-		$data['application_id'] = $id;
+		$data['applicant_id'] = $id;
+
 		$data['application'] = $this->mapplication_model->get_detail($id);
 		$data['data'] = $this->mapplication_model->get_detail($id);
 		$data['initials'] = array('mr' => 'Mr.', 'mrs' => 'Mrs.', 'ms' => 'Ms.', 'dr' => 'Dr.', 'other' => 'Other');
@@ -162,7 +165,8 @@ class Mapplication extends MY_Controller
 		$data['garageSizes'] = array('single' => 'Single', 'double' => 'Double', 'triple' => 'Triple', 'specify' => 'Specify');
 		$data['holders'] = array('1' => '1st', '2' => '2nd', '3' => '3rd', 'other' => 'Other');
 
-		$data['title'] = "application";
+		$data['title'] = "Application Edit";
+		$data['listTitle'] = "Application Lists";
 		$data['btn_value'] = 'Update';
 		$data['link_back'] = anchor('application/listing/', 'Back to list of application', array('class' => 'back'));
 		$this->load->view('layout/header', $data);
