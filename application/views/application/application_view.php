@@ -76,7 +76,7 @@
 	}
 
 	#msform .action-button {
-		width: 140px;
+		width: 120px;
 		background: skyblue;
 		font-weight: bold;
 		color: white;
@@ -347,8 +347,7 @@
 					<div class="row justify-content-center mt-0">
 						<div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center p-0 mt-3 mb-2">
 							<div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-								<h2><strong>Complete Your Mortgage Application</strong></h2>
-								<p>Fill all form fields to proceed to the next step</p>
+								<h2><strong>View Your Mortgage Application</strong></h2>
 								<div class="row">
 									<div class="col-md-12 mx-0">
 										<form class="well form-horizontal" id="msform"
@@ -2995,7 +2994,7 @@
 																<input type="radio" class="form-control"
 																	   id="exampleInputEmail1"
 																	   name="general_is_judgements" value="no"
-																	   style="margin-top: -37px" <?php echo $data['general_is_judgements'] === 'yes' ? 'checked' : ''; ?>>
+																	   style="margin-top: -37px" <?php echo $data['general_is_judgements'] === 'no' ? 'checked' : ''; ?>>
 															</div>
 														</div>
 														<div class="col-md-2">
@@ -3190,10 +3189,8 @@
 												<!--												<input type="button" name="submit" class="submit action-button"-->
 												<!--													   value="Submit"/>-->
 
-												<button type="submit" class="submit action-button"> Submit</button>
-												<button type="button" class="action-button" onclick="draftFormData()">
-													Save Temporarily
-												</button>
+												<a href='<?php echo $base_link?>mapplication' type="button" class="action-button"> Cancel </a>
+
 
 											</fieldset>
 										</form>
@@ -3222,45 +3219,6 @@
 
 
 <script type="text/javascript">
-
-	/**
-	 * This function used to save application temp data.
-	 */
-	function saveFormData() {
-		let form = $('#msform');
-		let URL = "<?php echo base_url(); ?>Mapplication/tempSave";
-		$.ajax({
-			type: $(form).attr('method'),
-			url: URL,
-			data: $(form).serialize(),
-			success: function (data) {
-				console.log('success');
-			}
-		});
-	}
-
-
-	/**
-	 * This function used to draft application temp data.
-	 */
-	function draftFormData() {
-		let form = $('#msform');
-		let URL = "<?php echo base_url(); ?>Mapplication/tempSave";
-		$.ajax({
-			type: $(form).attr('method'),
-			url: URL,
-			data: $(form).serialize(),
-			success: function (data) {
-				if ($.trim(data) == "success") {
-					$('#results').addClass('alert alert-success');
-					$('#results').html('Application successfully saved');
-				} else {
-					$('#results').addClass('alert alert-danger');
-					$('#results').html('error');
-				}
-			}
-		});
-	}
 
 	/**
 	 * This is toggle action function
@@ -3501,7 +3459,6 @@
 				duration: 500
 			});
 			setProgressBar(++current);
-			saveFormData();
 			document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 		});
 
@@ -3524,7 +3481,6 @@
 				duration: 500
 			});
 			setProgressBar(--current);
-			saveFormData();
 			document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 		});
 
@@ -3562,7 +3518,6 @@
 				});
 				setProgressBar(stepIndex + 1);
 				current = stepIndex + 1;
-				saveFormData();
 				document.getElementById('msform').scrollIntoView({ behavior: 'smooth' });
 			}
 
@@ -3577,51 +3532,4 @@
 
 	});
 
-</script>
-
-<script type="text/javascript">
-	$(document).ready(function () {
-		var base_url = "<?php echo base_url(); ?>";
-
-		$('#msform').validate({
-			rules: {
-				applicant_initial: {
-					required: true
-				}
-			}, messages: {
-				applicant_initial: {
-					required: "Please enter a initial",
-				}
-			},
-			highlight: function (element) {
-				$(element).closest('.control-group').removeClass('success').addClass('error');
-			},
-
-			submitHandler: function (form) {
-				$.ajax({
-					type: $(form).attr('method'),
-					url: $(form).attr('action'),
-					data: $(form).serialize(),
-					success: function (data) {
-						//$("#company-form").hide('slow');
-						if ($.trim(data) == "success") {
-							$('#results').addClass('alert alert-success');
-							$('#results').html('Application successfully created');
-							var URL = "<?php echo base_url(); ?>mapplication/";
-							setTimeout(function () {
-								window.location = URL;
-							}, 1000);
-						} else {
-							$('#results').addClass('alert alert-danger');
-							$('#results').html('error');
-						}
-
-					}
-				});
-
-				return false; // required to block normal submit since you used ajax
-			}
-
-		});
-	}); // end document.ready
 </script>

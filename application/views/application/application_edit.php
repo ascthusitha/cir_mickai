@@ -76,7 +76,7 @@
 	}
 
 	#msform .action-button {
-		width: 140px;
+		width: 120px;
 		background: skyblue;
 		font-weight: bold;
 		color: white;
@@ -347,12 +347,12 @@
 					<div class="row justify-content-center mt-0">
 						<div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center p-0 mt-3 mb-2">
 							<div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-								<h2><strong>Complete Your Mortgage Application</strong></h2>
+								<h2><strong>Edit Your Mortgage Application</strong></h2>
 								<p>Fill all form fields to proceed to the next step</p>
 								<div class="row">
 									<div class="col-md-12 mx-0">
 										<form class="well form-horizontal" id="msform"
-											  action="<?php echo base_url(); ?>Mapplication/save" method="post">
+											  action="<?php echo base_url(); ?>Mapplication/update" method="post">
 											<!-- progressbar -->
 											<ul id="progressbar">
 												<li class="active" id="personal"><strong>APPLICANT DETAILS</strong></li>
@@ -364,6 +364,8 @@
 												<li id="financial"><strong>FINANCIAL</strong></li>
 												<li id="general"><strong>GENERAL</strong></li>
 											</ul>
+
+											<input type="hidden" value="<?php echo $applicant_id ?>" id="applicant_id" name="applicant_id">
 											<!-- fieldsets -->
 
 
@@ -2995,7 +2997,7 @@
 																<input type="radio" class="form-control"
 																	   id="exampleInputEmail1"
 																	   name="general_is_judgements" value="no"
-																	   style="margin-top: -37px" <?php echo $data['general_is_judgements'] === 'yes' ? 'checked' : ''; ?>>
+																	   style="margin-top: -37px" <?php echo $data['general_is_judgements'] === 'no' ? 'checked' : ''; ?>>
 															</div>
 														</div>
 														<div class="col-md-2">
@@ -3191,9 +3193,6 @@
 												<!--													   value="Submit"/>-->
 
 												<button type="submit" class="submit action-button"> Submit</button>
-												<button type="button" class="action-button" onclick="draftFormData()">
-													Save Temporarily
-												</button>
 
 											</fieldset>
 										</form>
@@ -3228,7 +3227,7 @@
 	 */
 	function saveFormData() {
 		let form = $('#msform');
-		let URL = "<?php echo base_url(); ?>Mapplication/tempSave";
+		let URL = "<?php echo base_url(); ?>Mapplication/tempUpdate";
 		$.ajax({
 			type: $(form).attr('method'),
 			url: URL,
@@ -3245,7 +3244,7 @@
 	 */
 	function draftFormData() {
 		let form = $('#msform');
-		let URL = "<?php echo base_url(); ?>Mapplication/tempSave";
+		let URL = "<?php echo base_url(); ?>Mapplication/tempUpdate";
 		$.ajax({
 			type: $(form).attr('method'),
 			url: URL,
@@ -3253,7 +3252,7 @@
 			success: function (data) {
 				if ($.trim(data) == "success") {
 					$('#results').addClass('alert alert-success');
-					$('#results').html('Application successfully saved');
+					$('#results').html('Application successfully draft');
 				} else {
 					$('#results').addClass('alert alert-danger');
 					$('#results').html('error');
@@ -3606,7 +3605,7 @@
 						//$("#company-form").hide('slow');
 						if ($.trim(data) == "success") {
 							$('#results').addClass('alert alert-success');
-							$('#results').html('Application successfully created');
+							$('#results').html('Application successfully updated');
 							var URL = "<?php echo base_url(); ?>mapplication/";
 							setTimeout(function () {
 								window.location = URL;
