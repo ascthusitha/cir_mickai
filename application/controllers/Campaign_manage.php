@@ -112,13 +112,13 @@ $message = "Dear " . $data->contact_name." ".$data->contact_lname . ",\n".$campa
 // $mobileNumber = $data->mobile;
 
 // }
-$mobileNumber =  preg_replace('/[^\dxX]/', '', $data->mobile);
+$mobileNumber = preg_replace('/[^\dxX]/', '', $data->mobile);
 if($mobileNumber==null){
-  
-//$mobileNumber =  "office==".preg_replace('/[^\dxX]/', '', $data->office_phone);
-//  if($data->office_phone==null){
-//        continue;
-//    }
+
+//$mobileNumber = "office==".preg_replace('/[^\dxX]/', '', $data->office_phone);
+// if($data->office_phone==null){
+// continue;
+// }
 continue;
 }
 $contact_id = $data->contact_id;
@@ -166,7 +166,7 @@ return true;
 
 public function sendEmail($c_id){
 
-$sendgridApiKey = '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';
+
 
 
 $today = Date('Y-m-d');
