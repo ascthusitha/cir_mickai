@@ -1,8 +1,8 @@
   <footer class="main-footer">
-    <strong>Copyright &copy; <?php echo date("Y"); ?><a href="https://ascensorpartners.com">      Ascensor Partners Pvt Ltd</a>.</strong>
+    <strong>Copyright &copy; <?php echo date("Y"); ?><a href="https://ascensorpartners.com">      Ascensor Partners Inc</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-     Powered By Mickai <b>Version</b> 3.0
+     Mickai <b>Version</b> 3.0
     </div>
   </footer>
 </div>

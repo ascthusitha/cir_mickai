@@ -23,6 +23,7 @@ class Contact extends MY_Controller{
          $this->load->model('crr_model');
          $this->load->model('car_model');
          $this->load->model('country_model');
+         $this->load->model('alert_sms_model');
         $this->load->library('Menu_Lib');
     }
 
@@ -31,6 +32,7 @@ class Contact extends MY_Controller{
         $data['contact'] = $this->contact_model->get_contact();
         $data['users'] = $this->user_model->get_user_dropdown1();
         $this->menu_lib->get_active_menu(24,25);
+        
         $data['title'] = "Contact List";
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu_bar');
@@ -45,7 +47,7 @@ class Contact extends MY_Controller{
              $data['cars'] = $this->car_model->get_car_dropdown();
         $data['users'] = $this->user_model->get_user_dropdown1();
                        $data['s_contacts']=  $this->contact_other_m->get_scontacts($contact_id);
-
+$data['alerts'] =array();
         $this->menu_lib->get_active_menu(24,26);
         $data['title'] = "Contact ";
         $data['title1'] = "Contact Add";
@@ -92,6 +94,7 @@ class Contact extends MY_Controller{
          $data['contact']=  $this->contact_model->get_contact_detail($contact_id);
                $data['countries'] = $this->country_model->get_country_dropdown();
                $data['s_contacts']=  $this->contact_other_m->get_scontacts($contact_id);
+               $data['alerts'] =  $this->alert_sms_model->get_alert_detail($contact_id);
          $data['btn_value']='Update';
         $data['contact_id']=$contact_id;
          $this->load->view('layout/header', $data);

@@ -11,13 +11,18 @@
 		"source": "https://github.com/bcit-ci/CodeIgniter"
 	},
 	"require": {
-		"php": ">=5.3.7"
+		"php": ">=5.3.7",
+		"twilio/sdk": "^6.43",
+		"stripe/stripe-php": "^10.0",
+		"mpdf/mpdf": "^8.1",
+		"sendgrid/sendgrid": "^7.11",
+		"guzzlehttp/guzzle": "^7.8"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
 	},
 	"require-dev": {
-		"mikey179/vfsStream": "1.1.*",
+		"mikey179/vfsstream": "1.1.*",
 		"phpunit/phpunit": "4.* || 5.*"
 	}
 }

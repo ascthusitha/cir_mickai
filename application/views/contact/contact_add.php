@@ -321,7 +321,14 @@
             <!-- /.card-body -->
             <!-- Success message -->
 
-
+  <div class="row">
+                    <div class="col-md-12">
+                         <h3  align='center'>Alert Details</h3>
+                         <?php if(isset($contact['contact_id'])){?>
+                        <div class="alert "  role="alert" id="results"><?php  require_once 'alert_list.php'; ?> </div>
+                         <?php } ?>
+                    </div>
+                </div>
         </div>
         <!-- /.card -->
 
