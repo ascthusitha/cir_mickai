@@ -58,8 +58,8 @@ class Send_mail extends MY_Controller
     protected function sendSMS($data)
     {
         // Your Account SID and Auth Token from twilio.com/console
-        $sid = 'ACe2fd1855274ed4eeb167a4fd0ae876b2';
-        $token = 'e8c00eee568edf1a21b75dccd4e247fe';
+          $sid ='';// 'ACe2fd1855274ed4eeb167a4fd0ae876b2';
+		$token = '';// 'e8c00eee568edf1a21b75dccd4e247fe';
         // $client = new Client($sid, $token);
         $twilioNumber = 'MG2a2d5a06bbacbe1d54c7f4b60dcc331c'; //'+12267740744';
 $today = Date('Y-m-d');
