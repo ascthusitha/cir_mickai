@@ -30,7 +30,7 @@
                                     echo "<td>" . $g->email . "</td>";
                                     echo "<td>" . $g->dob . "</td>";
                                     echo "<td>" . $g->user_fname . "</td>";
-                                    echo "<td><a href='javascript:void(0)' onclick='editOContact($g->co_id)' ><span class='fa fa-edit'></span></a>&nbsp;&nbsp;<a href='javascript:void(0)' onclick='deleteOContact($g->co_id)' ><span class='fa fa-trash-alt'></span></a></td>";
+                                    echo "<td><a href='javascript:void(0)' onclick='editOContact($g->co_id)' ><span class='fa fa-edit' style='font-size:18px;'></span></a>&nbsp;&nbsp;<a href='javascript:void(0)' onclick='deleteOContact($g->co_id)' ><i class='fas fa-trash-alt' style='font-size:18px;color:red'></i></a></td>";
                                     echo "</tr>";
                                     $i++;
                                 }
@@ -49,7 +49,7 @@
 
                             <input type="text" class="form-control" name="first_name" id="first_name" value="<?php echo isset($other_contact['first_name']) ? $other_contact['first_name'] : set_value(''); ?>">
                             <input type="hidden" class="form-control" name="co_id" id="co_id" value="<?php echo $other_contact['co_id']; ?>">
-<input type="hidden" class="form-control" name="contact_id" id="contact_id" value="<?php echo $contact_id; ?>">
+<input type="hidden" class="form-control" name="contact_id1" id="contact_id1" value="<?php echo $contact_id; ?>">
                         </div>
                                                 <div class="col-sm-4">
                             <label class="control-label" for="first_name">Last Name</label>
@@ -100,14 +100,19 @@
     $(document).ready(function () {
         var base_url = "<?php echo base_url(); ?>";
 
+
         $('#co-form').validate({
             rules: {
                 first_name: {
+                    required: true
+                },contact_id1: {
                     required: true
                 }
             }, messages: {
                 first_name: {
                     required: "Please enter first name",
+                },contact_id1: {
+                    required: "Please Create Primary Contact Before Adding the secondary Contacts",
                 }
             },
            
@@ -138,6 +143,7 @@
             }
 
         });
+        
     }); // end document.ready
     function editOContact(co_id) {
          var base_url = "<?php echo base_url(); ?>";
@@ -154,6 +160,7 @@
                     $('#mobile').val(arr.mobile);
                     $('#dob').val(arr.dob);
                     $('#address').html(arr.address);
+                    $('#co_id').val(arr.co_id);
                 }
             });
     }

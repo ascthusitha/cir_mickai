@@ -9,7 +9,7 @@ class Menu_Lib {
     }
 
     function get_active_menu($act1='',$act2='') {
-        for ($x = 1; $x <= 40; $x++) { 
+        for ($x = 1; $x <= 56; $x++) { 
             $data[$x] = '';
             $menu[$x] = '';
             if($act1==$x) { $data[$x] = 'active'; $menu[$x] = 'menu-open'; }

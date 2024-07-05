@@ -16,7 +16,7 @@ class Send_mail extends MY_Controller
     public function index()
     {
 
-        $this->menu_lib->get_active_menu(8, 41);
+        $this->menu_lib->get_active_menu(50, 53);
         //load view
         $data['user'] = $this->session->userdata('first_name');
         $data['title'] = "Instant Message";

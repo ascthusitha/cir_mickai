@@ -45,11 +45,13 @@
                         <tr>
                             <th>Campaign</th>
                             <th>Type</th>
-                            <th>Message</th>
+                            <th style="width: 30%">Message</th>
                             <th>Message Type</th>
-                            <th>Stard Date</th>
+                            <th>Start Date</th>
                             <th>End Date</th>
+                            <th>Start Time</th>
                             <th>Status</th>
+                            <th>Details</th>
                             <th>&nbsp; </th>
                         </tr>
                     </thead>
@@ -57,15 +59,23 @@
                         <?php
                             if (count($campaigns)) {
                                 foreach ($campaigns as $campaign) {
+                                    $CI=&get_instance();
+                                   
+                                    $sent=$CI->get_msg_count($campaign->campaign_id,$campaign->campaign_type,'sent');
+                                    $delivered=$CI->get_msg_count($campaign->campaign_id,$campaign->campaign_type,'delivered');
+                                    $text_count=strlen($campaign->message);
                                     echo "<tr>";
                                     echo "<td>" . anchor('campaign/view/' . $campaign->campaign_id, $campaign->campaign_name) . "</td>";
                                     echo "<td>". $campaign->campaign_type . "</td>";
-																		echo "<td>". $campaign->message . "</td>";
-																		echo "<td>". $campaign->message_type . "</td>";
-																		echo "<td>". $campaign->start_date . "</td>";
-																		echo "<td>". $campaign->end_date . "</td>";
-																				echo "<td>". $campaign->status . "</td>";
-                                    echo "<td><a href='javascript:void(0)' onclick='deleteCampaign($campaign->campaign_id)' role='button' class=' pull-right'><i class='fa fa-user'></i></a></td>";
+				echo "<td>". $campaign->message . "</td>";
+				echo "<td>". $campaign->message_type . "</td>";
+				echo "<td>". Date('M-d-Y', strtotime($campaign->start_date)) . "</td>";
+			echo "<td>". Date('M-d-Y', strtotime($campaign->end_date)) . "</td>";
+				echo "<td>". $campaign->start_time . "</td>";
+                                echo "<td>". $campaign->status . "</td>";
+                                    echo "<td>sent - ".$sent."<br>"."Delivered - ".$delivered ."<br> Text  -".$text_count."</td>";
+                                    echo "<td><a href='javascript:void(0)' onclick='deleteCampaign($campaign->campaign_id)' role='button' class='btn btn-danger btn-xs pull-right'>Delete<i class='fa fa-thrash'></i></a></td>";
+
                                     echo "</tr>";
                                 }
                             }

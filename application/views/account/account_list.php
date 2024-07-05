@@ -37,7 +37,9 @@
             <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
               <i class="fas fa-times"></i>
             </button>
+              
           </div>
+          <span class="pull-right pr-5">Total Accounts : <?=count($account)?></span>
         </div>
         <div class="card-body">
            <table class="table table-striped table-bordered" width="100%"  id="account_table">

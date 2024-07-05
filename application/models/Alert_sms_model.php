@@ -32,7 +32,8 @@ class Alert_sms_model extends CI_Model
             'sender' => $twilioNumber,
             'message' => $message,
             'app_date'=>$app_date,
-            'tw_id'=>$tw_id
+            'tw_id'=>$tw_id,
+            'campaign_id'=>$c_id
         );
         $date = new DateTime();
 
@@ -62,8 +63,9 @@ class Alert_sms_model extends CI_Model
     }
     public function get_alert_details1()
     {
-$this->db->select('*');
-        $query = $this->db->get('alert_details');
+$this->db->select('p.*,k.contact_name,k.contact_lname');
+$this->db->join('contact k', 'p.contact_id=k.contact_id', 'left');
+        $query = $this->db->get('alert_details p');
                 return $query->result();
 
 
@@ -97,4 +99,15 @@ $this->db->select('*');
 			$this->db->where('tw_id', $messageSid);
 			$this->db->update('alert_details');
 	}
+          public function get_sent_msg($campaign_id,$campaign_type,$stat=NULL){
+        $this->db->select('alert_details.*');
+        
+        $this->db->where('alert_type',$campaign_type);
+        if($stat=='delivered'){
+        $this->db->where('sms_status',$stat);
+        }
+        $this->db->where('campaign_id',$campaign_id);
+        $query = $this->db->get('alert_details');
+        return $query->num_rows();
+    }
 }

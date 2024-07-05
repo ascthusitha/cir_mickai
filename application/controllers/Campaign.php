@@ -15,12 +15,13 @@ class Campaign extends MY_Controller {
         $this->load->library(array('form_validation'));
         $this->load->helper('url');
         $this->load->model('campaign_model');
+        $this->load->model('alert_sms_model');
 		  $this->load->library('Menu_Lib');
     }
 
     public function index() {
 		$data['campaigns'] = $this->campaign_model->get_campaign();
-		        $this->menu_lib->get_active_menu(13,1);
+	 $this->menu_lib->get_active_menu(50,51);
         $data['user'] = $this->session->userdata('first_name');
         $data['title'] = "Campaign";
         $this->load->view('layout/header', $data);
@@ -33,7 +34,7 @@ class Campaign extends MY_Controller {
 
         $data['user'] = $this->session->userdata('first_name');
         $data['campaign'] = array("campaign_id" => 0);
-
+ $this->menu_lib->get_active_menu(50,52);
         $data['title'] = "Campaign Add";
         $data['link_back'] = anchor('campaign/listing/', 'Back to list of campaign Name', array('class' => 'back'));
         $this->load->view('layout/header', $data);
@@ -80,7 +81,10 @@ class Campaign extends MY_Controller {
             echo $status;
         }
     }
-
+public function get_msg_count($id,$type,$stat){
+    $res=$this->alert_sms_model->get_sent_msg($id,$type,$stat);
+    return ($res);
+}
 }
 
 /* End of file campaign.php */

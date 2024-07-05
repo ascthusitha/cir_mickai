@@ -20,7 +20,7 @@ class Campaign_activity extends MY_Controller {
 
     public function index() {
 	$data['alerts'] = $this->alert_sms_model->get_alert_details1();
-	$this->menu_lib->get_active_menu(13,1);
+	$this->menu_lib->get_active_menu(50, 54);
         $data['user'] = $this->session->userdata('first_name');
         $data['title'] = "Campaign Activity";
         $this->load->view('layout/header', $data);

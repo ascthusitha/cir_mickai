@@ -123,7 +123,7 @@
                             </a>
                         </li>
                         <?php } ?>
-                        <?php if (in_array(50, $permissionData)) { ?>
+                        <?php if (in_array(55, $permissionData)) { ?>
                         <li class="nav-item">
                             <a href="<?php echo $base_link; ?>mapplication" class="nav-link <?php echo $menu[50];?>">
                                 <i class="far fa-circle nav-icon"></i>
@@ -131,7 +131,7 @@
                             </a>
                         </li>
                         <?php } ?>
-                        <?php if (in_array(51, $permissionData)) { ?>
+                        <?php if (in_array(56, $permissionData)) { ?>
                         <li class="nav-item">
                             <a href="<?php echo $base_link; ?>mapplication/add"
                                 class="nav-link <?php echo $menu[51];?>">
@@ -144,40 +144,40 @@
                 </li>
                 <?php } ?>
 
-                <?php if (in_array(21, $permissionData)) { ?>
-                <li class="nav-item <?php echo $menu_open[21];?>">
-                    <a href="#" class="nav-link <?php echo $menu[21];?>">
-                        <i class="nav-icon fa fa-dot-circle"></i>
+                <?php if (in_array(50, $permissionData)) { ?>
+                <li class="nav-item <?php echo $menu_open[50];?>">
+                    <a href="#" class="nav-link <?php echo $menu[50];?>">
+                        <i class="far fa-address-book nav-icon"></i>
                         <p>Campaign <i class="fas fa-angle-left right"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <?php if (in_array(22, $permissionData)) { ?>
+                        <?php if (in_array(51, $permissionData)) { ?>
                         <li class="nav-item">
-                            <a href="<?php echo $base_link; ?>campaign" class="nav-link <?php echo $menu[22];?>">
+                            <a href="<?php echo $base_link; ?>campaign" class="nav-link <?php echo $menu[51];?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Campaign list</p>
                             </a>
                         </li>
                         <?php } ?>
-                        <?php if (in_array(23, $permissionData)) { ?>
+                        <?php if (in_array(52, $permissionData)) { ?>
                         <li class="nav-item">
-                            <a href="<?php echo $base_link; ?>campaign/add" class="nav-link <?php echo $menu[23];?>">
+                            <a href="<?php echo $base_link; ?>campaign/add" class="nav-link <?php echo $menu[52];?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Campaign Add</p>
                             </a>
                         </li>
                         <?php } ?>
-                        <?php if (in_array(41, $permissionData)) { ?>
+                        <?php if (in_array(53, $permissionData)) { ?>
                         <li class="nav-item">
-                            <a href="<?php echo $base_link; ?>send_mail" class="nav-link <?php echo $menu[41]; ?>">
-                                &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-list nav-icon"></i>
+                            <a href="<?php echo $base_link; ?>send_mail" class="nav-link <?php echo $menu[53]; ?>">
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>Instant Message</p>
                             </a>
                         </li>
                         <?php } ?>
-                            <?php if (in_array(22, $permissionData)) { ?>
+                            <?php if (in_array(54, $permissionData)) { ?>
                         <li class="nav-item">
-                            <a href="<?php echo $base_link; ?>campaign_activity" class="nav-link <?php echo $menu[22];?>">
+                            <a href="<?php echo $base_link; ?>campaign_activity" class="nav-link <?php echo $menu[54];?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Campaign Activity</p>
                             </a>
@@ -216,7 +216,7 @@
                 <?php if (in_array(24, $permissionData)) { ?>
                 <li class="nav-item <?php echo $menu_open[24];?>">
                     <a href="#" class="nav-link <?php echo $menu[24];?>">
-                        <i class="nav-icon fa fa-calendar-alt"></i>
+                        <i class="nav-icon fa fa-users"></i>
                         <p>Contact <i class="fas fa-angle-left right"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -240,19 +240,19 @@
                 </li>
                 <?php } ?>
 
-                <li class="nav-item">
+<!--                <li class="nav-item">
                     <a href="<?php echo $base_link; ?>invoice/" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>Invoice</p>
                     </a>
-                </li>
+                </li>-->
 
-                <li class="nav-item">
+<!--                <li class="nav-item">
                     <a href="pages/kanban.html" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>My Drive</p>
                     </a>
-                </li>
+                </li>-->
 
                 <li class="nav-header">Administration</li>
 
@@ -364,6 +364,14 @@
                             <a href="<?php echo $base_link; ?>company/view" class="nav-link <?php echo $menu[31];?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Company Info</p>
+                            </a>
+                        </li>
+                        <?php } ?>
+                        <?php if (in_array(55, $permissionData)) { ?>
+                        <li class="nav-item">
+                            <a href="<?php echo $base_link; ?>product/listing" class="nav-link <?php echo $menu[55];?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Products</p>
                             </a>
                         </li>
                         <?php } ?>

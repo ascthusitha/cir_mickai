@@ -40,7 +40,9 @@
                     <thead>
                         <tr>
                            <th>Alert Type</th>
-                            <th>Message </th>
+                           <th>Contact Name </th>
+                            <th> Mobile</th>
+                            <th style="width:30%">Message </th>
                             <th> Date</th>
                             <th>time</th>
                             <th>Status</th>
@@ -53,8 +55,10 @@
                                 foreach ($alerts as $alert) {
                                     echo "<tr>";
                                     echo "<td>".$alert->alert_type."</td>";
+                                    echo "<td>".$alert->contact_name." ".$alert->contact_lname."</td>";
+                                    echo "<td>+1 ".$alert->contact_value."</td>";
                                     echo "<td>".$alert->message."</td>";
-                                    echo "<td>".$alert->alert_date."</td>";
+                                    echo "<td>".Date('M-d-Y', strtotime($alert->alert_date))."</td>";
                                     echo "<td>".$alert->alert_time."</td>";
                                     echo "<td>".$alert->sms_status."</td>";
                                     //echo "<td>" . anchor('campaign/view/' . $campaign->campaign_id, $campaign->campaign_name) . "</td>";

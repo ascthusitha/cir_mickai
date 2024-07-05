@@ -28,7 +28,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title"><?=$title?></h3>
-
+          
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
@@ -37,8 +37,10 @@
               <i class="fas fa-times"></i>
             </button>
           </div>
+          <span class="pull-right pr-5">Total Contacts : <?=count($contact)?></span>
         </div>
         <div class="card-body">
+           
            <table class="table table-striped table-bordered" width="100%"  id="contact_table">
                         <thead><tr>
                                 <th>#</th>

@@ -40,6 +40,7 @@ class Campaign_model extends CI_Model {
 		 'message_type' => $this->input->post('message_type'),
 		 'start_date' => date('Y-m-d', strtotime($this->input->post('start_date'))),
 		 'end_date' => date('Y-m-d', strtotime($this->input->post('end_date'))),
+            'start_time'=>$this->input->post('start_time'),
 		 'status' => $this->input->post('status'),
             'created_by'=>  $this->session->userdata('user_id')
         );

@@ -65,14 +65,20 @@
                                 <div class="col-sm-6">
                                     <label class="control-label" for="start_date">Start Date</label>
                                     <input type="text" class="form-control datepicker" name="start_date" id="start_date"
-                                        value="<?php echo isset($campaign['start_date']) ? $campaign['start_date'] : set_value(''); ?>"
+                                        value="<?php echo isset($campaign['start_date']) ? Date('M-d-Y', strtotime($campaign['start_date'])) : set_value(''); ?>"
                                         autocomplete="off">
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="control-label" for="end_date">End Date</label>
 
                                     <input type="text" class="form-control datepicker" name="end_date" id="end_date"
-                                        value="<?php echo isset($campaign['end_date']) ? $campaign['end_date'] : set_value(''); ?>">
+                                        value="<?php echo isset($campaign['end_date']) ? Date('M-d-Y', strtotime($campaign['end_date'])) : set_value(''); ?>">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label" for="end_date">Start Time</label>
+
+                                    <input type="text" class="form-control timepicker" name="start_time" id="start_time"
+                                        value="<?php echo isset($campaign['start_time']) ? $campaign['start_time'] : set_value(''); ?>">
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="control-label" for="status">Status</label>
@@ -185,7 +191,7 @@ $(document).ready(function() {
         changeYear: true,
 
         numberOfMonths: 1,
-        dateFormat: 'dd-M-y',
+        dateFormat: 'M-dd-yy',
         beforeShow: function() {
             $(".ui-datepicker").css('font-size', 12)
         }
@@ -198,10 +204,15 @@ $(document).ready(function() {
         changeYear: true,
 
         numberOfMonths: 1,
-        dateFormat: 'dd-M-y',
+        dateFormat: 'M-dd-yy',
         beforeShow: function() {
             $(".ui-datepicker").css('font-size', 12)
         }
     });
+
+$('.timepicker').timepicker({ timeFormat: 'HH:mm' }).on('changeTime.timepicker', function (e) {
+        let timePicked = $(this).val();
+        (timePicked.length < 5) ? $(this).val("0" + timePicked) : '';
+    })
 }); // end document.ready
 </script>

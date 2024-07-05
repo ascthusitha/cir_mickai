@@ -20,6 +20,74 @@ Class Product_model extends CI_Model {
         
         
     }
+    public function get_task_detail_count() {
+        
+        $this->db->where('deleted', '0');
+
+        return $this->db->count_all_results('products');
+    }
+   public function get_products() {
+
+        $this->db->select('p.*');
+        $this->db->from('products p');
+        
+        $this->db->where('p.deleted', '0');
+        $query = $this->db->get();
+        return $query->result();
+        // return $this->get_all();
+    }
+
+    public function get_product_detail($product_id) {
+
+        $this->db->select('products.*');
+        $this->db->from('products');
+        $this->db->where('product_id', $product_id);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    public function add_product() {
+
+        $product_id = $this->input->post('product_id');
+        $data = array(
+            
+            'name' => $this->input->post('name'),
+         
+        );
+        $date = new DateTime();
+$date->setTimezone(new DateTimeZone('Asia/Colombo'));
+$fdate = $date->format('Y-m-d H:i:s'); 
+        if ($product_id != 0) {
+            $this->db->set('update_by', $this->session->userdata('user_id'));
+            $this->db->set('update_date', $fdate);
+            $this->db->where('id', $product_id);
+            $this->db->update($this->table, $data);
+            return TRUE;
+        } else {
+            
+            
+            $this->db->set('created_by', $this->session->userdata('user_id'));
+            $this->db->set('created_date',$fdate);
+            $this->db->insert($this->table, $data);
+           
+
+            return TRUE;
+        }
+    }
+
+    function delete($product_id) {
+        $date = new DateTime();
+$date->setTimezone(new DateTimeZone('Asia/Colombo'));
+$fdate = $date->format('Y-m-d H:i:s'); 
+        $this->db->set('deleted', '1');
+        $this->db->set('update_by', $this->session->userdata('user_id'));
+        $this->db->set('update_date',$fdate);
+        $this->db->where('id', $product_id);
+        $this->db->update($this->table);
+           return TRUE;
+           
+    }
 
      function get_product_dropdown() {
         $cusarray = array();

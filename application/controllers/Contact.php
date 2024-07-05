@@ -32,6 +32,7 @@ class Contact extends MY_Controller{
         $data['contact'] = $this->contact_model->get_contact();
         $data['users'] = $this->user_model->get_user_dropdown1();
         $this->menu_lib->get_active_menu(24,25);
+   
         
         $data['title'] = "Contact List";
         $this->load->view('layout/header', $data);
@@ -48,6 +49,7 @@ class Contact extends MY_Controller{
         $data['users'] = $this->user_model->get_user_dropdown1();
                        $data['s_contacts']=  $this->contact_other_m->get_scontacts($contact_id);
 $data['alerts'] =array();
+$data['p_contact']=0;
         $this->menu_lib->get_active_menu(24,26);
         $data['title'] = "Contact ";
         $data['title1'] = "Contact Add";
@@ -86,7 +88,7 @@ $data['alerts'] =array();
  public function view($contact_id){
 //         //load view
 //       // $this->output->enable_profiler(TRUE);
-
+$data['p_contact']=$contact_id;
          $data['users'] = $this->user_model->get_user_dropdown1();
         $data['title'] = "Contact";
         $data['title1'] = "Contact View";
