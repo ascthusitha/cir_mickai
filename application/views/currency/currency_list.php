@@ -53,7 +53,7 @@
                                     echo "<tr>";
                                     echo "<td>" . anchor('currency/view/' . $currency->currency_id, $currency->currency_name) . "</td>";
                                     echo "<td>". $currency->currency_code . "</td>";
-                                    echo "<td><a href='javascript:void(0)' onclick='deleteUserGroup($currency->currency_id)' role='button' class='btn btn-danger btn-medium pull-right'  ><span class='fa fa-trash-alt'></span></a></td>";
+                                    echo "<td><a href='javascript:void(0)' onclick='deleteUserGroup($currency->currency_id)'><i class='fas fa-trash-alt' style='font-size:16px;color:red'></i></a></td>";
                                     echo "</tr>";
                                 }
                             }

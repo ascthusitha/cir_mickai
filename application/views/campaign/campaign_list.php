@@ -74,7 +74,7 @@
 				echo "<td>". $campaign->start_time . "</td>";
                                 echo "<td>". $campaign->status . "</td>";
                                     echo "<td>sent - ".$sent."<br>"."Delivered - ".$delivered ."<br> Text  -".$text_count."</td>";
-                                    echo "<td><a href='javascript:void(0)' onclick='deleteCampaign($campaign->campaign_id)' role='button' class='btn btn-danger btn-xs pull-right'>Delete<i class='fa fa-thrash'></i></a></td>";
+                                    echo "<td><a href='javascript:void(0)' onclick='deleteCampaign($campaign->campaign_id)' ><i class='fas fa-trash-alt' style='font-size:16px;color:red'></i></a></td>";
 
                                     echo "</tr>";
                                 }

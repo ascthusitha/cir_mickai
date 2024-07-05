@@ -70,7 +70,7 @@
                                     echo "<td>" . $g->email . "</td>";
                                     echo "<td>" . $g->o_city . "</td>";
                                     echo "<td>" . $g->user_fname . "</td>";
-                                    echo "<td><a href='javascript:void(0)' onclick='deleteContact($g->contact_id)' ><span class='fa fa-trash-alt'></span></a></td>";
+                                    echo "<td><a href='javascript:void(0)' onclick='deleteContact($g->contact_id)' ><i class='fas fa-trash-alt' style='font-size:16px;color:red'></i></a></td>";
                                     echo "</tr>";
                                     $i++;
                                 }
