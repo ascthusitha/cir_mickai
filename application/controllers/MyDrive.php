@@ -11,6 +11,7 @@ if (!defined('BASEPATH'))
 class MyDrive extends MY_Controller
 {
 
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -39,8 +40,14 @@ class MyDrive extends MY_Controller
 	{
 		$user_id = $this->session->userdata('user_id');
 		$folderName = $this->input->post('folderName');
+		$dir = $this->input->post('fileNames');
+		$filePath = $dir;
 		if (!empty($folderName)) {
-			$folderPath = './upload/drives/' . $user_id . '/' . $folderName;
+			if (!empty($filePath)) {
+				$folderPath = './upload/drives/' . $user_id . '/' . $filePath . '/' . $folderName;
+			} else {
+				$folderPath = './upload/drives/' . $user_id . '/' . $folderName;
+			}
 			if (!file_exists($folderPath)) {
 				mkdir($folderPath, 0777, true);
 				echo 'Folder created successfully.';
@@ -148,9 +155,11 @@ class MyDrive extends MY_Controller
 		$user_id = $this->session->userdata('user_id');
 		if (!empty($_GET['dir'])) {
 			$directory = './upload/drives/' . $user_id . '/' . $_GET['dir'];
+
 		} else {
 			$directory = './upload/drives/' . $user_id;
 		}
+
 		$files = scandir($directory);
 		$fileList = [];
 		foreach ($files as $file) {
@@ -158,7 +167,8 @@ class MyDrive extends MY_Controller
 				$path = $directory . '/' . $file;
 				$fileList[] = [
 					'name' => $file,
-					'type' => is_dir($path) ? 'folder' : 'file'
+					'type' => is_dir($path) ? 'folder' : 'file',
+					'path' => base_url() . '/' . $directory . '/' . $file
 				];
 			}
 		}
@@ -173,7 +183,16 @@ class MyDrive extends MY_Controller
 	{
 		$user_id = $this->session->userdata('user_id');
 		// File upload path
-		$targetDir = './upload/drives/' . $user_id . '/';
+		$dirName = isset($_POST['dirName']) ? $_POST['dirName'] : '';
+		var_dump($dirName);
+
+		if (!empty($dirName)) {
+			$targetDir = './upload/drives/' . $user_id . '/' . $dirName . '/';
+		} else {
+			$targetDir = './upload/drives/' . $user_id . '/';
+		}
+
+
 		$targetFile = $targetDir . basename($_FILES["filepond"]["name"]);
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));

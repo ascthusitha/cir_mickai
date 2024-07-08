@@ -63,7 +63,8 @@
 									</div>
 									<div class="modal-body">
 										<div class="form-group" style="margin: 10px 0px">
-											<input type="file" class="filepond" name="filepond" multiple data-max-file-size="3MB" data-max-files="5">
+											<input type="file" class="filepond" name="filepond" multiple
+												   data-max-file-size="3MB" data-max-files="5">
 										</div>
 									</div>
 									<div class="text-right" style="padding: 20px">
@@ -80,11 +81,11 @@
 						<div class="row">
 							<div class="col-md-6">
 								<form action="simple-results.html">
-									<div class="input-group input-group-lg">
-										<input type="search" class="form-control form-control-lg"
-											   placeholder="Type your keywords here" value="Search in Drive">
+									<div class="input-group input-group-md">
+										<input type="search" class="form-control form-control"
+											   placeholder="Type your keywords here">
 										<div class="input-group-append">
-											<button type="submit" class="btn btn-lg btn-default">
+											<button type="submit" class="btn btn-md btn-default">
 												<i class="fa fa-search"></i>
 											</button>
 										</div>
@@ -109,7 +110,8 @@
 											<i class="fas fa-folder mr-2"></i> New folder
 										</a>
 										<div class="dropdown-divider"></div>
-										<a href="#" class="dropdown-item" data-toggle="modal" data-target="#modal-file-upload">
+										<a href="#" class="dropdown-item" data-toggle="modal"
+										   data-target="#modal-file-upload">
 											<i class="fas fa-file-upload mr-2"></i> File Upload
 										</a>
 										<div class="dropdown-divider"></div>
@@ -147,7 +149,8 @@
 							<div class="col-5 col-sm-3" style="height: 100%">
 								<div class="nav flex-column nav-tabs h-100 text-left" id="vert-tabs-tab" role="tablist"
 									 aria-orientation="vertical" style="height: 100%">
-									<a class="nav-link active" onclick="loadFiles()" id="vert-tabs-home-tab" data-toggle="pill"
+									<a class="nav-link active" onclick="loadFiles()" id="vert-tabs-home-tab"
+									   data-toggle="pill"
 									   href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home"
 									   aria-selected="true">All files</a>
 									<a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill"
@@ -163,7 +166,9 @@
 									<div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel"
 										 aria-labelledby="vert-tabs-home-tab">
 
-										<h5><b>All files</b></h5>
+										<p>All files</p>
+
+										<h5><b id="fileName">All files</b></h5>
 
 										<div id="file-table">
 
@@ -191,8 +196,9 @@
 <!-- /.content-wrapper -->
 
 
-
 <script type="text/javascript">
+
+	let dirName = '';
 
 	/**
 	 * This function used to upload file
@@ -203,10 +209,15 @@
 	pond.setOptions({
 		server: {
 			url: '<?php echo base_url('myDrive/'); ?>',
-			process: 'uploadFile', // URL to your PHP upload handler
-			// revert: './revert.php', // URL to handle file revert (if needed)
-			headers: {
-				'x-customheader': 'CustomHeaderValue'
+			process: {
+				url: 'uploadFile',
+				headers: {
+					'x-customheader': 'CustomHeaderValue'
+				},
+				ondata: (formData) => {
+					formData.append('dirName', dirName); // Add dirName here
+					return formData;
+				}
 			}
 		}
 	});
@@ -214,7 +225,7 @@
 	// Event listener for when a file has been successfully processed (uploaded)
 	pond.on('processfile', (error, file) => {
 		if (!error) {
-			loadFiles();
+			loadFiles(dirName);
 		} else {
 			console.error('File upload error:', error);
 		}
@@ -235,7 +246,10 @@
 			$.ajax({
 				url: '<?php echo base_url('myDrive/create_folder'); ?>',
 				type: 'POST',
-				data: {folderName: folderName},
+				data: {
+					folderName: folderName,
+					fileNames: dirName
+				},
 				success: function (response) {
 					$('#folderName').val('');
 					loadFiles();
@@ -247,8 +261,6 @@
 				}
 			});
 		});
-
-
 
 
 		//// Upload File
@@ -317,12 +329,19 @@
 	});
 
 
+
+
 	function loadFiles(dir = '') {
-		currentDir = dir;
+
+		if (dir !== '') {
+			dirName = dir;
+		}
+
+		console.log(dirName);
+
 		// PHP base URL provided as a variable
 		const baseUrl = '<?php echo $base_url; ?>';
-		// Construct the full URL
-		const fullUrl = `${baseUrl}fetch?dir=${dir}`;
+		let fullUrl = `${baseUrl}fetch?dir=${dir}`;
 		fetch(fullUrl)
 			.then(response => response.json())
 			.then(data => {
@@ -332,7 +351,17 @@
 					if (file.type === 'folder') {
 						tableHTML += `<tr><td><a href="#" onclick="loadFiles('${dir}/${file.name}')"><i class="fas fa-folder mr-2"></i>${file.name}</a></td> <td>-</td> <td>--</td></tr>`;
 					} else {
-						tableHTML += `<tr><td>${file.name}</td></tr>`;
+						let fileDisplay = '';
+						const fileExtension = file.name.split('.').pop().toLowerCase();
+						if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
+							// Display image thumbnail
+							const baseUrl = '<?php echo $base_url; ?>';
+							fileDisplay = `<img src="${file.path}" style="width: 30px; height: auto;" class="mr-2"> <a href="${file.path}" target="_blank">${file.name}</a>`;
+						} else {
+							// Display file icon
+							fileDisplay = `<i class="fas fa-file mr-2"></i> ${file.name}`;
+						}
+						tableHTML += `<tr><td>${fileDisplay}</td> <td>-</td> <td>--</td></tr>`;
 					}
 				});
 				tableHTML += '</tbody></table>';
