@@ -77,46 +77,6 @@ class MyDrive extends MY_Controller
 		}
 	}
 
-	public function fetch_folders()
-	{
-		$user_id = $this->session->userdata('user_id');
-		$files = scandir('./upload/drives');
-		$output = '';
-		foreach ($files as $file) {
-			if (!is_dir('./uploads/drives/' . $file)) {
-				$fileSize = filesize('./upload/drives/' . $file);
-				$output .= '<div class="col-md-3">
-                            <div class="card card-secondary">
-                                <div class="card-body">
-                                    <h5 class="card-title">' . $file . '</h5>
-                                    <p class="card-text">Size: ' . $this->format_size_units($fileSize) . '</p>
-                                </div>
-                            </div>
-                        </div>';
-			}
-		}
-		echo $output;
-	}
-
-	public function fetch_files()
-	{
-		$files = directory_map('./uploads', 1);
-		$output = '';
-		foreach ($files as $file) {
-			if (!is_dir('./uploads/' . $file)) {
-				$fileSize = filesize('./uploads/' . $file);
-				$output .= '<div class="col-md-3">
-                                <div class="card card-secondary">
-                                    <div class="card-body">
-                                        <h5 class="card-title">' . $file . '</h5>
-                                        <p class="card-text">Size: ' . $this->format_size_units($fileSize) . '</p>
-                                    </div>
-                                </div>
-                            </div>';
-			}
-		}
-		echo $output;
-	}
 
 	private function get_folder_size($dir)
 	{
@@ -176,6 +136,35 @@ class MyDrive extends MY_Controller
 	}
 
 	/**
+	 * This function used to get all photos the user folder
+	 * @return void
+	 */
+	public function fetchPhotos()
+	{
+		$user_id = $this->session->userdata('user_id');
+		if (!empty($_GET['dir'])) {
+			$directory = './upload/drives/' . $user_id . '/' . $_GET['dir'];
+
+		} else {
+			$directory = './upload/drives/' . $user_id;
+		}
+
+		$files = scandir($directory);
+		$fileList = [];
+		foreach ($files as $file) {
+			if ($file !== '.' && $file !== '..') {
+				$path = $directory . '/' . $file;
+				$fileList[] = [
+					'name' => $file,
+					'type' => is_dir($path) ? 'folder' : 'file',
+					'path' => base_url() . '/' . $directory . '/' . $file
+				];
+			}
+		}
+		echo json_encode($fileList);
+	}
+
+	/**
 	 * This function used to upload files
 	 * @return void
 	 */
@@ -209,7 +198,6 @@ class MyDrive extends MY_Controller
 //     echo json_encode(["error" => "Sorry, only JPG, JPEG, PNG & GIF files are allowed."]);
 //     $uploadOk = 0;
 // }
-
 
 		if (file_exists($targetFile)) {
 			echo json_encode(array("error" => "Sorry, file already exists."));

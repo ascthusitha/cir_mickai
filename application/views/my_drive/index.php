@@ -80,17 +80,17 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-md-6">
-								<form action="simple-results.html">
-									<div class="input-group input-group-md">
-										<input type="search" class="form-control form-control"
-											   placeholder="Type your keywords here">
-										<div class="input-group-append">
-											<button type="submit" class="btn btn-md btn-default">
-												<i class="fa fa-search"></i>
-											</button>
-										</div>
-									</div>
-								</form>
+<!--								<form action="simple-results.html">-->
+<!--									<div class="input-group input-group-md">-->
+<!--										<input type="search" class="form-control form-control"-->
+<!--											   placeholder="Type your keywords here">-->
+<!--										<div class="input-group-append">-->
+<!--											<button type="submit" class="btn btn-md btn-default">-->
+<!--												<i class="fa fa-search"></i>-->
+<!--											</button>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</form>-->
 							</div>
 
 							<div class="col-md-6 d-flex justify-content-end">
@@ -153,12 +153,12 @@
 									   data-toggle="pill"
 									   href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home"
 									   aria-selected="true">All files</a>
-									<a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill"
+									<a class="nav-link" onclick="loadPhotos()" id="vert-tabs-profile-tab" data-toggle="pill"
 									   href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile"
 									   aria-selected="false">Photos</a>
-									<a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill"
-									   href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages"
-									   aria-selected="false">Deleted files</a>
+<!--									<a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill"-->
+<!--									   href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages"-->
+<!--									   aria-selected="false">Deleted files</a>-->
 								</div>
 							</div>
 							<div class="col-7 col-sm-9">
@@ -180,9 +180,13 @@
 										</div>
 
 									</div>
-									<div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel"
+									<div class="tab-pane fade text-left" id="vert-tabs-profile" role="tabpanel"
 										 aria-labelledby="vert-tabs-profile-tab">
-										<h1>Need to show photos</h1>
+										<h5><b>All photos</b></h5>
+
+										<div id="photos-table">
+
+										</div>
 									</div>
 									<div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel"
 										 aria-labelledby="vert-tabs-messages-tab">
@@ -231,6 +235,7 @@
 	pond.on('processfile', (error, file) => {
 		if (!error) {
 			loadFiles(dirName);
+			loadPhotos();
 		} else {
 			console.error('File upload error:', error);
 		}
@@ -261,19 +266,16 @@
 			breadcrumbFileNames.innerHTML = breadcrumbHTML;
 			currentFilename.innerHTML = pathArray[pathArray.length - 1] || 'All files';
 		}
-
-
 	}
-
 
 	/**
 	 * End file upload function
 	 */
-
 	$(document).ready(function () {
-		// Fetch folders and files on load
+
 		loadFiles();
 		setBreadcrumb()
+		loadPhotos();
 
 		// Create Folder
 		$('#createFolderForm').on('submit', function (e) {
@@ -298,20 +300,6 @@
 			});
 		});
 
-
-		// Fetch Folders
-		function fetchFolders() {
-			$.ajax({
-				url: '<?php echo base_url('myDrive/fetch_folders'); ?>',
-				type: 'GET',
-				success: function (response) {
-					$('#foldersContainer').html(response);
-				},
-				error: function () {
-					alert('Failed to fetch folders, please try again.');
-				}
-			});
-		}
 
 		$(function () {
 			$("#example1").DataTable({
@@ -338,10 +326,7 @@
 	function loadFiles(dir = '') {
 
 		dirName = dir;
-
 		console.log(dirName);
-
-		// PHP base URL provided as a variable
 		const baseUrl = '<?php echo $base_url; ?>';
 		let fullUrl = `${baseUrl}fetch?dir=${dir}`;
 		fetch(fullUrl)
@@ -356,13 +341,42 @@
 						let fileDisplay = '';
 						const fileExtension = file.name.split('.').pop().toLowerCase();
 						if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
-							// Display image thumbnail
 							fileDisplay = `<img src="${file.path}" style="width: 30px; height: auto;" class="mr-2"> <a href="${file.path}" target="_blank">${file.name}</a>`;
 						} else {
-							// Display file icon
-							fileDisplay = `<i class="fas fa-file mr-2"></i> ${file.name}`;
+							fileDisplay = `<i class="fas fa-file mr-2"></i> <a href="${file.path}" target="_blank">${file.name}</a>`;
 						}
 						tableHTML += `<tr><td>${fileDisplay}</td> <td>Only you</td> <td>--</td></tr>`;
+					}
+				});
+				tableHTML += '</tbody></table>';
+				fileTable.innerHTML = tableHTML;
+			})
+			.catch(error => console.error('Error:', error));
+		setBreadcrumb()
+	}
+
+
+	/**
+	 * This function used to get only photos
+	 */
+	function loadPhotos() {
+		const baseUrl = '<?php echo $base_url; ?>';
+		let fullUrl = `${baseUrl}fetchPhotos?dir=`;
+		fetch(fullUrl)
+			.then(response => response.json())
+			.then(data => {
+				const fileTable = document.getElementById('photos-table');
+				let tableHTML = '<table id="example1" class="table table-hover"><thead><tr><th>Name</th> <th>Who can access</th> <th>Modified</th></tr></thead><tbody>';
+				data.forEach(file => {
+					if (file.type === 'folder') {
+
+					} else {
+						let fileDisplay = '';
+						const fileExtension = file.name.split('.').pop().toLowerCase();
+						if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
+							fileDisplay = `<img src="${file.path}" style="width: 30px; height: auto;" class="mr-2"> <a href="${file.path}" target="_blank">${file.name}</a>`;
+							tableHTML += `<tr><td>${fileDisplay}</td> <td>Only you</td> <td>--</td></tr>`;
+						}
 					}
 				});
 				tableHTML += '</tbody></table>';
