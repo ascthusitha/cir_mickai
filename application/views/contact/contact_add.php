@@ -148,15 +148,18 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Contact Level</label>
-                                            <div class="form-check">
+                                            <label>Birth Date</label>
+                                               <input type="text" class="form-control datepicker" name="birthdate" id="birthdate"
+                                        value="<?php echo isset($contact['birthdate']) ? Date('M-d-Y', strtotime($contact['birthdate'])) : set_value(''); ?>">
+                                
+<!--                                            <div class="form-check">
                           <input class="form-check-input" type="radio" name="radio1" checked="">
                           <label class="form-check-label">Primary</label>
                           <input class="form-check-input" type="radio" name="radio1" checked="">
                           <label class="form-check-label">Primary</label>
                           <input class="form-check-input" type="radio" name="radio1" checked="">
                           <label class="form-check-label">Primary</label>
-                        </div>
+                        </div>-->
 <!--                                            <input type="radio" id="c_level" name="c_level" class="form-control" value="<?= $contact['c_level']; ?>" >Secondary
                                             <input type="radio" id="c_level" name="c_level" class="form-control" value="<?= $contact['c_level']; ?>" >Normal-->
                                         </div>
@@ -273,6 +276,37 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                 <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Marital Status</label>
+                                            <?php $m_statuses=array(
+            'Single'=> 'Single',
+            'Married'=> 'Married',
+            'Divorced'=> 'Divorced',
+            'Separated'=> 'Separated'
+                                                );
+       echo form_dropdown('m_status', $m_statuses, isset($contact['m_status']) ? $contact['m_status'] : '1', 'id="m_status" class="form-control"'); ?> 
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                     <div class="col-sm-6">
+                                    <label class="control-label" for="start_date">Renewal Date</label>
+                                    <input type="text" class="form-control datepicker" name="r_date" id="r_date"
+                                        value="<?php echo isset($campaign['r_date']) ? Date('M-d-Y', strtotime($campaign['r_date'])) : set_value(''); ?>"
+                                        autocomplete="off">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label" for="c_date">Closing Date</label>
+
+                                    <input type="text" class="form-control datepicker" name="c_date" id="c_date"
+                                        value="<?php echo isset($campaign['c_date']) ? Date('M-d-Y', strtotime($campaign['c_date'])) : set_value(''); ?>">
+                                </div>
+                                </div>
                                 <!-- /.card-body -->
                             </div>
 
@@ -321,7 +355,14 @@
             <!-- /.card-body -->
             <!-- Success message -->
 
-
+  <div class="row">
+                    <div class="col-md-12">
+                         <h3  align='center'>Alert Details</h3>
+                         <?php if(isset($contact['contact_id'])){?>
+                        <div class="alert "  role="alert" id="results"><?php  require_once 'alert_list.php'; ?> </div>
+                         <?php } ?>
+                    </div>
+                </div>
         </div>
         <!-- /.card -->
 
@@ -364,6 +405,40 @@
 <!-- Page specific script -->
 <script type="text/javascript">
     $(document).ready(function () {
+        
+              $("#birthdate").datepicker({
+        //defaultDate: "+1w",
+        changeMonth: true,
+        changeYear: true,
+
+        numberOfMonths: 1,
+        dateFormat: 'M-dd-yy',
+        beforeShow: function() {
+            $(".ui-datepicker").css('font-size', 12)
+        }
+    });
+     $("#r_date").datepicker({
+        //defaultDate: "+1w",
+        changeMonth: true,
+        changeYear: true,
+
+        numberOfMonths: 1,
+        dateFormat: 'M-dd-yy',
+        beforeShow: function() {
+            $(".ui-datepicker").css('font-size', 12)
+        }
+    });
+     $("#c_date").datepicker({
+        //defaultDate: "+1w",
+        changeMonth: true,
+        changeYear: true,
+
+        numberOfMonths: 1,
+        dateFormat: 'M-dd-yy',
+        beforeShow: function() {
+            $(".ui-datepicker").css('font-size', 12)
+        }
+    });
         var base_url = "<?php echo base_url(); ?>";
 
         $('#acc_form').validate({
@@ -448,5 +523,6 @@
         $('#bw-message').attr('style', 'display: initial;');
         $('#bw-msg').html(msg.msg);
     });
+
 });
 </script>

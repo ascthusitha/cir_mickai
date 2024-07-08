@@ -16,7 +16,8 @@ class Dash_Lib {
         $data['tasks_count'] = $this->ci->dashboard_model->get_tasks_count();
         $data['Opportunities_count'] = $this->ci->dashboard_model->get_opportunities_count();
 
-        $data['my_phone_calls'] = $this->ci->dashboard_model->get_phone_calls($user_id);
+        $data['my_phone_calls'] =$m= $this->ci->dashboard_model->get_phone_calls($user_id);
+       
         $data['my_sales_calls'] = $this->ci->dashboard_model->get_sales_calls($user_id);
         $data['my_tasks'] = $this->ci->dashboard_model->get_tasks($user_id);
         $data['my_opportunities'] = $this->ci->dashboard_model->get_opportunities($user_id);

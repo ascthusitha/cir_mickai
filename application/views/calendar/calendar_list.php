@@ -31,9 +31,9 @@
                 <div class="card-body">
                   <!-- the events -->
                   <div id="external-events">
-                    <div class="external-event bg-success">Sales Call</div>
+                    <div class="external-event bg-success">Meeting</div>
                     <div class="external-event bg-warning">Phone Call</div>
-                    <div class="external-event bg-info">Meeting</div>
+<!--                    <div class="external-event bg-info">Meeting</div>-->
                     <div class="external-event bg-danger">Tasks</div>
                    
                     <div class="checkbox">

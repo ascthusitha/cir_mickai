@@ -53,7 +53,7 @@
                                     echo "<tr>";
                                     echo "<td>" . anchor('country/view/' . $country->country_id, $country->country_name) . "</td>";
                                     echo "<td>". $country->country_code . "</td>";
-                                    echo "<td><a href='javascript:void(0)' onclick='deleteUserGroup($country->country_id)' role='button' class='btn btn-danger btn-medium pull-right'  ><span class='fa fa-trash-alt'></span></a></td>";
+                                    echo "<td><a href='javascript:void(0)' onclick='deleteUserGroup($country->country_id)'><i class='fas fa-trash-alt' style='font-size:16px;color:red'></i></a></td>";
                                     echo "</tr>";
                                 }
                             }

@@ -75,6 +75,7 @@ Class Contact_model extends CI_Model {
             'department' => $this->input->post('department'),
             'designation' => $this->input->post('designation'),
             'car_id' => $this->input->post('car_id'),
+            'birthdate' => date('Y-m-d', strtotime($this->input->post('birthdate'))),
             'crr_id' => $this->input->post('crr_id'),
             'assistant' => $this->input->post('assistant'),
             'assistant_phone' => $this->input->post('assistant_phone'),
@@ -90,6 +91,9 @@ Class Contact_model extends CI_Model {
             'other_country' => $this->input->post('other_country'),
             'description' => $this->input->post('description'),
             'assign_to' => $this->input->post('assign_to'),
+            'r_date' => date('Y-m-d', strtotime($this->input->post('r_date'))),
+            'c_date' => date('Y-m-d', strtotime($this->input->post('c_date'))),
+            'm_status' => $this->input->post('m_status'),
         );
         $date = new DateTime();
 $date->setTimezone(new DateTimeZone('Asia/Colombo'));

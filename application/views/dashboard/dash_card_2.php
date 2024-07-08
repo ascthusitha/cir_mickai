@@ -1,7 +1,7 @@
 <section class="col-lg-6 connectedSortable">
     <div class="card">
         <div class="card-header border-0">
-            <h3 class="card-title"><i class="fas fa-bars"></i> My Sales Calls</h3>
+            <h3 class="card-title"><i class="fas fa-bars"></i> My Meetings</h3>
         </div>
         <div class="card-body table-responsive p-0">
             <table class="table table-striped table-valign-middle">

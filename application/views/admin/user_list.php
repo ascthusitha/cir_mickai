@@ -66,7 +66,7 @@
                                     echo "<td>" . $user->user_group_name . "</td>";
                                     $avail = ($user->user_status == 0) ? 'Available' : 'Not available';
                                     echo "<td>" . $avail . "</td>";
-                                    echo "<td><a href='javascript:void(0)' onclick='deleteUser($user->user_id)' role='button' class='btn btn-primary btn-medium pull-right'  ><span class='fa fa-trash-alt'></span></a></td>";
+                                    echo "<td><a href='javascript:void(0)' onclick='deleteUser($user->user_id)' ><i class='fas fa-trash-alt' style='font-size:16px;color:red'></i></a></td>";
 
                                     echo "</tr>";
                                     $i++;

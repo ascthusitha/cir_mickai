@@ -42,10 +42,16 @@
         <li class="nav-item">
             <a href="#p" class="nav-link active" data-bs-toggle="tab">Contacts</a>
         </li>
+        <?php
+        
+        if($p_contact>0){
+    
+
+        ?>
         <li class="nav-item">
             <a href="#s" class="nav-link" data-bs-toggle="tab">Secondary Contacts</a>
         </li>
-
+<?php } ?>
     </ul>
     <div class="tab-content">
         <div class="tab-pane fade show active" id="p">

@@ -47,7 +47,7 @@ $this->db->where('deleted', '0');
         $table1 = $this->table_phone_call;
         $this->db->select('a.subject');
         $this->db->from($table1.' a');
-        $this->db->where('a.assign_to', $id);
+    
         $this->db->order_by("a.pc_id ", "desc");
         $this->db->limit(5,0);
         $query = $this->db->get();
