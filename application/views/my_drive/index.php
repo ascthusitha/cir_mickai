@@ -166,9 +166,14 @@
 									<div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel"
 										 aria-labelledby="vert-tabs-home-tab">
 
-										<p>All files</p>
+										<div class="row">
+											<ol class="breadcrumb float-sm-left" id="breadcrumbFileNames"
+												style="background-color: white">
+											</ol>
+										</div>
 
-										<h5><b id="fileName">All files</b></h5>
+
+										<h5><b id="currentFilename"></b></h5>
 
 										<div id="file-table">
 
@@ -231,6 +236,36 @@
 		}
 	});
 
+
+	/**
+	 * This function used to make Breadcrumb.
+	 */
+	function setBreadcrumb() {
+
+		let breadcrumbFileNames = document.getElementById('breadcrumbFileNames');
+		let currentFilename = document.getElementById('currentFilename');
+		console.log(dirName)
+		if (dirName === '') {
+			currentFilename.innerHTML = 'All files';
+			breadcrumbFileNames.innerHTML = `<li class="breadcrumb-item"><a href="#" style="color: #0a0a0a" onclick="loadFiles(dir = '')">All Files</a></li>`;
+		} else {
+			let pathArray = dirName.split('/').filter(segment => segment.length > 0);
+			let breadcrumbHTML = `<li class="breadcrumb-item"><a href="#" style="color: #0a0a0a" onclick="loadFiles(dir = '')">All Files</a></li>`;
+			let currentPath = '';
+			pathArray.forEach((segment, index) => {
+				if (index < pathArray.length - 1) {  // Avoid the last value
+					currentPath += `/${segment}`;
+					breadcrumbHTML += `<li class="breadcrumb-item"><a href="#" style="color: #0a0a0a" onclick="loadFiles('${currentPath}')">${segment}</a></li>`;
+				}
+			});
+			breadcrumbFileNames.innerHTML = breadcrumbHTML;
+			currentFilename.innerHTML = pathArray[pathArray.length - 1] || 'All files';
+		}
+
+
+	}
+
+
 	/**
 	 * End file upload function
 	 */
@@ -238,6 +273,7 @@
 	$(document).ready(function () {
 		// Fetch folders and files on load
 		loadFiles();
+		setBreadcrumb()
 
 		// Create Folder
 		$('#createFolderForm').on('submit', function (e) {
@@ -263,25 +299,6 @@
 		});
 
 
-		//// Upload File
-		//$('#uploadForm').on('submit', function (e) {
-		//	e.preventDefault();
-		//	$.ajax({
-		//		url: '<?php //echo base_url('upload/upload_file'); ?>//',
-		//		type: 'POST',
-		//		data: new FormData(this),
-		//		processData: false,
-		//		contentType: false,
-		//		success: function (response) {
-		//			$('#uploadStatus').html('<p class="alert alert-success">' + response + '</p>');
-		//			fetchFiles();
-		//		},
-		//		error: function () {
-		//			$('#uploadStatus').html('<p class="alert alert-danger">File upload failed, please try again.</p>');
-		//		}
-		//	});
-		//});
-
 		// Fetch Folders
 		function fetchFolders() {
 			$.ajax({
@@ -295,21 +312,6 @@
 				}
 			});
 		}
-
-		// Fetch Files
-		//function fetchFiles() {
-		//	$.ajax({
-		//		url: '<?php //echo base_url('upload/fetch_files'); ?>//',
-		//		type: 'GET',
-		//		success: function (response) {
-		//			$('#filesContainer').html(response);
-		//		},
-		//		error: function () {
-		//			alert('Failed to fetch files, please try again.');
-		//		}
-		//	});
-		//}
-
 
 		$(function () {
 			$("#example1").DataTable({
@@ -329,13 +331,13 @@
 	});
 
 
-
-
+	/**
+	 * This function used to load folder and filed dir wise
+	 * @param dir
+	 */
 	function loadFiles(dir = '') {
 
-		if (dir !== '') {
-			dirName = dir;
-		}
+		dirName = dir;
 
 		console.log(dirName);
 
@@ -349,24 +351,24 @@
 				let tableHTML = '<table id="example2" class="table table-hover"><thead><tr><th>Name</th> <th>Who can access</th> <th>Modified</th></tr></thead><tbody>';
 				data.forEach(file => {
 					if (file.type === 'folder') {
-						tableHTML += `<tr><td><a href="#" onclick="loadFiles('${dir}/${file.name}')"><i class="fas fa-folder mr-2"></i>${file.name}</a></td> <td>-</td> <td>--</td></tr>`;
+						tableHTML += `<tr><td><a href="#" onclick="loadFiles('${dir}/${file.name}')"><i class="fas fa-folder mr-2"></i>${file.name}</a></td> <td>Only you</td> <td>--</td></tr>`;
 					} else {
 						let fileDisplay = '';
 						const fileExtension = file.name.split('.').pop().toLowerCase();
 						if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
 							// Display image thumbnail
-							const baseUrl = '<?php echo $base_url; ?>';
 							fileDisplay = `<img src="${file.path}" style="width: 30px; height: auto;" class="mr-2"> <a href="${file.path}" target="_blank">${file.name}</a>`;
 						} else {
 							// Display file icon
 							fileDisplay = `<i class="fas fa-file mr-2"></i> ${file.name}`;
 						}
-						tableHTML += `<tr><td>${fileDisplay}</td> <td>-</td> <td>--</td></tr>`;
+						tableHTML += `<tr><td>${fileDisplay}</td> <td>Only you</td> <td>--</td></tr>`;
 					}
 				});
 				tableHTML += '</tbody></table>';
 				fileTable.innerHTML = tableHTML;
 			})
 			.catch(error => console.error('Error:', error));
+		setBreadcrumb()
 	}
 </script>
