@@ -247,12 +247,12 @@
                     </a>
                 </li>-->
 
-<!--                <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
-                        <i class="nav-icon fas fa-columns"></i>
-                        <p>My Drive</p>
-                    </a>
-                </li>-->
+          <li class="nav-item">
+            <a href="<?php echo $base_link; ?>myDrive/index" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>My Drive</p>
+            </a>
+          </li>
 
                 <li class="nav-header">Administration</li>
 
