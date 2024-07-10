@@ -80,17 +80,18 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-md-6">
-<!--								<form action="simple-results.html">-->
-<!--									<div class="input-group input-group-md">-->
-<!--										<input type="search" class="form-control form-control"-->
-<!--											   placeholder="Type your keywords here">-->
-<!--										<div class="input-group-append">-->
-<!--											<button type="submit" class="btn btn-md btn-default">-->
-<!--												<i class="fa fa-search"></i>-->
-<!--											</button>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--								</form>-->
+								<form action="" onsubmit="return false;">
+									<div class="input-group input-group-md">
+										<input type="search" id="search-input" class="form-control"
+											   placeholder="Search for keywords">
+										<div class="input-group-append">
+											<button type="submit" class="btn btn-md btn-default">
+												<i class="fa fa-search"></i>
+											</button>
+										</div>
+									</div>
+									<div id="search-results" class="search-dropdown d-none"></div>
+								</form>
 							</div>
 
 							<div class="col-md-6 d-flex justify-content-end">
@@ -153,12 +154,13 @@
 									   data-toggle="pill"
 									   href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home"
 									   aria-selected="true">All files</a>
-									<a class="nav-link" onclick="loadPhotos()" id="vert-tabs-profile-tab" data-toggle="pill"
+									<a class="nav-link" onclick="loadPhotos()" id="vert-tabs-profile-tab"
+									   data-toggle="pill"
 									   href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile"
 									   aria-selected="false">Photos</a>
-<!--									<a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill"-->
-<!--									   href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages"-->
-<!--									   aria-selected="false">Deleted files</a>-->
+									<!--									<a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill"-->
+									<!--									   href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages"-->
+									<!--									   aria-selected="false">Deleted files</a>-->
 								</div>
 							</div>
 							<div class="col-7 col-sm-9">
@@ -316,6 +318,72 @@
 				"responsive": true,
 			});
 		});
+
+
+		/**
+		 * Search option
+		 */
+		$('#search-input').on('keyup', function () {
+			let query = $(this).val();
+			if (query.length > 0) {
+				$.ajax({
+					url: '<?php echo base_url('myDrive/searchFiles'); ?>',
+					type: 'GET',
+					data: {keyword: query},
+					success: function (data) {
+						let results = JSON.parse(data);
+						let dropdown = $('#search-results');
+						dropdown.empty().removeClass('d-none');
+						dropdown.append(`
+                            <div class="search-dropdown-item" style="margin-bottom: -10px">
+                                <b style="color: #5f5f5f">Results</b>
+                            </div>
+                        `);
+						results.forEach(item => {
+							if (item.type === 'folder') {
+								dropdown.append(`
+                                <div class="search-dropdown-item"  data-type="${item.type}" data-dir="${item.dir}">
+                                    <i class="fas fa-folder mr-2"></i>${item.name}
+                                </div>
+                            `);
+							} else {
+								let fileIcon = '<i class="fas fa-file mr-2"></i>';
+								const fileExtension = item.name.split('.').pop().toLowerCase();
+								if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
+									fileIcon = `<img src="${item.path}" style="width: 30px; height: auto;" class="mr-2">`;
+								}
+								dropdown.append(`
+                                <div style="padding: 10px">
+                                    <a href="${item.path}" target="_blank"> ${fileIcon}${item.name} </a>
+                                </div>
+                            `);
+							}
+						});
+					}
+				});
+			} else {
+				$('#search-results').addClass('d-none').empty();
+			}
+		});
+
+		$(document).on('click', '.search-dropdown-item', function () {
+			let dir = $(this).data('dir');
+			loadFiles(dir);
+		});
+
+		// Hide dropdown when clicking outside
+		$(document).on('click', function (event) {
+			if (!$(event.target).closest('#search-input').length && !$(event.target).closest('#search-results').length) {
+				$('#search-results').addClass('d-none').empty();
+			}
+		});
+
+		// Hide dropdown when input is cleared
+		$('#search-input').on('input', function () {
+			if ($(this).val().length === 0) {
+				$('#search-results').addClass('d-none').empty();
+			}
+		});
 	});
 
 
@@ -352,7 +420,8 @@
 				fileTable.innerHTML = tableHTML;
 			})
 			.catch(error => console.error('Error:', error));
-		setBreadcrumb()
+		setBreadcrumb();
+		$('#search-results').addClass('d-none').empty();
 	}
 
 
