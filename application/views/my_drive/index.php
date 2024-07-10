@@ -343,7 +343,7 @@
 							if (item.type === 'folder') {
 								dropdown.append(`
                                 <div class="search-dropdown-item"  data-type="${item.type}" data-dir="${item.dir}">
-                                    <i class="fas fa-folder mr-2"></i>${item.name}
+                                    <i style="color:#007bff;" class="fas fa-folder mr-2"></i>${item.name}
                                 </div>
                             `);
 							} else {
