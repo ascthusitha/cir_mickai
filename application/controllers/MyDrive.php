@@ -135,6 +135,38 @@ class MyDrive extends MY_Controller
 		echo json_encode($fileList);
 	}
 
+
+	/**
+	 * This function used to search all photos in directories and subdirectories.
+	 * @param $directory
+	 * @param $fileList
+	 * @return void
+	 */
+	public function scanDirectory($directory, &$fileList)
+	{
+		$files = scandir($directory);
+
+		foreach ($files as $file) {
+			if ($file !== '.' && $file !== '..') {
+				$path = $directory . '/' . $file;
+				if (is_dir($path)) {
+					$fileList[] = [
+						'name' => $file,
+						'type' => 'folder',
+						'path' => base_url() . '/' . $path
+					];
+					$this->scanDirectory($path, $fileList); // Recursively scan subdirectories
+				} else {
+					$fileList[] = [
+						'name' => $file,
+						'type' => 'file',
+						'path' => base_url() . '/' . $path
+					];
+				}
+			}
+		}
+	}
+
 	/**
 	 * This function used to get all photos the user folder
 	 * @return void
@@ -142,25 +174,9 @@ class MyDrive extends MY_Controller
 	public function fetchPhotos()
 	{
 		$user_id = $this->session->userdata('user_id');
-		if (!empty($_GET['dir'])) {
-			$directory = './upload/drives/' . $user_id . '/' . $_GET['dir'];
-
-		} else {
-			$directory = './upload/drives/' . $user_id;
-		}
-
-		$files = scandir($directory);
-		$fileList = [];
-		foreach ($files as $file) {
-			if ($file !== '.' && $file !== '..') {
-				$path = $directory . '/' . $file;
-				$fileList[] = [
-					'name' => $file,
-					'type' => is_dir($path) ? 'folder' : 'file',
-					'path' => base_url() . '/' . $directory . '/' . $file
-				];
-			}
-		}
+		$directory = './upload/drives/' . $user_id . (!empty($_GET['dir']) ? '/' . $_GET['dir'] : '');
+		$fileList = array();
+		$this->scanDirectory($directory, $fileList);
 		echo json_encode($fileList);
 	}
 
@@ -212,6 +228,52 @@ class MyDrive extends MY_Controller
 				echo json_encode(array("error" => "Sorry, there was an error uploading your file."));
 			}
 		}
+	}
+
+
+	/**
+	 * THis function used to search file or folders related to key word
+	 * @param $directory
+	 * @param $fileList
+	 * @param $keyword
+	 * @return void
+	 */
+	public function scanFilesDirectory($directory, &$fileList, $keyword, $relativePath = '')
+	{
+		$files = scandir($directory);
+
+		foreach ($files as $file) {
+			if ($file !== '.' && $file !== '..') {
+				$path = $directory . '/' . $file;
+				$relativeFilePath = $relativePath === '' ? $file : $relativePath . '/' . $file;
+				if (stripos($file, $keyword) !== false) {
+					$fileList[] = [
+						'name' => $file,
+						'type' => is_dir($path) ? 'folder' : 'file',
+						'dir' => is_dir($path) ? $relativeFilePath : null,
+						'path' => base_url() . '/' . $path
+					];
+				}
+				if (is_dir($path)) {
+					$this->scanFilesDirectory($path, $fileList, $keyword, $relativeFilePath);
+				}
+			}
+		}
+	}
+
+	/**
+	 * This function used to call search function to return results
+	 * @return void
+	 */
+	public function searchFiles()
+	{
+		$user_id = $this->session->userdata('user_id');
+		$keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+		$directory = './upload/drives/' . $user_id;
+		$fileList = array();
+		$this->scanFilesDirectory($directory, $fileList, $keyword);
+		echo json_encode($fileList);
+
 	}
 
 }

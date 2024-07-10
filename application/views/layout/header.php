@@ -167,6 +167,25 @@
 	<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+	<style>
+		.search-dropdown {
+			position: absolute;
+			z-index: 1000;
+			width: 97.5%;
+			background: #fff;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			text-align: left;
+		}
+		.search-dropdown-item {
+			padding: 10px;
+			cursor: pointer;
+		}
+		.search-dropdown-item:hover {
+			background: #f0f0f0;
+		}
+	</style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
