@@ -77,6 +77,83 @@
 					</div>
 					<!--End create new folder modal-->
 
+
+					<!--This is share folder or file modal-->
+					<div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="fileModalLabel"
+						 aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title"><span id="fileModalLabel"></span></h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="row text-left">
+										<div class="col-sm-12">
+											<h3>Share this <span id="fileType"></span></h3>
+											<p>Anyone with this link <b>can view</b></p>
+											<div class="input-group input-group-md mb-3">
+												<input type="text" class="form-control"
+													   placeholder="Add an email">
+											</div>
+										</div>
+										<div class="col-sm-6"><a href=""> <b><i class="fas fa-link"></i> Copy
+													lik</b></a></div>
+										<div class="col-sm-6" style="text-align: right">
+											<button class="btn btn-default" style="border-radius: 10px">Share file
+											</button>
+										</div>
+
+										<div class="row"
+											 style="padding: 20px;margin:15px;background-color: #fff9e7;border-radius: 15px">
+
+											<div class="col-sm-12 mt-3 mb-3">
+												<div>
+													<b><i class="fa fa-lock mr-2"></i> Add more security when
+														sharing</b>
+													<p>Add a password, set an expiration date, or turn off downloads to
+														your shared links.</p>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<p>Require password</p>
+											</div>
+											<div class="col-sm-6">
+												<div class="input-group input-group-sm">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<p>Set expiration date</p>
+											</div>
+											<div class="col-sm-6">
+												<div class="input-group input-group-sm">
+													<input type="date" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<p>Allow downloads</p>
+											</div>
+											<div class="col-sm-6 text-right">
+												<div class="form-group">
+													<div class="custom-control custom-switch">
+														<input type="checkbox" class="custom-control-input"
+															   id="customSwitch1">
+														<label class="custom-control-label" for="customSwitch1"></label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!--End share folder or file modal-->
+
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-md-6">
@@ -392,7 +469,6 @@
 	 * @param dir
 	 */
 	function loadFiles(dir = '') {
-
 		dirName = dir;
 		console.log(dirName);
 		const baseUrl = '<?php echo $base_url; ?>';
@@ -404,7 +480,16 @@
 				let tableHTML = '<table id="example2" class="table table-hover"><thead><tr><th>Name</th> <th>Who can access</th> <th>Modified</th></tr></thead><tbody>';
 				data.forEach(file => {
 					if (file.type === 'folder') {
-						tableHTML += `<tr><td><a href="#" onclick="loadFiles('${dir}/${file.name}')"><i class="fas fa-folder mr-2"></i>${file.name}</a></td> <td>Only you</td> <td>--</td></tr>`;
+						tableHTML += `<tr onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+						<td><a href="#" onclick="loadFiles('${dir}/${file.name}')"><i class="fas fa-folder mr-2"></i>${file.name}</a></td>
+						<td>Only you</td>
+						<td class="actions">
+							--
+							<div class="action-buttons" style="display: none;">
+								<button class="btn btn-sm btn-primary" onclick="openFileShareModal('${file.name}','${file.type}')">Share</button>
+							</div>
+						</td>
+					</tr>`;
 					} else {
 						let fileDisplay = '';
 						const fileExtension = file.name.split('.').pop().toLowerCase();
@@ -413,7 +498,17 @@
 						} else {
 							fileDisplay = `<i class="fas fa-file mr-2"></i> <a href="${file.path}" target="_blank">${file.name}</a>`;
 						}
-						tableHTML += `<tr><td>${fileDisplay}</td> <td>Only you</td> <td>--</td></tr>`;
+						tableHTML += `<tr onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+						<td>${fileDisplay}</td>
+						<td>Only you</td>
+						<td class="actions">
+							--
+							<div class="action-buttons" style="display: none;">
+								<a href="${file.path}" target="_blank" class="btn btn-sm btn-secondary">Open</a>
+								<button class="btn btn-sm btn-primary" onclick="openFileShareModal('${file.name}','${file.type}')">Share</button>
+							</div>
+						</td>
+					</tr>`;
 					}
 				});
 				tableHTML += '</tbody></table>';
@@ -422,6 +517,43 @@
 			.catch(error => console.error('Error:', error));
 		setBreadcrumb();
 		$('#search-results').addClass('d-none').empty();
+	}
+
+	/**
+	 * This function used to show action
+	 * @param row
+	 */
+	function showButtons(row) {
+		const actions = row.querySelector('.actions');
+		const buttons = actions.querySelector('.action-buttons');
+		buttons.style.display = 'inline';
+		actions.firstChild.nodeValue = '';
+	}
+
+	/**
+	 * This function used to hide action
+	 * @param row
+	 */
+	function hideButtons(row) {
+		const actions = row.querySelector('.actions');
+		const buttons = actions.querySelector('.action-buttons');
+		buttons.style.display = 'none';
+		actions.firstChild.nodeValue = '-- ';
+	}
+
+	/**
+	 * This function used to open share modal window.
+	 * @param fileName
+	 * @param type
+	 */
+	function openFileShareModal(fileName, type) {
+		if (type === 'folder'){
+			document.getElementById('fileModalLabel').innerHTML = '<i class="fa fa-folder mr-2" style="color: #078afa"> </i>' + fileName;
+		}else {
+			document.getElementById('fileModalLabel').innerHTML = '<i class="fa fa-file mr-2" style="color: #078afa"> </i>' + fileName;
+		}
+		document.getElementById('fileType').textContent = type;
+		$('#fileModal').modal('show');
 	}
 
 
