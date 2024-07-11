@@ -576,8 +576,20 @@
 						const fileExtension = file.name.split('.').pop().toLowerCase();
 						if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
 							fileDisplay = `<img src="${file.path}" style="width: 30px; height: auto;" class="mr-2"> <a href="${file.path}" target="_blank">${file.name}</a>`;
-							tableHTML += `<tr><td>${fileDisplay}</td> <td>Only you</td> <td>--</td></tr>`;
+						} else {
+							fileDisplay = `<i class="fas fa-file mr-2"></i> <a href="${file.path}" target="_blank">${file.name}</a>`;
 						}
+						tableHTML += `<tr onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+						<td>${fileDisplay}</td>
+						<td>Only you</td>
+						<td class="actions">
+							--
+							<div class="action-buttons" style="display: none;">
+								<a href="${file.path}" target="_blank" class="btn btn-sm btn-secondary">Open</a>
+								<button class="btn btn-sm btn-primary" onclick="openFileShareModal('${file.name}','${file.type}')">Share</button>
+							</div>
+						</td>
+					</tr>`;
 					}
 				});
 				tableHTML += '</tbody></table>';
