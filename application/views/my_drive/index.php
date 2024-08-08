@@ -100,7 +100,7 @@
 											</div>
 										</div>
 										<div class="col-sm-6"><a href=""> <b><i class="fas fa-link"></i> Copy
-													lik</b></a></div>
+													link</b></a></div>
 										<div class="col-sm-6" style="text-align: right">
 											<button class="btn btn-default" style="border-radius: 10px">Share file
 											</button>
@@ -487,6 +487,7 @@
 							--
 							<div class="action-buttons" style="display: none;">
 								<button class="btn btn-sm btn-primary" onclick="openFileShareModal('${file.name}','${file.type}')">Share</button>
+								<button class="btn btn-sm btn-danger" onclick="deleteFolder('${file.name}')">Delete</button>
 							</div>
 						</td>
 					</tr>`;
@@ -506,6 +507,7 @@
 							<div class="action-buttons" style="display: none;">
 								<a href="${file.path}" target="_blank" class="btn btn-sm btn-secondary">Open</a>
 								<button class="btn btn-sm btn-primary" onclick="openFileShareModal('${file.name}','${file.type}')">Share</button>
+								<button class="btn btn-sm btn-danger" onclick="deleteFile('${file.name}')">Delete</button>
 							</div>
 						</td>
 					</tr>`;
@@ -556,7 +558,6 @@
 		$('#fileModal').modal('show');
 	}
 
-
 	/**
 	 * This function used to get only photos
 	 */
@@ -598,4 +599,59 @@
 			.catch(error => console.error('Error:', error));
 		setBreadcrumb()
 	}
+
+	/**
+	 * This function used to delete file
+	 * @param fileName
+	 */
+	function deleteFile(fileName) {
+		const baseUrl = '<?php echo $base_url; ?>';
+		const fullUrl = `${baseUrl}deleteFile`;
+		fetch(fullUrl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ file: fileName, dir: dirName }),
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					toastr.success('File deleted successfully!', 'Success!')
+					loadFiles(dirName);
+				} else {
+					alert('Failed to delete file');
+				}
+			})
+			.catch(error => console.error('Error:', error));
+	}
+
+	/**
+	 * This function used to delete folder
+	 * @param folderName
+	 */
+	function deleteFolder(folderName) {
+		const baseUrl = '<?php echo $base_url; ?>';
+		const fullUrl = `${baseUrl}deleteFolder`;
+		fetch(fullUrl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ folder: folderName, dir: dirName }),
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					toastr.success('Folder deleted successfully!', 'Success!')
+					const parentDir = dirName.substring(0, dirName.lastIndexOf('/'));
+					dirName = parentDir;
+					loadFiles(parentDir);
+				} else {
+					alert('Failed to delete folder');
+				}
+			})
+			.catch(error => console.error('Error:', error));
+	}
+
 </script>

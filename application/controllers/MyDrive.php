@@ -276,6 +276,55 @@ class MyDrive extends MY_Controller
 
 	}
 
+	/**
+	 * This backend function used to delete file
+	 * @return void
+	 */
+	public function deleteFile() {
+		$user_id = $this->session->userdata('user_id');
+		$input = json_decode(file_get_contents('php://input'), true);
+		$file = $input['file'];
+		$dir = $input['dir'];
+		$directory = './upload/drives/' . $user_id;
+		$filePath = $directory . '/' . $dir . '/' . $file;
+
+		if (file_exists($filePath)) {
+			if (unlink($filePath)) {
+				echo json_encode(array('success' => true));
+			} else {
+				echo json_encode(array('success' => false, 'message' => 'Failed to delete file'));
+			}
+		} else {
+			echo json_encode(array('success' => false, 'message' => 'File not found'));
+		}
+	}
+
+	/**
+	 * This backend function used to delete folder.
+	 * @return void
+	 */
+	public function deleteFolder() {
+		$user_id = $this->session->userdata('user_id');
+		$input = json_decode(file_get_contents('php://input'), true);
+		$folder = $input['folder'];
+		$dir = $input['dir'];
+		$directory = './upload/drives/' . $user_id;
+		$folderPath = $directory . '/' . $dir . '/' . $folder;
+
+		if (is_dir($folderPath)) {
+			$this->load->helper('file');
+			if (delete_files($folderPath, true) && rmdir($folderPath)) {
+				echo json_encode(array('success' => true));
+			} else {
+				echo json_encode(array('success' => false, 'message' => 'Failed to delete folder'));
+			}
+		} else {
+			echo json_encode(array('success' => false, 'message' => 'File not found'));
+		}
+	}
+
+
+
 }
 
 /* End of file country.php */
