@@ -283,6 +283,25 @@
 </div>
 <!-- /.content-wrapper -->
 
+<div class="modal" tabindex="-1" role="dialog" id="confirmModal">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Confirm Deletion</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to delete this folder?</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script type="text/javascript">
 
@@ -549,9 +568,9 @@
 	 * @param type
 	 */
 	function openFileShareModal(fileName, type) {
-		if (type === 'folder'){
+		if (type === 'folder') {
 			document.getElementById('fileModalLabel').innerHTML = '<i class="fa fa-folder mr-2" style="color: #078afa"> </i>' + fileName;
-		}else {
+		} else {
 			document.getElementById('fileModalLabel').innerHTML = '<i class="fa fa-file mr-2" style="color: #078afa"> </i>' + fileName;
 		}
 		document.getElementById('fileType').textContent = type;
@@ -600,30 +619,74 @@
 		setBreadcrumb()
 	}
 
+
+	/**
+	 * Delete confirmation message.
+	 * @param message
+	 * @param onConfirm
+	 * @param onCancel
+	 */
+	function toastrConfirm(message, onConfirm, onCancel) {
+		var $toast = toastr.warning(`
+        <div>
+            <p>${message}</p>
+            <div class="text-right">
+                <button type="button" class="btn btn-danger btn-sm" id="confirmDeleteBtn">Delete</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="cancelDeleteBtn">Cancel</button>
+            </div>
+        </div>
+    `, 'Confirm Deletion', {
+			closeButton: false,
+			allowHtml: true,
+			timeOut: 0,
+			extendedTimeOut: 0,
+			tapToDismiss: false,
+			positionClass: 'toast-top-center'
+		});
+
+		if ($toast.find('#confirmDeleteBtn').length) {
+			$toast.find('#confirmDeleteBtn').on('click', function () {
+				toastr.clear($toast, {force: true});
+				onConfirm();
+			});
+			$toast.find('#cancelDeleteBtn').on('click', function () {
+				toastr.clear($toast, {force: true});
+				if (onCancel) {
+					onCancel();
+				}
+			});
+		}
+	}
+
+
 	/**
 	 * This function used to delete file
 	 * @param fileName
 	 */
 	function deleteFile(fileName) {
-		const baseUrl = '<?php echo $base_url; ?>';
-		const fullUrl = `${baseUrl}deleteFile`;
-		fetch(fullUrl, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ file: fileName, dir: dirName }),
-		})
-			.then(response => response.json())
-			.then(data => {
-				if (data.success) {
-					toastr.success('File deleted successfully!', 'Success!')
-					loadFiles(dirName);
-				} else {
-					alert('Failed to delete file');
-				}
+		toastrConfirm('Are you sure you want to delete this file?', function () {
+			const baseUrl = '<?php echo $base_url; ?>';
+			const fullUrl = `${baseUrl}deleteFile`;
+			fetch(fullUrl, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({file: fileName, dir: dirName}),
 			})
-			.catch(error => console.error('Error:', error));
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						toastr.success('File deleted successfully!', 'Success!')
+						loadFiles(dirName);
+					} else {
+						alert('Failed to delete file');
+					}
+				})
+				.catch(error => console.error('Error:', error));
+		}, function () {
+			toastr.info('Folder deletion canceled.', 'Info');
+		});
 	}
 
 	/**
@@ -631,27 +694,33 @@
 	 * @param folderName
 	 */
 	function deleteFolder(folderName) {
-		const baseUrl = '<?php echo $base_url; ?>';
-		const fullUrl = `${baseUrl}deleteFolder`;
-		fetch(fullUrl, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ folder: folderName, dir: dirName }),
-		})
-			.then(response => response.json())
-			.then(data => {
-				if (data.success) {
-					toastr.success('Folder deleted successfully!', 'Success!')
-					const parentDir = dirName.substring(0, dirName.lastIndexOf('/'));
-					dirName = parentDir;
-					loadFiles(parentDir);
-				} else {
-					alert('Failed to delete folder');
-				}
+		toastrConfirm('Are you sure you want to delete this folder?', function () {
+			const baseUrl = '<?php echo $base_url; ?>';
+			const fullUrl = `${baseUrl}deleteFolder`;
+			fetch(fullUrl, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({folder: folderName, dir: dirName}),
 			})
-			.catch(error => console.error('Error:', error));
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						toastr.success('Folder deleted successfully!', 'Success!');
+						// Go to the parent directory
+						const parentDir = dirName.substring(0, dirName.lastIndexOf('/'));
+						dirName = parentDir; // Update the current directory
+						loadFiles(parentDir); // Load files from the parent directory
+					} else {
+						toastr.error('Failed to delete folder', 'Error!');
+					}
+				})
+				.catch(error => console.error('Error:', error));
+		}, function () {
+			toastr.info('Folder deletion canceled.', 'Info');
+		});
 	}
+
 
 </script>
